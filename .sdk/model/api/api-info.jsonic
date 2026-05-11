@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "CATAAS"
+        url: "https://cataas.com/"
+      }
+      description: "A REST API to spread peace and love (or not) thanks to cats. Provides various endpoints to get random cats, cats with specific tags, cat gifs, and more. Also allows customization of cat images and retrieving cat data in JSON format."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://cataas.com"
+        }
+      ]
+      title: "CATAAS API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

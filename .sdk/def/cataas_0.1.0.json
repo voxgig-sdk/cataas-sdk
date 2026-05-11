@@ -1,0 +1,915 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "CATAAS API",
+    "description": "A REST API to spread peace and love (or not) thanks to cats. Provides various endpoints to get random cats, cats with specific tags, cat gifs, and more. Also allows customization of cat images and retrieving cat data in JSON format.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "CATAAS",
+      "url": "https://cataas.com/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://cataas.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/cat": {
+      "get": {
+        "summary": "Get a random cat",
+        "description": "Returns a random cat image",
+        "operationId": "getRandomCat",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Image type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "xsmall",
+                "small",
+                "medium",
+                "square"
+              ]
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Image filter",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "blur",
+                "mono",
+                "negate",
+                "custom"
+              ]
+            }
+          },
+          {
+            "name": "brightness",
+            "in": "query",
+            "description": "Brightness level (used with filter=custom)",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "lightness",
+            "in": "query",
+            "description": "Lightness level (used with filter=custom)",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "saturation",
+            "in": "query",
+            "description": "Saturation level (used with filter=custom)",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "hue",
+            "in": "query",
+            "description": "Hue level (used with filter=custom)",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "r",
+            "in": "query",
+            "description": "Red channel (used with filter=custom)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            }
+          },
+          {
+            "name": "g",
+            "in": "query",
+            "description": "Green channel (used with filter=custom)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            }
+          },
+          {
+            "name": "b",
+            "in": "query",
+            "description": "Blue channel (used with filter=custom)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            }
+          },
+          {
+            "name": "width",
+            "in": "query",
+            "description": "Custom width for the image",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "description": "Custom height for the image",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "html",
+            "in": "query",
+            "description": "Return cat in HTML page (useful for Twitter or Facebook embedded render)",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "json",
+            "in": "query",
+            "description": "Return cat in JSON object",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cat/{tag}": {
+      "get": {
+        "summary": "Get a random cat with specific tag(s)",
+        "description": "Returns a random cat image with the specified tag(s). Multiple tags can be combined with comma separator.",
+        "operationId": "getRandomCatByTag",
+        "parameters": [
+          {
+            "name": "tag",
+            "in": "path",
+            "description": "Tag(s) to filter cats. Multiple tags can be separated by comma.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "orange,cute"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Image type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "xsmall",
+                "small",
+                "medium",
+                "square"
+              ]
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Image filter",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "blur",
+                "mono",
+                "negate",
+                "custom"
+              ]
+            }
+          },
+          {
+            "name": "width",
+            "in": "query",
+            "description": "Custom width for the image",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "description": "Custom height for the image",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "html",
+            "in": "query",
+            "description": "Return cat in HTML page",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "json",
+            "in": "query",
+            "description": "Return cat in JSON object",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cat/gif": {
+      "get": {
+        "summary": "Get a random gif cat",
+        "description": "Returns a random animated cat gif",
+        "operationId": "getRandomCatGif",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Image type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "xsmall",
+                "small",
+                "medium",
+                "square"
+              ]
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Image filter",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "blur",
+                "mono",
+                "negate",
+                "custom"
+              ]
+            }
+          },
+          {
+            "name": "html",
+            "in": "query",
+            "description": "Return cat in HTML page",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "json",
+            "in": "query",
+            "description": "Return cat in JSON object",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "image/gif": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cat/says/{text}": {
+      "get": {
+        "summary": "Get a random cat with text overlay",
+        "description": "Returns a random cat image with custom text overlay",
+        "operationId": "getRandomCatWithText",
+        "parameters": [
+          {
+            "name": "text",
+            "in": "path",
+            "description": "Text to display on the cat image",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "hello"
+          },
+          {
+            "name": "fontSize",
+            "in": "query",
+            "description": "Font size for the text",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "fontColor",
+            "in": "query",
+            "description": "Font color for the text",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Image type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "xsmall",
+                "small",
+                "medium",
+                "square"
+              ]
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Image filter",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "blur",
+                "mono",
+                "negate",
+                "custom"
+              ]
+            }
+          },
+          {
+            "name": "width",
+            "in": "query",
+            "description": "Custom width for the image",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "description": "Custom height for the image",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "html",
+            "in": "query",
+            "description": "Return cat in HTML page",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "json",
+            "in": "query",
+            "description": "Return cat in JSON object",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cat/{tag}/says/{text}": {
+      "get": {
+        "summary": "Get a random cat with tag and text overlay",
+        "description": "Returns a random cat image with specified tag(s) and custom text overlay",
+        "operationId": "getRandomCatByTagWithText",
+        "parameters": [
+          {
+            "name": "tag",
+            "in": "path",
+            "description": "Tag(s) to filter cats. Multiple tags can be separated by comma.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "cute"
+          },
+          {
+            "name": "text",
+            "in": "path",
+            "description": "Text to display on the cat image",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "hello"
+          },
+          {
+            "name": "fontSize",
+            "in": "query",
+            "description": "Font size for the text",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "fontColor",
+            "in": "query",
+            "description": "Font color for the text",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Image type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "xsmall",
+                "small",
+                "medium",
+                "square"
+              ]
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Image filter",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "blur",
+                "mono",
+                "negate",
+                "custom"
+              ]
+            }
+          },
+          {
+            "name": "width",
+            "in": "query",
+            "description": "Custom width for the image",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "description": "Custom height for the image",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "html",
+            "in": "query",
+            "description": "Return cat in HTML page",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "json",
+            "in": "query",
+            "description": "Return cat in JSON object",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cat/gif/says/{text}": {
+      "get": {
+        "summary": "Get a random gif cat with text overlay",
+        "description": "Returns a random animated cat gif with custom text overlay",
+        "operationId": "getRandomCatGifWithText",
+        "parameters": [
+          {
+            "name": "text",
+            "in": "path",
+            "description": "Text to display on the cat gif",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Hello"
+          },
+          {
+            "name": "fontSize",
+            "in": "query",
+            "description": "Font size for the text",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "fontColor",
+            "in": "query",
+            "description": "Font color for the text",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Image type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "xsmall",
+                "small",
+                "medium",
+                "square"
+              ]
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Image filter",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "blur",
+                "mono",
+                "negate",
+                "custom"
+              ]
+            }
+          },
+          {
+            "name": "html",
+            "in": "query",
+            "description": "Return cat in HTML page",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "json",
+            "in": "query",
+            "description": "Return cat in JSON object",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "image/gif": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cats": {
+      "get": {
+        "summary": "Get all cats data",
+        "description": "Returns a list of all cats with optional filtering by tags and pagination",
+        "operationId": "getAllCats",
+        "parameters": [
+          {
+            "name": "tags",
+            "in": "query",
+            "description": "Filter cats by tags (comma-separated)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "cute,funny"
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Number of records to skip for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of records to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Cat"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/tags": {
+      "get": {
+        "summary": "Get all tags",
+        "description": "Returns a list of all available tags",
+        "operationId": "getAllTags",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CatResponse": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "description": "Unique identifier for the cat"
+          },
+          "mimetype": {
+            "type": "string",
+            "description": "MIME type of the image"
+          },
+          "size": {
+            "type": "integer",
+            "description": "Size of the image in bytes"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the cat"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL to access the cat image"
+          }
+        }
+      },
+      "Cat": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "description": "Unique identifier for the cat"
+          },
+          "mimetype": {
+            "type": "string",
+            "description": "MIME type of the image"
+          },
+          "size": {
+            "type": "integer",
+            "description": "Size of the image in bytes"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the cat"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL to access the cat image"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Creation timestamp"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Last update timestamp"
+          }
+        }
+      }
+    }
+  }
+}

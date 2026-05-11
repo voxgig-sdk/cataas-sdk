@@ -1,0 +1,40 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 2
+  metrics: count: path: 8
+  metrics: count: method: 8
+
+  entity: cat: {
+    path: "/api/cats": {
+      op: list: method: *GET
+    }
+    path: "/cat": {
+      op: list: method: *GET
+    }
+    path: "/cat/gif": {
+      action: "gif": {}
+      op: list: method: *GET
+    }
+    path: "/cat/gif/says/{text}": {
+      op: load: method: *GET
+    }
+    path: "/cat/says/{text}": {
+      op: load: method: *GET
+    }
+    path: "/cat/{tag}": {
+      rename: param: "tag": *"id"
+      op: load: method: *GET
+    }
+    path: "/cat/{tag}/says/{text}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: tag: {
+    path: "/api/tags": {
+      op: list: method: *GET
+    }
+  }
+
+}
