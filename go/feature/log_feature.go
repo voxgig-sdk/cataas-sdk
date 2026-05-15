@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"voxgigcataassdk/core"
+	"github.com/voxgig-sdk/cataas-sdk/core"
 )
 
 type LogFeature struct {

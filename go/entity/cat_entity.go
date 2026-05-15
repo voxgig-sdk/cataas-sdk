@@ -1,7 +1,7 @@
 package entity
 
 import (
-	"voxgigcataassdk/core"
+	"github.com/voxgig-sdk/cataas-sdk/core"
 
 	vs "github.com/voxgig/struct"
 )

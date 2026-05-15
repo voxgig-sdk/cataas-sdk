@@ -1,4 +1,4 @@
-module voxgigcataassdk
+module github.com/voxgig-sdk/cataas-sdk
 
 go 1.20
 

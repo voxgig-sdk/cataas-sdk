@@ -756,7 +756,7 @@ func MakeConfig() map[string]any {
 					"ancestors": []any{
 						[]any{
 							"cat",
-							"says",
+							"say",
 						},
 					},
 				},

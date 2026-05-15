@@ -8,7 +8,7 @@ import (
 
 	vs "github.com/voxgig/struct"
 
-	"voxgigcataassdk/core"
+	"github.com/voxgig-sdk/cataas-sdk/core"
 )
 
 func defaultHTTPFetch(fullurl string, fetchdef map[string]any) (map[string]any, error) {

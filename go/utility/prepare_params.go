@@ -3,7 +3,7 @@ package utility
 import (
 	vs "github.com/voxgig/struct"
 
-	"voxgigcataassdk/core"
+	"github.com/voxgig-sdk/cataas-sdk/core"
 )
 
 func prepareParamsUtil(ctx *core.Context) map[string]any {

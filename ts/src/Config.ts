@@ -789,7 +789,7 @@ class Config {
         "ancestors": [
           [
             "cat",
-            "says"
+            "say"
           ]
         ]
       }

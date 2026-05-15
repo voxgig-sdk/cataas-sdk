@@ -5,14 +5,14 @@ The Golang SDK for the Cataas API. Provides an entity-oriented interface using s
 
 ## Install
 ```bash
-go get voxgigcataassdk
+go get github.com/voxgig-sdk/cataas-sdk
 ```
 
 If the module is not yet published to a registry, use a `replace` directive
 in your `go.mod` to point to a local checkout:
 
 ```bash
-go mod edit -replace voxgigcataassdk=../path/to/voxgigcataassdk
+go mod edit -replace github.com/voxgig-sdk/cataas-sdk=../path/to/github.com/voxgig-sdk/cataas-sdk
 ```
 
 
@@ -30,8 +30,8 @@ import (
     "fmt"
     "os"
 
-    sdk "voxgigcataassdk"
-    "voxgigcataassdk/core"
+    sdk "github.com/voxgig-sdk/cataas-sdk"
+    "github.com/voxgig-sdk/cataas-sdk/core"
 )
 
 func main() {
@@ -371,7 +371,7 @@ Use `core.ToMapAny()` to safely cast results and nested data.
 ### Package structure
 
 ```
-voxgigcataassdk/
+github.com/voxgig-sdk/cataas-sdk/
 ├── cataas.go        # Root package — type aliases and constructors
 ├── core/               # SDK core — client, types, pipeline
 ├── entity/             # Entity implementations
@@ -380,7 +380,7 @@ voxgigcataassdk/
 └── test/               # Test suites
 ```
 
-The root package (`voxgigcataassdk`) re-exports everything needed
+The root package (`github.com/voxgig-sdk/cataas-sdk`) re-exports everything needed
 for normal use. Import sub-packages only when you need specific types
 like `core.ToMapAny`.
 

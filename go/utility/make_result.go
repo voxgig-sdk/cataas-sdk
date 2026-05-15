@@ -1,6 +1,6 @@
 package utility
 
-import "voxgigcataassdk/core"
+import "github.com/voxgig-sdk/cataas-sdk/core"
 
 func makeResultUtil(ctx *core.Context) (*core.Result, error) {
 	if ctx.Out["result"] != nil {

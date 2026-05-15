@@ -757,7 +757,7 @@ def make_config():
           "ancestors": [
             [
               "cat",
-              "says",
+              "say",
             ],
           ],
         },

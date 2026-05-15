@@ -655,7 +655,7 @@ main: kit: entity: cat: {
     ancestors: [
       [
         "cat"
-        "says"
+        "say"
       ]
     ]
   }

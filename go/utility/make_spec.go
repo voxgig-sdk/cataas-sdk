@@ -5,7 +5,7 @@ import (
 
 	vs "github.com/voxgig/struct"
 
-	"voxgigcataassdk/core"
+	"github.com/voxgig-sdk/cataas-sdk/core"
 )
 
 func makeSpecUtil(ctx *core.Context) (*core.Spec, error) {

@@ -756,7 +756,7 @@ local function make_config()
           ["ancestors"] = {
             {
               "cat",
-              "says",
+              "say",
             },
           },
         },

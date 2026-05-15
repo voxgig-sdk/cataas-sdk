@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"voxgigcataassdk/core"
+	"github.com/voxgig-sdk/cataas-sdk/core"
 )
 
 type BaseFeature struct {

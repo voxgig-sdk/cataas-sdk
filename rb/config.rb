@@ -757,7 +757,7 @@ module CataasConfig
             "ancestors" => [
               [
                 "cat",
-                "says",
+                "say",
               ],
             ],
           },

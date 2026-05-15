@@ -1,5 +1,5 @@
 {
-  "name": "voxgig/cataas-sdk",
+  "name": "voxgig-sdk/cataas",
   "description": "Cataas SDK for PHP",
   "type": "library",
   "license": "MIT",

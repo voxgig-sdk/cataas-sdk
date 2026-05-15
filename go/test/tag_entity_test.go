@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	sdk "voxgigcataassdk"
-	"voxgigcataassdk/core"
+	sdk "github.com/voxgig-sdk/cataas-sdk"
+	"github.com/voxgig-sdk/cataas-sdk/core"
 
 	vs "github.com/voxgig/struct"
 )

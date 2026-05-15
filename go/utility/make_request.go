@@ -1,6 +1,6 @@
 package utility
 
-import "voxgigcataassdk/core"
+import "github.com/voxgig-sdk/cataas-sdk/core"
 
 func makeRequestUtil(ctx *core.Context) (*core.Response, error) {
 	if ctx.Out["request"] != nil {

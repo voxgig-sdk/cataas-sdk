@@ -3,7 +3,7 @@ package utility
 import (
 	"reflect"
 
-	"voxgigcataassdk/core"
+	"github.com/voxgig-sdk/cataas-sdk/core"
 )
 
 func featureHookUtil(ctx *core.Context, name string) {

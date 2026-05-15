@@ -82,7 +82,7 @@ function cat_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["cat01", "cat02", "cat03", "says01", "says02", "says03"] as $k) {
+    foreach (["cat01", "cat02", "cat03", "say01", "say02", "say03"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

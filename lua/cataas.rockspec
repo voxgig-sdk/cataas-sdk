@@ -1,7 +1,7 @@
-package = "cataas-sdk"
+package = "voxgig-sdk-cataas"
 version = "0.0-1"
 source = {
-  url = "git://github.com/voxgig/cataas-sdk.git"
+  url = "git://github.com/voxgig-sdk/cataas-sdk.git"
 }
 description = {
   summary = "Cataas SDK for Lua",

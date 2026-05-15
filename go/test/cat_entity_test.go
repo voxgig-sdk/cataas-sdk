@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	sdk "voxgigcataassdk"
-	"voxgigcataassdk/core"
+	sdk "github.com/voxgig-sdk/cataas-sdk"
+	"github.com/voxgig-sdk/cataas-sdk/core"
 
 	vs "github.com/voxgig/struct"
 )
@@ -116,7 +116,7 @@ func catBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap := vs.Transform(
-		[]any{"cat01", "cat02", "cat03", "says01", "says02", "says03"},
+		[]any{"cat01", "cat02", "cat03", "say01", "say02", "say03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

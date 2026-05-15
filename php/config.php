@@ -762,7 +762,7 @@ class CataasConfig
             'ancestors' => [
               [
                 'cat',
-                'says',
+                'say',
               ],
             ],
           ],

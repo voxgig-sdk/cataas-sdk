@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "voxgigcataassdk"
-	"voxgigcataassdk/core"
+	sdk "github.com/voxgig-sdk/cataas-sdk"
+	"github.com/voxgig-sdk/cataas-sdk/core"
 )
 
 func TestTagDirect(t *testing.T) {

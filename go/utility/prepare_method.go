@@ -1,6 +1,6 @@
 package utility
 
-import "voxgigcataassdk/core"
+import "github.com/voxgig-sdk/cataas-sdk/core"
 
 func prepareMethodUtil(ctx *core.Context) string {
 	opname := ctx.Op.Name

@@ -1,10 +1,10 @@
 Gem::Specification.new do |spec|
-  spec.name          = "cataas-sdk"
+  spec.name          = "voxgig-sdk-cataas"
   spec.version       = "0.0.1"
   spec.authors       = ["Voxgig"]
   spec.summary       = "Cataas SDK for Ruby"
   spec.license       = "MIT"
-  spec.homepage      = "https://github.com/voxgig/cataas-sdk"
+  spec.homepage      = "https://github.com/voxgig-sdk/cataas-sdk"
 
   spec.files         = Dir["lib/**/*.rb", "*.rb"]
   spec.require_paths = ["."]

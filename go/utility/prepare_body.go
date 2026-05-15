@@ -1,6 +1,6 @@
 package utility
 
-import "voxgigcataassdk/core"
+import "github.com/voxgig-sdk/cataas-sdk/core"
 
 func prepareBodyUtil(ctx *core.Context) any {
 	op := ctx.Op

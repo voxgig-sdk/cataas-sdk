@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	sdk "voxgigcataassdk"
+	sdk "github.com/voxgig-sdk/cataas-sdk"
 
 	vs "github.com/voxgig/struct"
 )

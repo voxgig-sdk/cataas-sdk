@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "voxgigcataassdk"
+	sdk "github.com/voxgig-sdk/cataas-sdk"
 )
 
 func TestExists(t *testing.T) {
