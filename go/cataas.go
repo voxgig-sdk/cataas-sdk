@@ -1,10 +1,10 @@
 package voxgigcataassdk
 
 import (
-	"github.com/voxgig-sdk/cataas-sdk/core"
-	"github.com/voxgig-sdk/cataas-sdk/entity"
-	"github.com/voxgig-sdk/cataas-sdk/feature"
-	_ "github.com/voxgig-sdk/cataas-sdk/utility"
+	"github.com/voxgig-sdk/cataas-sdk/go/core"
+	"github.com/voxgig-sdk/cataas-sdk/go/entity"
+	"github.com/voxgig-sdk/cataas-sdk/go/feature"
+	_ "github.com/voxgig-sdk/cataas-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

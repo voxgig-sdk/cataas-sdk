@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/cataas-sdk/core"
+	"github.com/voxgig-sdk/cataas-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/cataas-sdk/go/utility/struct"
 )
 
 type CatEntity struct {

@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/cataas-sdk"
-	"github.com/voxgig-sdk/cataas-sdk/core"
+	sdk "github.com/voxgig-sdk/cataas-sdk/go"
+	"github.com/voxgig-sdk/cataas-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/cataas-sdk/go/utility/struct"
 )
 
 func TestTagEntity(t *testing.T) {
