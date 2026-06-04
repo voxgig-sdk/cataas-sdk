@@ -96,7 +96,6 @@ function cat_basic_setup($extra)
         "CATAAS_TEST_CAT_ENTID" => $idmap,
         "CATAAS_TEST_LIVE" => "FALSE",
         "CATAAS_TEST_EXPLAIN" => "FALSE",
-        "CATAAS_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -108,7 +107,6 @@ function cat_basic_setup($extra)
     if ($env["CATAAS_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["CATAAS_APIKEY"],
             ],
             $extra ?? [],
         ]);

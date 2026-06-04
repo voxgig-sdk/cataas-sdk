@@ -20,9 +20,6 @@ class CataasConfig
             ],
             "options" => [
                 "base" => "https://cataas.com",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

@@ -17,8 +17,27 @@ main: {
       ]
       title: "CATAAS API"
       version: "1.0.0"
+      tagline: "Serve random cat images, GIFs, and tag-filtered cat photos with optional text overlays and image filters"
+      homepage: "https://cataas.com"
+      docs_url: "https://cataas.com"
+      about_md: `[CATAAS](https://cataas.com) — Cat as a Service — is a small public REST API that returns cat images, GIFs, and metadata. It is maintained by Kevin of [boutdecode.fr](https://boutdecode.fr) and described as "a REST API to spread peace and love (or not) thanks to cats."
+
+What you get from the API:
+
+- Random cat images via \`/cat\`, or filtered by one or more tags via \`/cat/:tag\` (commas combine tags)
+- Animated cat GIFs via \`/cat/gif\`
+- Text overlays via \`/cat/says/:text\` and \`/cat/:tag/says/:text\`, with \`fontSize\` and \`fontColor\` controls
+- Image customization query parameters including \`type\` (xsmall, small, medium, square), \`filter\` (blur, mono, negate), \`width\`/\`height\`, and colour adjustments (\`brightness\`, \`lightness\`, \`saturation\`, \`hue\`, \`r\`, \`g\`, \`b\`)
+- JSON or HTML responses with \`?json=true\` or \`?html=true\`
+- Cat collection listings with filtering and pagination via \`/api/cats?tags=...&skip=0&limit=10\`
+- The full tag vocabulary via \`/api/tags\`
+
+No authentication or API key is required, and CORS is enabled on the documented endpoints. The upstream docs do not publish rate limits or a formal licence, so check the homepage before redistributing images at scale.`
+      entity_desc: {
+        cat: "A cat image resource — random, tag-filtered, GIF, or with a text overlay — served via `/cat`, `/cat/:tag`, `/cat/gif`, `/cat/says/:text`, and listed in bulk through `/api/cats`."
+        tag: "A descriptive label attached to cat images (e.g. `cute`), used to filter cats and enumerated via `/api/tags`."
+      }
+      auth: false
     }
   }
-}
-
 }
