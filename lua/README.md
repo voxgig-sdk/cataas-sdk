@@ -10,7 +10,7 @@ The Lua SDK for the Cataas API — an entity-oriented client using Lua conventio
 
 ## Install
 ```bash
-luarocks install cataas-sdk
+luarocks install voxgig-sdk-cataas
 ```
 
 If the module is not yet published, add the source directory to

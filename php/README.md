@@ -10,7 +10,7 @@ The PHP SDK for the Cataas API — an entity-oriented client using PHP conventio
 
 ## Install
 ```bash
-composer require voxgig/cataas-sdk
+composer require voxgig-sdk/cataas
 ```
 
 

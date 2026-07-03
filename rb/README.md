@@ -10,13 +10,13 @@ The Ruby SDK for the Cataas API — an entity-oriented client using idiomatic Ru
 
 ## Install
 ```bash
-gem install cataas-sdk
+gem install voxgig-sdk-cataas
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "cataas-sdk"
+gem "voxgig-sdk-cataas"
 ```
 
 Then run:

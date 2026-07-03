@@ -10,7 +10,7 @@ The TypeScript SDK for the Cataas API — a type-safe, entity-oriented client wi
 
 ## Install
 ```bash
-npm install cataas
+npm install @voxgig-sdk/cataas
 ```
 ## Tutorial: your first API call
 

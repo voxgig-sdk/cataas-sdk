@@ -10,7 +10,7 @@ The Python SDK for the Cataas API — an entity-oriented client following Python
 
 ## Install
 ```bash
-pip install cataas-sdk
+pip install voxgig-sdk-cataas
 ```
 
 Or install from source:
