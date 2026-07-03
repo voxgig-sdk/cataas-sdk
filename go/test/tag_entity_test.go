@@ -119,6 +119,7 @@ func tagBasicSetup(extra map[string]any) *entityTestSetup {
 		"CATAAS_TEST_TAG_ENTID": idmap,
 		"CATAAS_TEST_LIVE":      "FALSE",
 		"CATAAS_TEST_EXPLAIN":   "FALSE",
+		"CATAAS_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["CATAAS_TEST_TAG_ENTID"])
@@ -129,6 +130,7 @@ func tagBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["CATAAS_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["CATAAS_APIKEY"],
 			},
 			extra,
 		})

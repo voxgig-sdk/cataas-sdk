@@ -1,24 +1,8 @@
 # Cataas SDK
 
-Serve random cat images, GIFs, and tag-filtered cat photos with optional text overlays and image filters
+CATAAS API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About CATAAS API
-
-[CATAAS](https://cataas.com) — Cat as a Service — is a small public REST API that returns cat images, GIFs, and metadata. It is maintained by Kevin of [boutdecode.fr](https://boutdecode.fr) and described as "a REST API to spread peace and love (or not) thanks to cats."
-
-What you get from the API:
-
-- Random cat images via `/cat`, or filtered by one or more tags via `/cat/:tag` (commas combine tags)
-- Animated cat GIFs via `/cat/gif`
-- Text overlays via `/cat/says/:text` and `/cat/:tag/says/:text`, with `fontSize` and `fontColor` controls
-- Image customization query parameters including `type` (xsmall, small, medium, square), `filter` (blur, mono, negate), `width`/`height`, and colour adjustments (`brightness`, `lightness`, `saturation`, `hue`, `r`, `g`, `b`)
-- JSON or HTML responses with `?json=true` or `?html=true`
-- Cat collection listings with filtering and pagination via `/api/cats?tags=...&skip=0&limit=10`
-- The full tag vocabulary via `/api/tags`
-
-No authentication or API key is required, and CORS is enabled on the documented endpoints. The upstream docs do not publish rate limits or a formal licence, so check the homepage before redistributing images at scale.
 
 ## Try it
 
@@ -52,29 +36,31 @@ gem install cataas-sdk
 luarocks install cataas-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { CataasSDK } from 'cataas'
 
-const client = new CataasSDK({})
+const client = new CataasSDK({
+  apikey: process.env.CATAAS_APIKEY,
+})
 
 // List all cats
 const cats = await client.Cat().list()
+console.log(cats.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -104,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Cat** | A cat image resource — random, tag-filtered, GIF, or with a text overlay — served via `/cat`, `/cat/:tag`, `/cat/gif`, `/cat/says/:text`, and listed in bulk through `/api/cats`. | `/cat` |
-| **Tag** | A descriptive label attached to cat images (e.g. `cute`), used to filter cats and enumerated via `/api/tags`. | `/api/tags` |
+| **Cat** |  | `/cat` |
+| **Tag** |  | `/api/tags` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -115,17 +101,20 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from cataas_sdk import CataasSDK
 
-client = CataasSDK({})
+client = CataasSDK({
+    "apikey": os.environ.get("CATAAS_APIKEY"),
+})
 
 # List all cats
-cats, err = client.Cat(None).list(None, None)
+cats, err = client.Cat().list()
+print(cats)
 
 # Load a specific cat
-cat, err = client.Cat(None).load(
-    {"id": "example_id"}, None
-)
+cat, err = client.Cat().load({"id": "example_id"})
+print(cat)
 ```
 
 ### PHP
@@ -134,15 +123,17 @@ cat, err = client.Cat(None).load(
 <?php
 require_once 'cataas_sdk.php';
 
-$client = new CataasSDK([]);
+$client = new CataasSDK([
+    "apikey" => getenv("CATAAS_APIKEY"),
+]);
 
 // List all cats
-[$cats, $err] = $client->Cat(null)->list(null, null);
+[$cats, $err] = $client->Cat()->list();
+print_r($cats);
 
 // Load a specific cat
-[$cat, $err] = $client->Cat(null)->load(
-    ["id" => "example_id"], null
-);
+[$cat, $err] = $client->Cat()->load(["id" => "example_id"]);
+print_r($cat);
 ```
 
 ### Golang
@@ -150,10 +141,13 @@ $client = new CataasSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/cataas-sdk/go"
 
-client := sdk.NewCataasSDK(map[string]any{})
+client := sdk.NewCataasSDK(map[string]any{
+    "apikey": os.Getenv("CATAAS_APIKEY"),
+})
 
 // List all cats
 cats, err := client.Cat(nil).List(nil, nil)
+fmt.Println(cats)
 ```
 
 ### Ruby
@@ -161,15 +155,17 @@ cats, err := client.Cat(nil).List(nil, nil)
 ```ruby
 require_relative "Cataas_sdk"
 
-client = CataasSDK.new({})
+client = CataasSDK.new({
+  "apikey" => ENV["CATAAS_APIKEY"],
+})
 
 # List all cats
-cats, err = client.Cat(nil).list(nil, nil)
+cats, err = client.Cat().list
+puts cats
 
 # Load a specific cat
-cat, err = client.Cat(nil).load(
-  { "id" => "example_id" }, nil
-)
+cat, err = client.Cat().load({ "id" => "example_id" })
+puts cat
 ```
 
 ### Lua
@@ -177,15 +173,17 @@ cat, err = client.Cat(nil).load(
 ```lua
 local sdk = require("cataas_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("CATAAS_APIKEY"),
+})
 
 -- List all cats
-local cats, err = client:Cat(nil):list(nil, nil)
+local cats, err = client:Cat():list()
+print(cats)
 
 -- Load a specific cat
-local cat, err = client:Cat(nil):load(
-  { id = "example_id" }, nil
-)
+local cat, err = client:Cat():load({ id = "example_id" })
+print(cat)
 ```
 
 ## Unit testing in offline mode
@@ -204,25 +202,21 @@ const result = await client.Cat().load({ id: 'test01' })
 ### Python
 
 ```python
-client = CataasSDK.test(None, None)
-result, err = client.Cat(None).load(
-    {"id": "test01"}, None
-)
+client = CataasSDK.test()
+result, err = client.Cat().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = CataasSDK::test(null, null);
-[$result, $err] = $client->Cat(null)->load(
-    ["id" => "test01"], null
-);
+$client = CataasSDK::test();
+[$result, $err] = $client->Cat()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Cat(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -231,19 +225,15 @@ result, err := client.Cat(nil).Load(
 ### Ruby
 
 ```ruby
-client = CataasSDK.test(nil, nil)
-result, err = client.Cat(nil).load(
-  { "id" => "test01" }, nil
-)
+client = CataasSDK.test
+result, err = client.Cat().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Cat(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Cat():load({ id = "test01" })
 ```
 
 ## How it works
@@ -347,10 +337,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the CATAAS API
-
-- Upstream: [https://cataas.com](https://cataas.com)
 
 ---
 

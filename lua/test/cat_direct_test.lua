@@ -117,12 +117,14 @@ function cat_direct_setup(mockres)
   local env = runner.env_override({
     ["CATAAS_TEST_CAT_ENTID"] = {},
     ["CATAAS_TEST_LIVE"] = "FALSE",
+    ["CATAAS_APIKEY"] = "NONE",
   })
 
   local live = env["CATAAS_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["CATAAS_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

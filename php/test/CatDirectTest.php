@@ -123,12 +123,14 @@ function cat_direct_setup($mockres)
     $env = Runner::env_override([
         "CATAAS_TEST_CAT_ENTID" => [],
         "CATAAS_TEST_LIVE" => "FALSE",
+        "CATAAS_APIKEY" => "NONE",
     ]);
 
     $live = $env["CATAAS_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["CATAAS_APIKEY"],
         ];
         $client = new CataasSDK($merged_opts);
         return [

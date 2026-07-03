@@ -92,6 +92,7 @@ def _tag_basic_setup(extra):
         "CATAAS_TEST_TAG_ENTID": idmap,
         "CATAAS_TEST_LIVE": "FALSE",
         "CATAAS_TEST_EXPLAIN": "FALSE",
+        "CATAAS_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,6 +103,7 @@ def _tag_basic_setup(extra):
     if env.get("CATAAS_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("CATAAS_APIKEY"),
             },
             extra or {},
         ])

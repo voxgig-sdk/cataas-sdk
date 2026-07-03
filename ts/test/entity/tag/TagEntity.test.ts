@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'CATAAS_TEST_TAG_ENTID': idmap,
     'CATAAS_TEST_LIVE': 'FALSE',
     'CATAAS_TEST_EXPLAIN': 'FALSE',
+    'CATAAS_APIKEY': 'NONE',
   })
 
   idmap = env['CATAAS_TEST_TAG_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new CataasSDK(merge([
       {
+        apikey: env.CATAAS_APIKEY,
       },
       extra
     ]))

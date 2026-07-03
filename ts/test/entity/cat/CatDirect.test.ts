@@ -120,12 +120,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'CATAAS_TEST_CAT_ENTID': {},
     'CATAAS_TEST_LIVE': 'FALSE',
+    'CATAAS_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.CATAAS_TEST_LIVE
 
   if (live) {
     const client = new CataasSDK({
+      apikey: env.CATAAS_APIKEY,
     })
 
     let idmap: any = env['CATAAS_TEST_CAT_ENTID']

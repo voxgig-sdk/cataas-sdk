@@ -180,12 +180,14 @@ func catDirectSetup(mockres any) *catDirectSetupResult {
 	env := envOverride(map[string]any{
 		"CATAAS_TEST_CAT_ENTID": map[string]any{},
 		"CATAAS_TEST_LIVE":    "FALSE",
+		"CATAAS_APIKEY":       "NONE",
 	})
 
 	live := env["CATAAS_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["CATAAS_APIKEY"],
 		}
 		client := sdk.NewCataasSDK(mergedOpts)
 
