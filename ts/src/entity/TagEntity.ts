@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Tag,
+  TagListMatch,
+} from '../CataasTypes'
 
 // TODO: needs Entity superclass
-class TagEntity extends CataasEntityBase {
+class TagEntity extends CataasEntityBase<Tag> {
 
   constructor(client: CataasSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class TagEntity extends CataasEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: TagListMatch, ctrl?: Control): Promise<Tag[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class TagEntity extends CataasEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Tag[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

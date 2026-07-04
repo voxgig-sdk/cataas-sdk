@@ -50,16 +50,14 @@ class TestCatEntity:
         cat_ref01_ent = client.Cat(None)
         cat_ref01_match = {}
 
-        cat_ref01_list_result, err = cat_ref01_ent.list(cat_ref01_match, None)
-        assert err is None
+        cat_ref01_list_result = cat_ref01_ent.list(cat_ref01_match, None)
         assert isinstance(cat_ref01_list_result, list)
 
         # LOAD
         cat_ref01_match_dt0 = {
             "id": cat_ref01_data["id"],
         }
-        cat_ref01_data_dt0_loaded, err = cat_ref01_ent.load(cat_ref01_match_dt0, None)
-        assert err is None
+        cat_ref01_data_dt0_loaded = cat_ref01_ent.load(cat_ref01_match_dt0, None)
         cat_ref01_data_dt0_load_result = helpers.to_map(cat_ref01_data_dt0_loaded)
         assert cat_ref01_data_dt0_load_result is not None
         assert cat_ref01_data_dt0_load_result["id"] == cat_ref01_data["id"]
@@ -102,7 +100,6 @@ def _cat_basic_setup(extra):
         "CATAAS_TEST_CAT_ENTID": idmap,
         "CATAAS_TEST_LIVE": "FALSE",
         "CATAAS_TEST_EXPLAIN": "FALSE",
-        "CATAAS_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -113,7 +110,6 @@ def _cat_basic_setup(extra):
     if env.get("CATAAS_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("CATAAS_APIKEY"),
             },
             extra or {},
         ])

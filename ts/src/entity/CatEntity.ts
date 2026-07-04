@@ -14,9 +14,14 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Cat,
+  CatLoadMatch,
+  CatListMatch,
+} from '../CataasTypes'
 
 // TODO: needs Entity superclass
-class CatEntity extends CataasEntityBase {
+class CatEntity extends CataasEntityBase<Cat> {
 
   constructor(client: CataasSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +37,7 @@ class CatEntity extends CataasEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: CatLoadMatch, ctrl?: Control): Promise<Cat> {
 
     const utility = this._utility
 
@@ -136,14 +141,16 @@ class CatEntity extends CataasEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Cat> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: CatListMatch, ctrl?: Control): Promise<Cat[]> {
 
     const utility = this._utility
 
@@ -243,7 +250,9 @@ class CatEntity extends CataasEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Cat[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

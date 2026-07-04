@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch CatLoadMatch
+---@param ctrl? table
+---@return Cat
+---@return string? err
 function CatEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
@@ -104,6 +108,10 @@ end
 
 
 
+---@param reqmatch CatListMatch
+---@param ctrl? table
+---@return Cat[]
+---@return string? err
 function CatEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

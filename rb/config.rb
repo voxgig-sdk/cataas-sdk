@@ -15,9 +15,6 @@ module CataasConfig
       },
       "options" => {
         "base" => "https://cataas.com",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -353,6 +350,7 @@ module CataasConfig
                         "orig" => "tag",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                       {
                         "active" => true,
@@ -362,6 +360,7 @@ module CataasConfig
                         "orig" => "text",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 1,
                       },
                     ],
                     "query" => [
@@ -471,6 +470,7 @@ module CataasConfig
                         "orig" => "text",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                     "query" => [
@@ -578,6 +578,7 @@ module CataasConfig
                         "orig" => "text",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                     "query" => [
@@ -668,6 +669,7 @@ module CataasConfig
                         "orig" => "tag",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                     "query" => [

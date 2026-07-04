@@ -50,8 +50,7 @@ class TestTagEntity:
         tag_ref01_ent = client.Tag(None)
         tag_ref01_match = {}
 
-        tag_ref01_list_result, err = tag_ref01_ent.list(tag_ref01_match, None)
-        assert err is None
+        tag_ref01_list_result = tag_ref01_ent.list(tag_ref01_match, None)
         assert isinstance(tag_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _tag_basic_setup(extra):
         "CATAAS_TEST_TAG_ENTID": idmap,
         "CATAAS_TEST_LIVE": "FALSE",
         "CATAAS_TEST_EXPLAIN": "FALSE",
-        "CATAAS_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _tag_basic_setup(extra):
     if env.get("CATAAS_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("CATAAS_APIKEY"),
             },
             extra or {},
         ])

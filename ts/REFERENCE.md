@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -122,7 +121,7 @@ Alias for `CataasSDK.test()`.
 ## CatEntity
 
 ```ts
-const cat = client.Cat()
+const cat = client.cat
 ```
 
 ### Fields
@@ -144,7 +143,7 @@ const cat = client.Cat()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Cat().list()
+const results = await client.cat.list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -152,7 +151,7 @@ const results = await client.Cat().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Cat().load({ id: 'cat_id' })
+const result = await client.cat.load({ id: 'cat_id' })
 ```
 
 ### Common Methods
@@ -186,7 +185,7 @@ Return a copy of the entity options.
 ## TagEntity
 
 ```ts
-const tag = client.Tag()
+const tag = client.tag
 ```
 
 ### Operations
@@ -196,7 +195,7 @@ const tag = client.Tag()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Tag().list()
+const results = await client.tag.list()
 ```
 
 ### Common Methods

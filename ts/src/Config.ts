@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://cataas.com',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },
@@ -384,7 +380,8 @@ class Config {
                     "name": "tag",
                     "orig": "tag",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   },
                   {
                     "active": true,
@@ -393,7 +390,8 @@ class Config {
                     "name": "text",
                     "orig": "text",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 1
                   }
                 ],
                 "query": [
@@ -502,7 +500,8 @@ class Config {
                     "name": "text",
                     "orig": "text",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -609,7 +608,8 @@ class Config {
                     "name": "text",
                     "orig": "text",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -699,7 +699,8 @@ class Config {
                     "name": "id",
                     "orig": "tag",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [

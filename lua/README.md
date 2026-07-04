@@ -9,12 +9,9 @@ The Lua SDK for the Cataas API — an entity-oriented client using Lua conventio
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-cataas
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/cataas-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("cataas_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("CATAAS_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List cats
 
 ```lua
-local result, err = client:Cat():list()
+local result, err = client:cat():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -53,7 +48,7 @@ end
 ### 3. Load a cat
 
 ```lua
-local result, err = client:Cat():load({ id = "example_id" })
+local result, err = client:cat():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -101,7 +96,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Cataas():load({ id = "test01" })
+local result, err = client:cat():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -135,7 +130,6 @@ Create a `.env.local` file at the project root:
 
 ```
 CATAAS_TEST_LIVE=TRUE
-CATAAS_APIKEY=<your-key>
 ```
 
 Then run:
@@ -158,7 +152,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -251,7 +244,7 @@ API path: `/api/tags`
 
 ### Cat
 
-Create an instance: `const cat = client.Cat()`
+Create an instance: `const cat = client.cat`
 
 #### Operations
 
@@ -275,19 +268,19 @@ Create an instance: `const cat = client.Cat()`
 #### Example: Load
 
 ```ts
-const cat = await client.Cat().load({ id: 'cat_id' })
+const cat = await client.cat.load({ id: 'cat_id' })
 ```
 
 #### Example: List
 
 ```ts
-const cats = await client.Cat().list()
+const cats = await client.cat.list()
 ```
 
 
 ### Tag
 
-Create an instance: `const tag = client.Tag()`
+Create an instance: `const tag = client.tag`
 
 #### Operations
 
@@ -298,7 +291,7 @@ Create an instance: `const tag = client.Tag()`
 #### Example: List
 
 ```ts
-const tags = await client.Tag().list()
+const tags = await client.tag.list()
 ```
 
 
@@ -373,11 +366,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local cat = client:cat()
+cat:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- cat:data_get() now returns the loaded cat data
+-- cat:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

@@ -244,12 +244,38 @@ end
 
 
 
+-- Idiomatic facade: client:cat():list() / client:cat():load({ id = ... })
+function CataasSDK:cat(data)
+  local EntityMod = require("entity.cat_entity")
+  if data == nil then
+    if self._cat == nil then
+      self._cat = EntityMod.new(self, nil)
+    end
+    return self._cat
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:cat() instead.
 function CataasSDK:Cat(data)
   local EntityMod = require("entity.cat_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:tag():list() / client:tag():load({ id = ... })
+function CataasSDK:tag(data)
+  local EntityMod = require("entity.tag_entity")
+  if data == nil then
+    if self._tag == nil then
+      self._tag = EntityMod.new(self, nil)
+    end
+    return self._tag
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:tag() instead.
 function CataasSDK:Tag(data)
   local EntityMod = require("entity.tag_entity")
   return EntityMod.new(self, data)

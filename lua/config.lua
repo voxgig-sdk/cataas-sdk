@@ -14,9 +14,6 @@ local function make_config()
     },
     options = {
       base = "https://cataas.com",
-      auth = {
-        prefix = "Bearer",
-      },
       headers = {
         ["content-type"] = "application/json",
       },
@@ -352,6 +349,7 @@ local function make_config()
                       ["orig"] = "tag",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -361,6 +359,7 @@ local function make_config()
                       ["orig"] = "text",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 1,
                     },
                   },
                   ["query"] = {
@@ -470,6 +469,7 @@ local function make_config()
                       ["orig"] = "text",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -577,6 +577,7 @@ local function make_config()
                       ["orig"] = "text",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -667,6 +668,7 @@ local function make_config()
                       ["orig"] = "tag",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {

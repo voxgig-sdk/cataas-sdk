@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "https://cataas.com",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },
@@ -353,6 +350,7 @@ def make_config():
                       "orig": "tag",
                       "reqd": True,
                       "type": "`$STRING`",
+                      "index$": 0,
                     },
                     {
                       "active": True,
@@ -362,6 +360,7 @@ def make_config():
                       "orig": "text",
                       "reqd": True,
                       "type": "`$STRING`",
+                      "index$": 1,
                     },
                   ],
                   "query": [
@@ -471,6 +470,7 @@ def make_config():
                       "orig": "text",
                       "reqd": True,
                       "type": "`$STRING`",
+                      "index$": 0,
                     },
                   ],
                   "query": [
@@ -578,6 +578,7 @@ def make_config():
                       "orig": "text",
                       "reqd": True,
                       "type": "`$STRING`",
+                      "index$": 0,
                     },
                   ],
                   "query": [
@@ -668,6 +669,7 @@ def make_config():
                       "orig": "tag",
                       "reqd": True,
                       "type": "`$STRING`",
+                      "index$": 0,
                     },
                   ],
                   "query": [

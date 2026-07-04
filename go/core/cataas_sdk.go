@@ -245,11 +245,17 @@ func (sdk *CataasSDK) Direct(fetchargs map[string]any) (map[string]any, error) {
 }
 
 
+// Cat returns a Cat entity bound to this client.
+// Idiomatic usage: client.Cat(nil).List(nil, nil) or
+// client.Cat(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CataasSDK) Cat(data map[string]any) CataasEntity {
 	return NewCatEntityFunc(sdk, data)
 }
 
 
+// Tag returns a Tag entity bound to this client.
+// Idiomatic usage: client.Tag(nil).List(nil, nil) or
+// client.Tag(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CataasSDK) Tag(data map[string]any) CataasEntity {
 	return NewTagEntityFunc(sdk, data)
 }

@@ -144,16 +144,23 @@ class CataasSDK:
 
         _, err = utility.prepare_auth(ctx)
         if err is not None:
-            return None, err
+            raise err
 
-        return utility.make_fetch_def(ctx)
+        fetchdef, err = utility.make_fetch_def(ctx)
+        if err is not None:
+            raise err
+
+        return fetchdef
 
     def direct(self, fetchargs=None):
         utility = self._utility
 
-        fetchdef, err = self.prepare(fetchargs)
-        if err is not None:
-            return {"ok": False, "err": err}, None
+        try:
+            fetchdef = self.prepare(fetchargs)
+        except Exception as err:
+            # direct() is the raw-HTTP escape hatch: it never raises, it
+            # returns a result object callers branch on via result["ok"].
+            return {"ok": False, "err": err}
 
         if fetchargs is None:
             fetchargs = {}
@@ -170,13 +177,13 @@ class CataasSDK:
         fetched, fetch_err = utility.fetcher(ctx, url, fetchdef)
 
         if fetch_err is not None:
-            return {"ok": False, "err": fetch_err}, None
+            return {"ok": False, "err": fetch_err}
 
         if fetched is None:
             return {
                 "ok": False,
                 "err": ctx.make_error("direct_no_response", "response: undefined"),
-            }, None
+            }
 
         if isinstance(fetched, dict):
             status = helpers.to_int(vs.getprop(fetched, "status"))
@@ -205,20 +212,42 @@ class CataasSDK:
                 "status": status,
                 "headers": headers,
                 "data": json_data,
-            }, None
+            }
 
         return {
             "ok": False,
             "err": ctx.make_error("direct_invalid", "invalid response type"),
-        }, None
+        }
 
+
+    @property
+    def cat(self):
+        """Idiomatic facade: client.cat.list() / client.cat.load({"id": ...})."""
+        from entity.cat_entity import CatEntity
+        cached = getattr(self, "_cat", None)
+        if cached is None:
+            cached = CatEntity(self, None)
+            self._cat = cached
+        return cached
 
     def Cat(self, data=None):
+        # Deprecated: use client.cat instead.
         from entity.cat_entity import CatEntity
         return CatEntity(self, data)
 
 
+    @property
+    def tag(self):
+        """Idiomatic facade: client.tag.list() / client.tag.load({"id": ...})."""
+        from entity.tag_entity import TagEntity
+        cached = getattr(self, "_tag", None)
+        if cached is None:
+            cached = TagEntity(self, None)
+            self._tag = cached
+        return cached
+
     def Tag(self, data=None):
+        # Deprecated: use client.tag instead.
         from entity.tag_entity import TagEntity
         return TagEntity(self, data)
 

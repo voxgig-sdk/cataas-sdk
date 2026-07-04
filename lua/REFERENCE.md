@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -88,7 +87,7 @@ same parameters as `direct()`.
 ## CatEntity
 
 ```lua
-local cat = client:Cat(nil)
+local cat = client:cat(nil)
 ```
 
 ### Fields
@@ -110,7 +109,7 @@ local cat = client:Cat(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Cat():list()
+local results, err = client:cat():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -118,7 +117,7 @@ local results, err = client:Cat():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Cat():load({ id = "cat_id" })
+local result, err = client:cat():load({ id = "cat_id" })
 ```
 
 ### Common Methods
@@ -154,7 +153,7 @@ Return the entity name.
 ## TagEntity
 
 ```lua
-local tag = client:Tag(nil)
+local tag = client:tag(nil)
 ```
 
 ### Operations
@@ -164,7 +163,7 @@ local tag = client:Tag(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Tag():list()
+local results, err = client:tag():list()
 ```
 
 ### Common Methods
