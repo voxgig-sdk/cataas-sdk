@@ -208,26 +208,14 @@ class CataasSDK
   end
 
 
-  # Idiomatic facade: client.cat.list / client.cat.load({ "id" => ... })
-  def cat
-    require_relative 'entity/cat_entity'
-    @cat ||= CatEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.cat instead.
+  # Canonical facade: client.Cat.list / client.Cat.load({ "id" => ... })
   def Cat(data = nil)
     require_relative 'entity/cat_entity'
     CatEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.tag.list / client.tag.load({ "id" => ... })
-  def tag
-    require_relative 'entity/tag_entity'
-    @tag ||= TagEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.tag instead.
+  # Canonical facade: client.Tag.list / client.Tag.load({ "id" => ... })
   def Tag(data = nil)
     require_relative 'entity/tag_entity'
     TagEntity.new(self, data)

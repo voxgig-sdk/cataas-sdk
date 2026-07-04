@@ -87,7 +87,7 @@ same parameters as `direct()`.
 ## CatEntity
 
 ```lua
-local cat = client:cat(nil)
+local cat = client:Cat(nil)
 ```
 
 ### Fields
@@ -109,7 +109,7 @@ local cat = client:cat(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:cat():list()
+local results, err = client:Cat():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -117,7 +117,7 @@ local results, err = client:cat():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:cat():load({ id = "cat_id" })
+local result, err = client:Cat():load({ id = "cat_id" })
 ```
 
 ### Common Methods
@@ -153,7 +153,7 @@ Return the entity name.
 ## TagEntity
 
 ```lua
-local tag = client:tag(nil)
+local tag = client:Tag(nil)
 ```
 
 ### Operations
@@ -163,7 +163,7 @@ local tag = client:tag(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:tag():list()
+local results, err = client:Tag():list()
 ```
 
 ### Common Methods

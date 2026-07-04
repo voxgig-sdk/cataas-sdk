@@ -28,25 +28,28 @@ import { CataasSDK } from '@voxgig-sdk/cataas'
 const client = new CataasSDK()
 ```
 
-### 2. List cats
+### 2. List cat records
+
+`list()` resolves to an array of Cat objects — iterate it directly:
 
 ```ts
-const result = await client.cat.list()
+const cats = await client.Cat().list()
 
-if (result.ok) {
-  for (const item of result.data) {
-    console.log(item.id, item.name)
-  }
+for (const cat of cats) {
+  console.log(cat)
 }
 ```
 
 ### 3. Load a cat
 
-```ts
-const result = await client.cat.load({ id: 'example_id' })
+`load()` returns the entity directly and throws on failure:
 
-if (result.ok) {
-  console.log(result.data)
+```ts
+try {
+  const cat = await client.Cat().load({ id: 'example_id' })
+  console.log(cat)
+} catch (err) {
+  console.error('load failed:', err)
 }
 ```
 
@@ -64,6 +67,9 @@ const result = await client.direct({
   params: { id: 'example' },
 })
 
+if (result instanceof Error) {
+  throw result
+}
 if (result.ok) {
   console.log(result.status)  // 200
   console.log(result.data)    // response body
@@ -92,9 +98,9 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = CataasSDK.test()
 
-const result = await client.cat.load({ id: 'test01' })
-// result.ok === true
-// result.data contains mock response data
+const cat = await client.Cat().load({ id: 'test01' })
+// cat is a bare entity populated with mock response data
+console.log(cat)
 ```
 
 You can also use the instance method:
@@ -109,7 +115,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.cat
+const entity = client.Cat()
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -205,29 +211,30 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `load(reqmatch?, ctrl?): Promise<Result>` | Load a single entity by match criteria. |
-| `list` | `list(reqmatch?, ctrl?): Promise<Result>` | List entities matching the criteria. |
-| `create` | `create(reqdata?, ctrl?): Promise<Result>` | Create a new entity. |
-| `update` | `update(reqdata?, ctrl?): Promise<Result>` | Update an existing entity. |
-| `remove` | `remove(reqmatch?, ctrl?): Promise<Result>` | Remove an entity. |
+| `load` | `load(reqmatch?, ctrl?): Promise<Entity>` | Load a single entity by match criteria. |
+| `list` | `list(reqmatch?, ctrl?): Promise<Entity[]>` | List entities matching the criteria. |
+| `create` | `create(reqdata?, ctrl?): Promise<Entity>` | Create a new entity. |
+| `update` | `update(reqdata?, ctrl?): Promise<Entity>` | Update an existing entity. |
+| `remove` | `remove(reqmatch?, ctrl?): Promise<void>` | Remove an entity. |
 | `data` | `data(data?): any` | Get or set entity data. |
 | `match` | `match(match?): any` | Get or set entity match criteria. |
 | `make` | `make(): Entity` | Create a new instance with the same options. |
 | `client` | `client(): CataasSDK` | Return the parent SDK client. |
 | `entopts` | `entopts(): object` | Return a copy of the entity options. |
 
-#### Result shape
+#### Return values
 
-All entity operations return a Result object:
+Entity operations resolve to the entity data directly — there is no
+result envelope:
 
-```ts
-{
-  ok: boolean      // true if the HTTP status is 2xx
-  status: number   // HTTP status code
-  headers: object  // response headers
-  data: any        // parsed JSON response body
-}
-```
+- `load`, `create` and `update` resolve to a single entity object.
+- `list` resolves to an **array** of entity objects (iterate it directly;
+  there is no `.data` and no `.ok`).
+- `remove` resolves to `void`.
+
+On a failed request these methods **throw**, so wrap calls in
+`try`/`catch` to handle errors. Only `direct()` returns the result
+envelope described below.
 
 ### DirectResult shape
 
@@ -291,7 +298,7 @@ API path: `/api/tags`
 
 ### Cat
 
-Create an instance: `const cat = client.cat`
+Create an instance: `const cat = client.Cat()`
 
 #### Operations
 
@@ -315,19 +322,19 @@ Create an instance: `const cat = client.cat`
 #### Example: Load
 
 ```ts
-const cat = await client.cat.load({ id: 'cat_id' })
+const cat = await client.Cat().load({ id: 'cat_id' })
 ```
 
 #### Example: List
 
 ```ts
-const cats = await client.cat.list()
+const cats = await client.Cat().list()
 ```
 
 
 ### Tag
 
-Create an instance: `const tag = client.tag`
+Create an instance: `const tag = client.Tag()`
 
 #### Operations
 
@@ -338,7 +345,7 @@ Create an instance: `const tag = client.tag`
 #### Example: List
 
 ```ts
-const tags = await client.tag.list()
+const tags = await client.Tag().list()
 ```
 
 
@@ -409,7 +416,7 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const cat = client.cat
+const cat = client.Cat()
 await cat.load({ id: "example_id" })
 
 // cat.data() now returns the loaded cat data

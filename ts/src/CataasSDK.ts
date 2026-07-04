@@ -205,28 +205,14 @@ class CataasSDK {
 
 
 
-  _cat?: CatEntity
-
-  // Idiomatic facade: `client.cat.list()` / `client.cat.load({ id })`.
-  get cat(): CatEntity {
-    return (this._cat ??= new CatEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.cat` instead. */
+  // Entity access: `client.Cat().list()` / `client.Cat().load({ id })`.
   Cat(data?: any) {
     const self = this
     return new CatEntity(self,data)
   }
 
 
-  _tag?: TagEntity
-
-  // Idiomatic facade: `client.tag.list()` / `client.tag.load({ id })`.
-  get tag(): TagEntity {
-    return (this._tag ??= new TagEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.tag` instead. */
+  // Entity access: `client.Tag().list()` / `client.Tag().load({ id })`.
   Tag(data?: any) {
     const self = this
     return new TagEntity(self,data)

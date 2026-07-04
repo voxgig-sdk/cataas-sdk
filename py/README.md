@@ -31,24 +31,28 @@ from cataas_sdk import CataasSDK
 client = CataasSDK()
 ```
 
-### 2. List cats
+### 2. List cat records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.cat.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    cats = client.Cat().list({})
+    for cat in cats:
+        print(cat)
 except Exception as err:
     print(f"list failed: {err}")
 ```
 
 ### 3. Load a cat
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.cat.load({"id": "example_id"})
-    print(result)
+    cat = client.Cat().load({"id": "example_id"})
+    print(cat)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -96,8 +100,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = CataasSDK.test()
 
-result = client.cat.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+cat = client.Cat().load({"id": "test01"})
+# cat contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -246,7 +251,7 @@ API path: `/api/tags`
 
 ### Cat
 
-Create an instance: `const cat = client.cat`
+Create an instance: `cat = client.Cat()`
 
 #### Operations
 
@@ -269,20 +274,20 @@ Create an instance: `const cat = client.cat`
 
 #### Example: Load
 
-```ts
-const cat = await client.cat.load({ id: 'cat_id' })
+```python
+cat = client.Cat().load({"id": "cat_id"})
 ```
 
 #### Example: List
 
-```ts
-const cats = await client.cat.list()
+```python
+cats = client.Cat().list({})
 ```
 
 
 ### Tag
 
-Create an instance: `const tag = client.tag`
+Create an instance: `tag = client.Tag()`
 
 #### Operations
 
@@ -292,8 +297,8 @@ Create an instance: `const tag = client.tag`
 
 #### Example: List
 
-```ts
-const tags = await client.tag.list()
+```python
+tags = client.Tag().list({})
 ```
 
 
@@ -367,7 +372,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-cat = client.cat
+cat = client.Cat()
 cat.load({"id": "example_id"})
 
 # cat.data_get() now returns the loaded cat data

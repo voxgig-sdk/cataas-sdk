@@ -28,16 +28,14 @@ require_relative "Cataas_sdk"
 client = CataasSDK.new
 ```
 
-### 2. List cats
+### 2. List cat records
 
 ```ruby
 begin
-  result = client.cat.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Cat records — iterate directly.
+  cats = client.Cat.list
+  cats.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -48,8 +46,9 @@ end
 
 ```ruby
 begin
-  result = client.cat.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Cat record (raises on error).
+  cat = client.Cat.load({ "id" => "example_id" })
+  puts cat
 rescue => err
   warn "load failed: #{err}"
 end
@@ -96,13 +95,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = CataasSDK.test
+client = CataasSDK.test({
+  "entity" => { "cat" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.cat.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+cat = client.Cat.load({ "id" => "test01" })
+puts cat
 ```
 
 ### Use a custom fetch function
@@ -250,7 +253,7 @@ API path: `/api/tags`
 
 ### Cat
 
-Create an instance: `const cat = client.cat`
+Create an instance: `cat = client.Cat`
 
 #### Operations
 
@@ -273,20 +276,22 @@ Create an instance: `const cat = client.cat`
 
 #### Example: Load
 
-```ts
-const cat = await client.cat.load({ id: 'cat_id' })
+```ruby
+# load returns the bare Cat record (raises on error).
+cat = client.Cat.load({ "id" => "cat_id" })
 ```
 
 #### Example: List
 
-```ts
-const cats = await client.cat.list()
+```ruby
+# list returns an Array of Cat records (raises on error).
+cats = client.Cat.list
 ```
 
 
 ### Tag
 
-Create an instance: `const tag = client.tag`
+Create an instance: `tag = client.Tag`
 
 #### Operations
 
@@ -296,8 +301,9 @@ Create an instance: `const tag = client.tag`
 
 #### Example: List
 
-```ts
-const tags = await client.tag.list()
+```ruby
+# list returns an Array of Tag records (raises on error).
+tags = client.Tag.list
 ```
 
 
@@ -372,7 +378,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-cat = client.cat
+cat = client.Cat
 cat.load({ "id" => "example_id" })
 
 # cat.data_get now returns the loaded cat data

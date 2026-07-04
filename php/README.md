@@ -29,18 +29,16 @@ require_once 'cataas_sdk.php';
 $client = new CataasSDK();
 ```
 
-### 2. List cats
+### 2. List cat records
 
 ```php
 try {
-    $result = $client->cat()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Cat records — iterate directly.
+    $cats = $client->Cat()->list();
+    foreach ($cats as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -49,9 +47,10 @@ try {
 
 ```php
 try {
-    $result = $client->cat()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Cat record (throws on error).
+    $cat = $client->Cat()->load(["id" => "example_id"]);
+    print_r($cat);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -97,13 +96,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = CataasSDK::test();
+$client = CataasSDK::test([
+    "entity" => ["cat" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->cat()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$cat = $client->Cat()->load(["id" => "test01"]);
+print_r($cat);
 ```
 
 ### Use a custom fetch function
@@ -255,7 +258,7 @@ API path: `/api/tags`
 
 ### Cat
 
-Create an instance: `const cat = client.cat`
+Create an instance: `$cat = $client->Cat();`
 
 #### Operations
 
@@ -278,20 +281,22 @@ Create an instance: `const cat = client.cat`
 
 #### Example: Load
 
-```ts
-const cat = await client.cat.load({ id: 'cat_id' })
+```php
+// load() returns the bare Cat record (throws on error).
+$cat = $client->Cat()->load(["id" => "cat_id"]);
 ```
 
 #### Example: List
 
-```ts
-const cats = await client.cat.list()
+```php
+// list() returns an array of Cat records (throws on error).
+$cats = $client->Cat()->list();
 ```
 
 
 ### Tag
 
-Create an instance: `const tag = client.tag`
+Create an instance: `$tag = $client->Tag();`
 
 #### Operations
 
@@ -301,8 +306,9 @@ Create an instance: `const tag = client.tag`
 
 #### Example: List
 
-```ts
-const tags = await client.tag.list()
+```php
+// list() returns an array of Tag records (throws on error).
+$tags = $client->Tag()->list();
 ```
 
 
@@ -377,7 +383,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$cat = $client->cat();
+$cat = $client->Cat();
 $cat->load(["id" => "example_id"]);
 
 // $cat->dataGet() now returns the loaded cat data

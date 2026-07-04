@@ -233,10 +233,10 @@ class CataasSDK
 
     private $_cat = null;
 
-    // Idiomatic facade: $client->cat()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Cat() (PHP method
-    // names are case-insensitive).
-    public function cat($data = null)
+    // Canonical facade: $client->Cat()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->cat()
+    // resolves here too.
+    public function Cat($data = null)
     {
         require_once __DIR__ . '/entity/cat_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class CataasSDK
 
     private $_tag = null;
 
-    // Idiomatic facade: $client->tag()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Tag() (PHP method
-    // names are case-insensitive).
-    public function tag($data = null)
+    // Canonical facade: $client->Tag()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->tag()
+    // resolves here too.
+    public function Tag($data = null)
     {
         require_once __DIR__ . '/entity/tag_entity.php';
         if ($data === null) {

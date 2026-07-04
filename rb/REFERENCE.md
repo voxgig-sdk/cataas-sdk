@@ -90,7 +90,7 @@ same parameters as `direct()`. Raises on error.
 ## CatEntity
 
 ```ruby
-cat = client.cat
+cat = client.Cat
 ```
 
 ### Fields
@@ -112,7 +112,7 @@ cat = client.cat
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.cat.list(nil)
+results = client.Cat.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -120,7 +120,7 @@ results = client.cat.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.cat.load({ "id" => "cat_id" })
+result = client.Cat.load({ "id" => "cat_id" })
 ```
 
 ### Common Methods
@@ -156,7 +156,7 @@ Return the entity name.
 ## TagEntity
 
 ```ruby
-tag = client.tag
+tag = client.Tag
 ```
 
 ### Operations
@@ -166,7 +166,7 @@ tag = client.tag
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.tag.list(nil)
+results = client.Tag.list(nil)
 ```
 
 ### Common Methods

@@ -26,9 +26,11 @@ import { CataasSDK } from '@voxgig-sdk/cataas'
 
 const client = new CataasSDK()
 
-// List all cats
-const cats = await client.cat.list()
-console.log(cats.data)
+// List all cats (returns Cat[])
+const cats = await client.Cat().list()
+for (const cat of cats) {
+  console.log(cat)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,12 +86,13 @@ from cataas_sdk import CataasSDK
 
 client = CataasSDK()
 
-# List all cats
-cats = client.cat.list()
-print(cats)
+# List all cats (returns a list, raises on error)
+cats = client.Cat().list({})
+for cat in cats:
+    print(cat)
 
-# Load a specific cat
-cat = client.cat.load({"id": "example_id"})
+# Load a specific cat (returns the record, raises on error)
+cat = client.Cat().load({"id": "example_id"})
 print(cat)
 ```
 
@@ -101,12 +104,12 @@ require_once 'cataas_sdk.php';
 
 $client = new CataasSDK();
 
-// List all cats (throws on error)
-$cats = $client->cat()->list();
+// List all cats (returns an array; throws on error)
+$cats = $client->Cat()->list();
 print_r($cats);
 
-// Load a specific cat
-$cat = $client->cat()->load(["id" => "example_id"]);
+// Load a specific cat (returns the bare record; throws on error)
+$cat = $client->Cat()->load(["id" => "example_id"]);
 print_r($cat);
 ```
 
@@ -129,12 +132,12 @@ require_relative "Cataas_sdk"
 
 client = CataasSDK.new
 
-# List all cats
-cats = client.cat.list
+# List all cats (returns an Array; raises on error)
+cats = client.Cat.list
 puts cats
 
-# Load a specific cat
-cat = client.cat.load({ "id" => "example_id" })
+# Load a specific cat (returns the bare record; raises on error)
+cat = client.Cat.load({ "id" => "example_id" })
 puts cat
 ```
 
@@ -146,11 +149,11 @@ local sdk = require("cataas_sdk")
 local client = sdk.new()
 
 -- List all cats
-local cats, err = client:cat():list()
+local cats, err = client:Cat():list()
 print(cats)
 
 -- Load a specific cat
-local cat, err = client:cat():load({ id = "example_id" })
+local cat, err = client:Cat():load({ id = "example_id" })
 print(cat)
 ```
 
@@ -163,22 +166,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = CataasSDK.test()
-const result = await client.cat.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const cat = await client.Cat().load({ id: 'test01' })
+// cat is a bare Cat populated with mock data
+console.log(cat)
 ```
 
 ### Python
 
 ```python
 client = CataasSDK.test()
-result = client.cat.load({"id": "test01"})
+cat = client.Cat().load({"id": "test01"})
+print(cat)
 ```
 
 ### PHP
 
 ```php
-$client = CataasSDK::test();
-$result = $client->cat()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = CataasSDK::test([
+    "entity" => ["cat" => ["test01" => ["id" => "test01"]]],
+]);
+$cat = $client->Cat()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -193,15 +201,18 @@ result, err := client.Cat(nil).Load(
 ### Ruby
 
 ```ruby
-client = CataasSDK.test
-result = client.cat.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = CataasSDK.test({
+  "entity" => { "cat" => { "test01" => { "id" => "test01" } } },
+})
+cat = client.Cat.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:cat():load({ id = "test01" })
+local result, err = client:Cat():load({ id = "test01" })
 ```
 
 ## How it works
@@ -249,6 +260,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

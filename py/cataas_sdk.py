@@ -220,41 +220,21 @@ class CataasSDK:
         }
 
 
-    @property
-    def cat(self):
-        """Idiomatic facade: client.cat.list() / client.cat.load({"id": ...})."""
-        from entity.cat_entity import CatEntity
-        cached = getattr(self, "_cat", None)
-        if cached is None:
-            cached = CatEntity(self, None)
-            self._cat = cached
-        return cached
-
-    def Cat(self, data=None):
-        # Deprecated: use client.cat instead.
+    def Cat(self, data=None) -> "CatEntity":
+        """Entity factory: client.Cat().list({}) / client.Cat().load({"id": ...})."""
         from entity.cat_entity import CatEntity
         return CatEntity(self, data)
 
 
-    @property
-    def tag(self):
-        """Idiomatic facade: client.tag.list() / client.tag.load({"id": ...})."""
-        from entity.tag_entity import TagEntity
-        cached = getattr(self, "_tag", None)
-        if cached is None:
-            cached = TagEntity(self, None)
-            self._tag = cached
-        return cached
-
-    def Tag(self, data=None):
-        # Deprecated: use client.tag instead.
+    def Tag(self, data=None) -> "TagEntity":
+        """Entity factory: client.Tag().list({}) / client.Tag().load({"id": ...})."""
         from entity.tag_entity import TagEntity
         return TagEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "CataasSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class CataasSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.cat_entity import CatEntity
+    from entity.tag_entity import TagEntity

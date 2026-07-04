@@ -89,7 +89,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## CatEntity
 
 ```php
-$cat = $client->cat();
+$cat = $client->Cat();
 ```
 
 ### Fields
@@ -111,7 +111,7 @@ $cat = $client->cat();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->cat()->list([]);
+$results = $client->Cat()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -119,7 +119,7 @@ $results = $client->cat()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->cat()->load(["id" => "cat_id"]);
+$result = $client->Cat()->load(["id" => "cat_id"]);
 ```
 
 ### Common Methods
@@ -155,7 +155,7 @@ Return the entity name.
 ## TagEntity
 
 ```php
-$tag = $client->tag();
+$tag = $client->Tag();
 ```
 
 ### Operations
@@ -165,7 +165,7 @@ $tag = $client->tag();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->tag()->list([]);
+$results = $client->Tag()->list([]);
 ```
 
 ### Common Methods

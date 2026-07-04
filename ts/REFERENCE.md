@@ -121,7 +121,7 @@ Alias for `CataasSDK.test()`.
 ## CatEntity
 
 ```ts
-const cat = client.cat
+const cat = client.Cat()
 ```
 
 ### Fields
@@ -143,7 +143,7 @@ const cat = client.cat
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.cat.list()
+const results = await client.Cat().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -151,7 +151,7 @@ const results = await client.cat.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.cat.load({ id: 'cat_id' })
+const result = await client.Cat().load({ id: 'cat_id' })
 ```
 
 ### Common Methods
@@ -185,7 +185,7 @@ Return a copy of the entity options.
 ## TagEntity
 
 ```ts
-const tag = client.tag
+const tag = client.Tag()
 ```
 
 ### Operations
@@ -195,7 +195,7 @@ const tag = client.tag
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.tag.list()
+const results = await client.Tag().list()
 ```
 
 ### Common Methods

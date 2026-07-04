@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:cat():list() / client:cat():load({ id = ... })
-function CataasSDK:cat(data)
+-- Idiomatic facade: client:Cat():list() / client:Cat():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CataasSDK:Cat(data)
   local EntityMod = require("entity.cat_entity")
   if data == nil then
     if self._cat == nil then
@@ -256,15 +257,10 @@ function CataasSDK:cat(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:cat() instead.
-function CataasSDK:Cat(data)
-  local EntityMod = require("entity.cat_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:tag():list() / client:tag():load({ id = ... })
-function CataasSDK:tag(data)
+-- Idiomatic facade: client:Tag():list() / client:Tag():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CataasSDK:Tag(data)
   local EntityMod = require("entity.tag_entity")
   if data == nil then
     if self._tag == nil then
@@ -272,12 +268,6 @@ function CataasSDK:tag(data)
     end
     return self._tag
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:tag() instead.
-function CataasSDK:Tag(data)
-  local EntityMod = require("entity.tag_entity")
   return EntityMod.new(self, data)
 end
 

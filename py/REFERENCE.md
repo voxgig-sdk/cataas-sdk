@@ -84,7 +84,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## CatEntity
 
 ```python
-cat = client.cat
+cat = client.Cat()
 ```
 
 ### Fields
@@ -106,7 +106,9 @@ cat = client.cat
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.cat.list({})
+results = client.Cat().list({})
+for cat in results:
+    print(cat)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -114,7 +116,7 @@ results = client.cat.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.cat.load({"id": "cat_id"})
+result = client.Cat().load({"id": "cat_id"})
 ```
 
 ### Common Methods
@@ -149,7 +151,7 @@ Return the entity name.
 ## TagEntity
 
 ```python
-tag = client.tag
+tag = client.Tag()
 ```
 
 ### Operations
@@ -159,7 +161,9 @@ tag = client.tag
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.tag.list({})
+results = client.Tag().list({})
+for tag in results:
+    print(tag)
 ```
 
 ### Common Methods

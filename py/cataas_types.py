@@ -4,48 +4,47 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Cat:
-    created_at: Optional[str] = None
-    id: Optional[str] = None
-    mimetype: Optional[str] = None
-    size: Optional[int] = None
-    tag: Optional[list] = None
-    updated_at: Optional[str] = None
-    url: Optional[str] = None
+class Cat(TypedDict, total=False):
+    created_at: str
+    id: str
+    mimetype: str
+    size: int
+    tag: list
+    updated_at: str
+    url: str
 
 
-@dataclass
-class CatLoadMatch:
+class CatLoadMatch(TypedDict):
     tag: str
     text: str
     id: str
 
 
-@dataclass
-class CatListMatch:
-    created_at: Optional[str] = None
-    id: Optional[str] = None
-    mimetype: Optional[str] = None
-    size: Optional[int] = None
-    tag: Optional[list] = None
-    updated_at: Optional[str] = None
-    url: Optional[str] = None
+class CatListMatch(TypedDict, total=False):
+    created_at: str
+    id: str
+    mimetype: str
+    size: int
+    tag: list
+    updated_at: str
+    url: str
 
 
-@dataclass
-class Tag:
+class Tag(TypedDict):
     pass
 
 
-@dataclass
-class TagListMatch:
+class TagListMatch(TypedDict):
     pass
-
