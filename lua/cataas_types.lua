@@ -21,6 +21,13 @@
 ---@field id string
 
 ---@class CatListMatch
+---@field created_at? string
+---@field id? string
+---@field mimetype? string
+---@field size? number
+---@field tag? table
+---@field updated_at? string
+---@field url? string
 
 ---@class Tag
 

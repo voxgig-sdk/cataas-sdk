@@ -94,13 +94,13 @@ local cat = client:Cat(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created_at` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `mimetype` | ``$STRING`` | No |  |
-| `size` | ``$INTEGER`` | No |  |
-| `tag` | ``$ARRAY`` | No |  |
-| `updated_at` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
+| `created_at` | `string` | No |  |
+| `id` | `string` | No |  |
+| `mimetype` | `string` | No |  |
+| `size` | `number` | No |  |
+| `tag` | `table` | No |  |
+| `updated_at` | `string` | No |  |
+| `url` | `string` | No |  |
 
 ### Operations
 

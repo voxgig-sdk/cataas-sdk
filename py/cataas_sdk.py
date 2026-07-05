@@ -221,13 +221,13 @@ class CataasSDK:
 
 
     def Cat(self, data=None) -> "CatEntity":
-        """Entity factory: client.Cat().list({}) / client.Cat().load({"id": ...})."""
+        """Entity factory: client.Cat().list() / client.Cat().load({"id": ...})."""
         from entity.cat_entity import CatEntity
         return CatEntity(self, data)
 
 
     def Tag(self, data=None) -> "TagEntity":
-        """Entity factory: client.Tag().list({}) / client.Tag().load({"id": ...})."""
+        """Entity factory: client.Tag().list() / client.Tag().load({"id": ...})."""
         from entity.tag_entity import TagEntity
         return TagEntity(self, data)
 

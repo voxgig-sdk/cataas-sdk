@@ -26,8 +26,7 @@ type CatLoadMatch struct {
 	Id string `json:"id"`
 }
 
-// CatListMatch mirrors the cat fields as an all-optional match
-// filter (Go analog of Partial<Cat>).
+// CatListMatch is the typed request payload for Cat.ListTyped.
 type CatListMatch struct {
 	CreatedAt *string `json:"created_at,omitempty"`
 	Id *string `json:"id,omitempty"`
@@ -42,8 +41,7 @@ type CatListMatch struct {
 type Tag struct {
 }
 
-// TagListMatch mirrors the tag fields as an all-optional match
-// filter (Go analog of Partial<Tag>).
+// TagListMatch is the typed request payload for Tag.ListTyped.
 type TagListMatch struct {
 }
 

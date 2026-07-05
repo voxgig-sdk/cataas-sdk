@@ -21,10 +21,19 @@ export interface CatLoadMatch {
   id: string
 }
 
-export type CatListMatch = Partial<Cat>
+export interface CatListMatch {
+  created_at?: string
+  id?: string
+  mimetype?: string
+  size?: number
+  tag?: any[]
+  updated_at?: string
+  url?: string
+}
 
 export interface Tag {
 }
 
-export type TagListMatch = Partial<Tag>
+export interface TagListMatch {
+}
 

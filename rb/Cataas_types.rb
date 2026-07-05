@@ -58,7 +58,7 @@ CatLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Cat#list (any subset of Cat fields).
+# Request payload for Cat#list.
 #
 # @!attribute [rw] created_at
 #   @return [String, nil]
@@ -95,7 +95,7 @@ CatListMatch = Struct.new(
 class Tag
 end
 
-# Match filter for Tag#list (any subset of Tag fields).
+# Request payload for Tag#list.
 class TagListMatch
 end
 

@@ -91,22 +91,22 @@ cat = client.Cat()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created_at` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `mimetype` | ``$STRING`` | No |  |
-| `size` | ``$INTEGER`` | No |  |
-| `tag` | ``$ARRAY`` | No |  |
-| `updated_at` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
+| `created_at` | `str` | No |  |
+| `id` | `str` | No |  |
+| `mimetype` | `str` | No |  |
+| `size` | `int` | No |  |
+| `tag` | `list` | No |  |
+| `updated_at` | `str` | No |  |
+| `url` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Cat().list({})
+results = client.Cat().list()
 for cat in results:
     print(cat)
 ```
@@ -156,12 +156,12 @@ tag = client.Tag()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Tag().list({})
+results = client.Tag().list()
 for tag in results:
     print(tag)
 ```

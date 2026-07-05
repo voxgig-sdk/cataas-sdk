@@ -32,7 +32,7 @@ class CatLoadMatch
     public string $id;
 }
 
-/** Match filter for Cat#list (any subset of Cat fields). */
+/** Request payload for Cat#list. */
 class CatListMatch
 {
     public ?string $created_at = null;
@@ -49,7 +49,7 @@ class Tag
 {
 }
 
-/** Match filter for Tag#list (any subset of Tag fields). */
+/** Request payload for Tag#list. */
 class TagListMatch
 {
 }
