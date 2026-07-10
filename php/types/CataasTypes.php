@@ -27,9 +27,9 @@ class Cat
 /** Request payload for Cat#load. */
 class CatLoadMatch
 {
-    public string $tag;
-    public string $text;
-    public string $id;
+    public ?string $tag = null;
+    public ?string $text = null;
+    public ?string $id = null;
 }
 
 /** Request payload for Cat#list. */

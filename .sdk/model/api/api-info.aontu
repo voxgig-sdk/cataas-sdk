@@ -16,9 +16,9 @@ main: {
           url: "https://cataas.com"
         }
       ]
+      summary: "A REST API to spread peace and love (or not) thanks to cats."
       title: "CATAAS API"
       version: "1.0.0"
+      website: "https://cataas.com"
     }
   }
-}
-

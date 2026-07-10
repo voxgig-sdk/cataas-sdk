@@ -16,9 +16,9 @@
 ---@field url? string
 
 ---@class CatLoadMatch
----@field tag string
----@field text string
----@field id string
+---@field tag? string
+---@field text? string
+---@field id? string
 
 ---@class CatListMatch
 ---@field created_at? string

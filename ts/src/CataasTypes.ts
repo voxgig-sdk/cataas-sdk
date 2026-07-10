@@ -16,9 +16,9 @@ export interface Cat {
 }
 
 export interface CatLoadMatch {
-  tag: string
-  text: string
-  id: string
+  tag?: string
+  text?: string
+  id?: string
 }
 
 export interface CatListMatch {

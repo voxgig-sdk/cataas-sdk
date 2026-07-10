@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -960,14 +957,17 @@
           "url": "https://cataas.com/"
         },
         "description": "A REST API to spread peace and love (or not) thanks to cats. Provides various endpoints to get random cats, cats with specific tags, cat gifs, and more. Also allows customization of cat images and retrieving cat data in JSON format.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://cataas.com"
           }
         ],
+        "summary": "A REST API to spread peace and love (or not) thanks to cats.",
         "title": "CATAAS API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://cataas.com"
       },
       "option": {},
       "target": {
@@ -1020,6 +1020,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -1070,6 +1073,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

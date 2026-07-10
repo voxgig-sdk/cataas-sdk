@@ -60,7 +60,7 @@ func main() {
     }
 
     // Load a single cat — the value is the loaded record.
-    cat, err := client.Cat(nil).Load(map[string]any{"id": "example"}, nil)
+    cat, err := client.Cat(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
