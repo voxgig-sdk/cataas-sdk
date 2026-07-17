@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Cataas SDK exists test
 
 local sdk = require("cataas_sdk")
 

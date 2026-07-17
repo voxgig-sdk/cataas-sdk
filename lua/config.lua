@@ -1,4 +1,4 @@
--- ProjectName SDK configuration
+-- Cataas SDK configuration
 
 local function make_config()
   return {
