@@ -49,7 +49,7 @@ try {
 
 ```php
 try {
-    // load() returns the bare Cat record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Cat record (throws on error).
     $cat = $client->Cat()->load(["id" => "example_id"]);
     print_r($cat);
 } catch (\Throwable $err) {
@@ -140,7 +140,8 @@ $client = CataasSDK::test([
     "entity" => ["cat" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $cat = $client->Cat()->list();
 print_r($cat);
 ```
@@ -241,7 +242,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -267,7 +268,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `id` |  |
 | `mimetype` |  |
 | `size` |  |
-| `tag` |  |
+| `tags` |  |
 | `updated_at` |  |
 | `url` |  |
 
@@ -308,14 +309,14 @@ Create an instance: `$cat = $client->Cat();`
 | `id` | `string` |  |
 | `mimetype` | `string` |  |
 | `size` | `int` |  |
-| `tag` | `array` |  |
+| `tags` | `array` |  |
 | `updated_at` | `string` |  |
 | `url` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Cat record (throws on error).
+// load() returns the ENTITY — call data_get() for the Cat record (throws on error).
 $cat = $client->Cat()->load(["id" => "cat_id"]);
 ```
 

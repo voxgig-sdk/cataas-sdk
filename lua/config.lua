@@ -55,7 +55,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "tag",
+            ["name"] = "tags",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 4,
@@ -191,6 +191,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cat",
                 ["parts"] = {
@@ -215,7 +216,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.tags`",
                 },
                 ["index$"] = 0,
               },
@@ -257,6 +258,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cat/gif",
                 ["parts"] = {
@@ -274,7 +276,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.tags`",
                 },
                 ["index$"] = 1,
               },
@@ -311,6 +313,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/cats",
                 ["parts"] = {
@@ -429,6 +432,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cat/{tag}/says/{text}",
                 ["parts"] = {
@@ -539,6 +543,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cat/says/{text}",
                 ["parts"] = {
@@ -631,6 +636,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cat/gif/says/{text}",
                 ["parts"] = {
@@ -722,6 +728,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cat/{tag}",
                 ["parts"] = {
@@ -774,6 +781,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/tags",
                 ["parts"] = {

@@ -11,10 +11,12 @@ guide: {
     }
     path: "/cat": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.tags`")|top
     }
     path: "/cat/gif": {
       action: "gif": {}
       op: list: method: *GET
+      op: list: transform: res: *("`body.tags`")|top
     }
     path: "/cat/gif/says/{text}": {
       op: load: method: *GET

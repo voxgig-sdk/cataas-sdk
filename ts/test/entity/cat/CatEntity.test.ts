@@ -63,13 +63,13 @@ describe('CatEntity', async () => {
     const cat_ref01_ent = client.Cat()
     const cat_ref01_match: any = {}
 
-    const cat_ref01_list = await cat_ref01_ent.list(cat_ref01_match)
+    const cat_ref01_list = (await cat_ref01_ent.list(cat_ref01_match)).map((e: any) => e.data())
 
 
     // LOAD
     const cat_ref01_match_dt0: any = {}
     cat_ref01_match_dt0.id = cat_ref01_data.id
-    const cat_ref01_data_dt0 = await cat_ref01_ent.load(cat_ref01_match_dt0)
+    const cat_ref01_data_dt0 = (await cat_ref01_ent.load(cat_ref01_match_dt0)).data()
     assert(cat_ref01_data_dt0.id === cat_ref01_data.id)
 
 

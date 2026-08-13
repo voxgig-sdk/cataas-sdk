@@ -6,9 +6,10 @@
         "id": "CAT00",
         "mimetype": "s48",
         "size": "s49",
-        "tag": [],
+        "tags": [],
         "updated_at": "s4b",
         "url": "s4c",
+        "tag": "TAG01",
         "text": "TEXT01"
       },
       "CAT01": {
@@ -16,9 +17,10 @@
         "id": "CAT01",
         "mimetype": "s8e",
         "size": "s8f",
-        "tag": [],
+        "tags": [],
         "updated_at": "s91",
         "url": "s92",
+        "tag": "TAG01",
         "text": "TEXT01"
       },
       "CAT02": {
@@ -26,9 +28,10 @@
         "id": "CAT02",
         "mimetype": "sd4",
         "size": "sd5",
-        "tag": [],
+        "tags": [],
         "updated_at": "sd7",
         "url": "sd8",
+        "tag": "TAG01",
         "text": "TEXT01"
       }
     }
@@ -39,7 +42,7 @@
         "created_at": "s118",
         "mimetype": "s11a",
         "size": "s11b",
-        "tag": [],
+        "tags": [],
         "updated_at": "s11d",
         "url": "s11e"
       }

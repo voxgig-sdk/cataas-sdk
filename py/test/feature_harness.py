@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import CataasControl
-from core.error import CataasError
-from core.result import CataasResult
-from core.spec import CataasSpec
+from cataas_sdk.config import make_config
+from cataas_sdk.features import _make_feature
+from cataas_sdk.core.control import CataasControl
+from cataas_sdk.core.error import CataasError
+from cataas_sdk.core.result import CataasResult
+from cataas_sdk.core.spec import CataasSpec
 
 
 # True when this SDK was generated with the named feature.

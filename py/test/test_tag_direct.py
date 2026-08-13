@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cataas_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cataas_sdk import CataasSDK
-from core import helpers
+from cataas_sdk.core import helpers
 from test import runner
 
 

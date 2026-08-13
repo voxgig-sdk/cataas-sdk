@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = CataasSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = CataasSDK.test({
+  entity: {
+    cat: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const cats = await client.Cat().list()
-// cats is an array of bare Cat records populated with mock data
+// cats is an array of Cat entities, populated with mock data
+// — call cats[0].data() for the record itself
 console.log(cats)
 ```
 
@@ -110,7 +119,7 @@ import { CataasSDK } from '@voxgig-sdk/cataas'
 
 const client = new CataasSDK()
 
-// List all cats (returns Cat[])
+// List all cats (returns CatEntity[] — .data() for the record)
 const cats = await client.Cat().list()
 for (const cat of cats) {
   console.log(cat)
@@ -192,7 +201,7 @@ $client = new CataasSDK();
 $cats = $client->Cat()->list();
 print_r($cats);
 
-// Load a specific cat (returns the bare record; throws on error)
+// Load a specific cat (returns the ENTITY; call data_get() for the record; throws on error)
 $cat = $client->Cat()->load(["id" => "example_id"]);
 print_r($cat);
 ```
@@ -223,7 +232,7 @@ client = CataasSDK.new
 cats = client.Cat.list
 puts cats
 
-# Load a specific cat (returns the bare record; raises on error)
+# Load a specific cat (returns the ENTITY; call data_get for the record)
 cat = client.Cat.load({ "id" => "example_id" })
 puts cat
 ```
@@ -360,6 +369,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://cataas.com/](https://cataas.com/)
 

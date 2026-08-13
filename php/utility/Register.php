@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ CataasUtility::setRegistrar(function (CataasUtility $u): void {
     $u->prepare_params = [CataasPrepareParams::class, 'call'];
     $u->prepare_path = [CataasPreparePath::class, 'call'];
     $u->prepare_query = [CataasPrepareQuery::class, 'call'];
+    $u->graphql_body = [CataasGraphql::class, 'body'];
+    $u->graphql_errors = [CataasGraphql::class, 'errors'];
     $u->result_basic = [CataasResultBasic::class, 'call'];
     $u->result_body = [CataasResultBody::class, 'call'];
     $u->result_headers = [CataasResultHeaders::class, 'call'];

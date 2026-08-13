@@ -128,7 +128,7 @@ func TestCatEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		catRef01DataDt0LoadResult := core.ToMapAny(catRef01DataDt0Loaded)
+		catRef01DataDt0LoadResult := core.ToMapAny(entityData(catRef01DataDt0Loaded))
 		if catRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}

@@ -101,7 +101,7 @@ cat = client.Cat
 | `id` | `String` | No |  |
 | `mimetype` | `String` | No |  |
 | `size` | `Integer` | No |  |
-| `tag` | `Array` | No |  |
+| `tags` | `Array` | No |  |
 | `updated_at` | `String` | No |  |
 | `url` | `String` | No |  |
 

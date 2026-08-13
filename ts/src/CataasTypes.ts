@@ -10,7 +10,7 @@ export interface Cat {
   id?: string
   mimetype?: string
   size?: number
-  tag?: any[]
+  tags?: any[]
   updated_at?: string
   url?: string
 }
@@ -26,9 +26,15 @@ export interface CatListMatch {
   id?: string
   mimetype?: string
   size?: number
-  tag?: any[]
+  tags?: any[]
   updated_at?: string
   url?: string
+
+  // Selects a custom action instead of the plain list:
+  //   'gif'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Tag {

@@ -56,7 +56,7 @@ module CataasConfig
             },
             {
               "active" => true,
-              "name" => "tag",
+              "name" => "tags",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 4,
@@ -192,6 +192,7 @@ module CataasConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/cat",
                   "parts" => [
@@ -216,7 +217,7 @@ module CataasConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.tags`",
                   },
                   "index$" => 0,
                 },
@@ -258,6 +259,7 @@ module CataasConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/cat/gif",
                   "parts" => [
@@ -275,7 +277,7 @@ module CataasConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.tags`",
                   },
                   "index$" => 1,
                 },
@@ -312,6 +314,7 @@ module CataasConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/cats",
                   "parts" => [
@@ -430,6 +433,7 @@ module CataasConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/cat/{tag}/says/{text}",
                   "parts" => [
@@ -540,6 +544,7 @@ module CataasConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/cat/says/{text}",
                   "parts" => [
@@ -632,6 +637,7 @@ module CataasConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/cat/gif/says/{text}",
                   "parts" => [
@@ -723,6 +729,7 @@ module CataasConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/cat/{tag}",
                   "parts" => [
@@ -775,6 +782,7 @@ module CataasConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/tags",
                   "parts" => [

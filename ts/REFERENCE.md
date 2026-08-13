@@ -132,9 +132,29 @@ const cat = client.Cat()
 | `id` | `string` | No |  |
 | `mimetype` | `string` | No |  |
 | `size` | `number` | No |  |
-| `tag` | `any[]` | No |  |
+| `tags` | `any[]` | No |  |
 | `updated_at` | `string` | No |  |
 | `url` | `string` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `gif` | `/cat/gif` | `client.Cat().list({ $action: 'gif', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Cat record — check the API definition for its shape.
+
+```ts
+const result = await client.Cat().list({
+  $action: 'gif',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 

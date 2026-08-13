@@ -19,7 +19,7 @@ class Cat
     public ?string $id = null;
     public ?string $mimetype = null;
     public ?int $size = null;
-    public ?array $tag = null;
+    public ?array $tags = null;
     public ?string $updated_at = null;
     public ?string $url = null;
 }
@@ -39,7 +39,7 @@ class CatListMatch
     public ?string $id = null;
     public ?string $mimetype = null;
     public ?int $size = null;
-    public ?array $tag = null;
+    public ?array $tags = null;
     public ?string $updated_at = null;
     public ?string $url = null;
 }

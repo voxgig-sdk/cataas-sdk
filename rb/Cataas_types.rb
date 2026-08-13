@@ -22,7 +22,7 @@
 # @!attribute [rw] size
 #   @return [Integer, nil]
 #
-# @!attribute [rw] tag
+# @!attribute [rw] tags
 #   @return [Array, nil]
 #
 # @!attribute [rw] updated_at
@@ -35,7 +35,7 @@ Cat = Struct.new(
   :id,
   :mimetype,
   :size,
-  :tag,
+  :tags,
   :updated_at,
   :url,
   keyword_init: true
@@ -72,7 +72,7 @@ CatLoadMatch = Struct.new(
 # @!attribute [rw] size
 #   @return [Integer, nil]
 #
-# @!attribute [rw] tag
+# @!attribute [rw] tags
 #   @return [Array, nil]
 #
 # @!attribute [rw] updated_at
@@ -85,7 +85,7 @@ CatListMatch = Struct.new(
   :id,
   :mimetype,
   :size,
-  :tag,
+  :tags,
   :updated_at,
   :url,
   keyword_init: true

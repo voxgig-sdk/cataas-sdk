@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import CataasSDK
-from core.error import CataasError
-from core.result import CataasResult
-from core.response import CataasResponse
-from core.spec import CataasSpec
-from feature.base_feature import CataasBaseFeature
+from projectname_sdk.core.error import CataasError
+from projectname_sdk.core.result import CataasResult
+from projectname_sdk.core.response import CataasResponse
+from projectname_sdk.core.spec import CataasSpec
+from projectname_sdk.feature.base_feature import CataasBaseFeature
 
 
 def _client():

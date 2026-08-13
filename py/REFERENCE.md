@@ -95,7 +95,7 @@ cat = client.Cat()
 | `id` | `str` | No |  |
 | `mimetype` | `str` | No |  |
 | `size` | `int` | No |  |
-| `tag` | `list` | No |  |
+| `tags` | `list` | No |  |
 | `updated_at` | `str` | No |  |
 | `url` | `str` | No |  |
 

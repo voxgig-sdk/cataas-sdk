@@ -274,7 +274,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"id"` |  |
 | `"mimetype"` |  |
 | `"size"` |  |
-| `"tag"` |  |
+| `"tags"` |  |
 | `"updated_at"` |  |
 | `"url"` |  |
 
@@ -315,7 +315,7 @@ Create an instance: `cat := client.Cat(nil)`
 | `id` | `string` |  |
 | `mimetype` | `string` |  |
 | `size` | `int` |  |
-| `tag` | `[]any` |  |
+| `tags` | `[]any` |  |
 | `updated_at` | `string` |  |
 | `url` | `string` |  |
 

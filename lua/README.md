@@ -246,7 +246,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `id` |  |
 | `mimetype` |  |
 | `size` |  |
-| `tag` |  |
+| `tags` |  |
 | `updated_at` |  |
 | `url` |  |
 
@@ -287,7 +287,7 @@ Create an instance: `local cat = client:Cat(nil)`
 | `id` | `string` |  |
 | `mimetype` | `string` |  |
 | `size` | `number` |  |
-| `tag` | `table` |  |
+| `tags` | `table` |  |
 | `updated_at` | `string` |  |
 | `url` | `string` |  |
 

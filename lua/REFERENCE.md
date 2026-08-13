@@ -98,7 +98,7 @@ local cat = client:Cat(nil)
 | `id` | `string` | No |  |
 | `mimetype` | `string` | No |  |
 | `size` | `number` | No |  |
-| `tag` | `table` | No |  |
+| `tags` | `table` | No |  |
 | `updated_at` | `string` | No |  |
 | `url` | `string` | No |  |
 

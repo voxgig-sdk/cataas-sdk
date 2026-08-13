@@ -37,7 +37,7 @@ class TagEntity extends CataasEntityBase<Tag> {
 
 
 
-  async list(this: any, reqmatch?: TagListMatch, ctrl?: Control): Promise<Tag[]> {
+  async list(this: any, reqmatch?: TagListMatch, ctrl?: Control): Promise<TagEntity[]> {
 
     const utility = this._utility
 

@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Cataas SDK exists test
 
 import pytest
 from cataas_sdk import CataasSDK

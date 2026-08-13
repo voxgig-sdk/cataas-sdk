@@ -35,7 +35,9 @@ const client = new CataasSDK()
 
 ### 2. List cat records
 
-`list()` resolves to an array of Cat objects — iterate it directly:
+`list()` resolves to an array of Cat ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const cats = await client.Cat().list()
@@ -133,7 +135,8 @@ Create a mock client for unit testing — no server required:
 const client = CataasSDK.test()
 
 const cat = await client.Cat().list()
-// cat is a bare entity populated with mock response data
+// cat is the entity, populated with mock response data
+// — call cat.data() for the record itself
 console.log(cat)
 ```
 
@@ -304,7 +307,7 @@ The `prepare()` method returns:
 | `id` |  |
 | `mimetype` |  |
 | `size` |  |
-| `tag` |  |
+| `tags` |  |
 | `updated_at` |  |
 | `url` |  |
 
@@ -345,7 +348,7 @@ Create an instance: `const cat = client.Cat()`
 | `id` | `string` |  |
 | `mimetype` | `string` |  |
 | `size` | `number` |  |
-| `tag` | `any[]` |  |
+| `tags` | `any[]` |  |
 | `updated_at` | `string` |  |
 | `url` | `string` |  |
 

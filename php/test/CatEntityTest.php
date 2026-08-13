@@ -97,7 +97,7 @@ class CatEntityTest extends TestCase
             "id" => $cat_ref01_data["id"],
         ];
         $cat_ref01_data_dt0_loaded = $cat_ref01_ent->load($cat_ref01_match_dt0, null);
-        $cat_ref01_data_dt0_load_result = Helpers::to_map($cat_ref01_data_dt0_loaded);
+        $cat_ref01_data_dt0_load_result = Helpers::to_map(is_object($cat_ref01_data_dt0_loaded) && method_exists($cat_ref01_data_dt0_loaded, 'data_get') ? $cat_ref01_data_dt0_loaded->data_get() : $cat_ref01_data_dt0_loaded);
         $this->assertNotNull($cat_ref01_data_dt0_load_result);
         $this->assertEquals($cat_ref01_data_dt0_load_result["id"], $cat_ref01_data["id"]);
 

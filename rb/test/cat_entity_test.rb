@@ -87,7 +87,7 @@ class CatEntityTest < Minitest::Test
       "id" => cat_ref01_data["id"],
     }
     cat_ref01_data_dt0_loaded = cat_ref01_ent.load(cat_ref01_match_dt0, nil)
-    cat_ref01_data_dt0_load_result = Helpers.to_map(cat_ref01_data_dt0_loaded)
+    cat_ref01_data_dt0_load_result = Helpers.to_map(cat_ref01_data_dt0_loaded.respond_to?(:data_get) ? cat_ref01_data_dt0_loaded.data_get : cat_ref01_data_dt0_loaded)
     assert !cat_ref01_data_dt0_load_result.nil?
     assert_equal cat_ref01_data_dt0_load_result["id"], cat_ref01_data["id"]
 

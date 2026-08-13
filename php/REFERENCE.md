@@ -100,7 +100,7 @@ $cat = $client->Cat();
 | `id` | `string` | No |  |
 | `mimetype` | `string` | No |  |
 | `size` | `int` | No |  |
-| `tag` | `array` | No |  |
+| `tags` | `array` | No |  |
 | `updated_at` | `string` | No |  |
 | `url` | `string` | No |  |
 

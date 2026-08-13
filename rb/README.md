@@ -48,7 +48,7 @@ end
 
 ```ruby
 begin
-  # load returns the bare Cat record (raises on error).
+  # load returns the ENTITY — call data_get for the Cat record (raises on error).
   cat = client.Cat.load({ "id" => "example_id" })
   puts cat
 rescue => err
@@ -134,7 +134,8 @@ client = CataasSDK.test({
   "entity" => { "cat" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 cat = client.Cat.list()
 puts cat
 ```
@@ -257,7 +258,7 @@ returns a result `Hash` with these keys:
 | `id` |  |
 | `mimetype` |  |
 | `size` |  |
-| `tag` |  |
+| `tags` |  |
 | `updated_at` |  |
 | `url` |  |
 
@@ -298,14 +299,14 @@ Create an instance: `cat = client.Cat`
 | `id` | `String` |  |
 | `mimetype` | `String` |  |
 | `size` | `Integer` |  |
-| `tag` | `Array` |  |
+| `tags` | `Array` |  |
 | `updated_at` | `String` |  |
 | `url` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Cat record (raises on error).
+# load returns the ENTITY — call data_get for the Cat record (raises on error).
 cat = client.Cat.load({ "id" => "cat_id" })
 ```
 

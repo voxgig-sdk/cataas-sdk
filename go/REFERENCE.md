@@ -106,7 +106,7 @@ fmt.Println(cat.GetName()) // "cat"
 | `id` | `string` | No |  |
 | `mimetype` | `string` | No |  |
 | `size` | `int` | No |  |
-| `tag` | `[]any` | No |  |
+| `tags` | `[]any` | No |  |
 | `updated_at` | `string` | No |  |
 | `url` | `string` | No |  |
 

@@ -11,7 +11,7 @@
 ---@field id? string
 ---@field mimetype? string
 ---@field size? number
----@field tag? table
+---@field tags? table
 ---@field updated_at? string
 ---@field url? string
 
@@ -25,7 +25,7 @@
 ---@field id? string
 ---@field mimetype? string
 ---@field size? number
----@field tag? table
+---@field tags? table
 ---@field updated_at? string
 ---@field url? string
 

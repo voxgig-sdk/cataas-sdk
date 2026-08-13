@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ CataasUtility.registrar = ->(u) {
   u.prepare_params = CataasUtilities::PrepareParams
   u.prepare_path = CataasUtilities::PreparePath
   u.prepare_query = CataasUtilities::PrepareQuery
+  u.graphql_body = CataasUtilities::GraphqlBody
+  u.graphql_errors = CataasUtilities::GraphqlErrors
   u.result_basic = CataasUtilities::ResultBasic
   u.result_body = CataasUtilities::ResultBody
   u.result_headers = CataasUtilities::ResultHeaders

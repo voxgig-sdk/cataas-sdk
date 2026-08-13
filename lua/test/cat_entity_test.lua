@@ -97,7 +97,7 @@ describe("CatEntity", function()
     }
     local cat_ref01_data_dt0_loaded, err = cat_ref01_ent:load(cat_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local cat_ref01_data_dt0_load_result = helpers.to_map(cat_ref01_data_dt0_loaded)
+    local cat_ref01_data_dt0_load_result = helpers.to_map(type(cat_ref01_data_dt0_loaded) == 'table' and cat_ref01_data_dt0_loaded.data_get and cat_ref01_data_dt0_loaded:data_get() or cat_ref01_data_dt0_loaded)
     assert.is_not_nil(cat_ref01_data_dt0_load_result)
     assert.are.equal(cat_ref01_data_dt0_load_result["id"], cat_ref01_data["id"])
 

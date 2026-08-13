@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Cataas',
   }
 
 
@@ -87,7 +87,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "tag",
+          "name": "tags",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 4
@@ -223,6 +223,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/cat",
               "parts": [
@@ -247,7 +248,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.tags`"
               },
               "index$": 0
             },
@@ -289,6 +290,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/cat/gif",
               "parts": [
@@ -306,7 +308,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.tags`"
               },
               "index$": 1
             },
@@ -343,6 +345,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/cats",
               "parts": [
@@ -461,6 +464,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/cat/{tag}/says/{text}",
               "parts": [
@@ -571,6 +575,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/cat/says/{text}",
               "parts": [
@@ -663,6 +668,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/cat/gif/says/{text}",
               "parts": [
@@ -754,6 +760,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/cat/{tag}",
               "parts": [
@@ -806,6 +813,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/api/tags",
               "parts": [
