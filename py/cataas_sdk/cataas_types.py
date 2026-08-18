@@ -26,9 +26,7 @@ class Cat(TypedDict, total=False):
     url: str
 
 
-class CatLoadMatch(TypedDict, total=False):
-    tag: str
-    text: str
+class CatLoadMatch(TypedDict):
     id: str
 
 

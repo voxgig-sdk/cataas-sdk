@@ -1,7 +1,30 @@
 # Cataas SDK configuration
 
 
+_shared_config = None
+
+
+def shared_config():
+    """Return the process-wide config, built once on first use.
+
+    The SDK reads the config on every request and never writes to it, so one
+    instance is shared by every client rather than rebuilt per client.
+
+    The returned dict is shared: treat it as read-only. Callers that need to
+    mutate should use make_config, which always returns a fresh copy.
+    """
+    global _shared_config
+    if _shared_config is None:
+        _shared_config = make_config()
+    return _shared_config
+
+
 def make_config():
+    """Build a fresh, fully materialised config dict.
+
+    Every call rebuilds the whole structure, so prefer shared_config unless
+    you need a private copy you intend to mutate.
+    """
     return {
         "main": {
             "name": "Cataas",
@@ -27,53 +50,32 @@ def make_config():
       "cat": {
         "fields": [
           {
-            "active": True,
             "name": "created_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "id",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "mimetype",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "size",
-            "req": False,
             "type": "`$INTEGER`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "tags",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "updated_at",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
         ],
         "name": "cat",
@@ -83,111 +85,84 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "b",
                       "orig": "b",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "brightness",
                       "orig": "brightness",
-                      "reqd": False,
                       "type": "`$NUMBER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "filter",
                       "orig": "filter",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "g",
                       "orig": "g",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "height",
                       "orig": "height",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "html",
                       "orig": "html",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "hue",
                       "orig": "hue",
-                      "reqd": False,
                       "type": "`$NUMBER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "json",
                       "orig": "json",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "lightness",
                       "orig": "lightness",
-                      "reqd": False,
                       "type": "`$NUMBER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "r",
                       "orig": "r",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "saturation",
                       "orig": "saturation",
-                      "reqd": False,
                       "type": "`$NUMBER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "type",
                       "orig": "type",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "width",
                       "orig": "width",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -219,42 +194,32 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.tags`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "filter",
                       "orig": "filter",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "html",
                       "orig": "html",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "json",
                       "orig": "json",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "type",
                       "orig": "type",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                   ],
@@ -279,37 +244,29 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.tags`",
                 },
-                "index$": 1,
               },
               {
-                "active": True,
                 "args": {
                   "query": [
                     {
-                      "active": True,
                       "example": 10,
                       "kind": "query",
                       "name": "limit",
                       "orig": "limit",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "example": 0,
                       "kind": "query",
                       "name": "skip",
                       "orig": "skip",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "example": "cute,funny",
                       "kind": "query",
                       "name": "tag",
                       "orig": "tag",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                   ],
@@ -332,103 +289,80 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 2,
               },
             ],
-            "key$": "list",
           },
           "load": {
             "input": "data",
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "example": "cute",
                       "kind": "param",
                       "name": "tag",
                       "orig": "tag",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                     {
-                      "active": True,
                       "example": "hello",
                       "kind": "param",
                       "name": "text",
                       "orig": "text",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 1,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "filter",
                       "orig": "filter",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "font_color",
                       "orig": "font_color",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "font_size",
                       "orig": "font_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "height",
                       "orig": "height",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "html",
                       "orig": "html",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "json",
                       "orig": "json",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "type",
                       "orig": "type",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "width",
                       "orig": "width",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -460,86 +394,66 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "example": "hello",
                       "kind": "param",
                       "name": "text",
                       "orig": "text",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "filter",
                       "orig": "filter",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "font_color",
                       "orig": "font_color",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "font_size",
                       "orig": "font_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "height",
                       "orig": "height",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "html",
                       "orig": "html",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "json",
                       "orig": "json",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "type",
                       "orig": "type",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "width",
                       "orig": "width",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -569,70 +483,54 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 1,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "example": "Hello",
                       "kind": "param",
                       "name": "text",
                       "orig": "text",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "filter",
                       "orig": "filter",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "font_color",
                       "orig": "font_color",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "font_size",
                       "orig": "font_size",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "html",
                       "orig": "html",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "json",
                       "orig": "json",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "type",
                       "orig": "type",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                   ],
@@ -661,70 +559,54 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 2,
               },
               {
-                "active": True,
                 "args": {
                   "params": [
                     {
-                      "active": True,
                       "example": "orange,cute",
                       "kind": "param",
                       "name": "id",
                       "orig": "tag",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "index$": 0,
                     },
                   ],
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "filter",
                       "orig": "filter",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "height",
                       "orig": "height",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "html",
                       "orig": "html",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "json",
                       "orig": "json",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "type",
                       "orig": "type",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "width",
                       "orig": "width",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                   ],
@@ -756,10 +638,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 3,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -780,7 +660,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "GET",
@@ -794,10 +673,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
         },
         "relations": {

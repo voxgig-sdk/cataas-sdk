@@ -25,9 +25,7 @@ type Cat struct {
 
 // CatLoadMatch is the typed request payload for Cat.LoadTyped.
 type CatLoadMatch struct {
-	Tag *string `json:"tag,omitempty"`
-	Text *string `json:"text,omitempty"`
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 }
 
 // CatListMatch is the typed request payload for Cat.ListTyped.

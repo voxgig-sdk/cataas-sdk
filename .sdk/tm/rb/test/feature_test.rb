@@ -15,7 +15,7 @@ require_relative "../Cataas_sdk"
 module CataasFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = CataasConfig.make_config["feature"]
+    f = CataasConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

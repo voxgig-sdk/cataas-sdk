@@ -1,6 +1,20 @@
 # Cataas SDK configuration
 
 module CataasConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -27,53 +41,32 @@ module CataasConfig
         "cat" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "created_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "id",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "mimetype",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "size",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "tags",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "updated_at",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
           ],
           "name" => "cat",
@@ -83,111 +76,84 @@ module CataasConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "b",
                         "orig" => "b",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "brightness",
                         "orig" => "brightness",
-                        "reqd" => false,
                         "type" => "`$NUMBER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "filter",
                         "orig" => "filter",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "g",
                         "orig" => "g",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "height",
                         "orig" => "height",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "html",
                         "orig" => "html",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "hue",
                         "orig" => "hue",
-                        "reqd" => false,
                         "type" => "`$NUMBER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "json",
                         "orig" => "json",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "lightness",
                         "orig" => "lightness",
-                        "reqd" => false,
                         "type" => "`$NUMBER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "r",
                         "orig" => "r",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "saturation",
                         "orig" => "saturation",
-                        "reqd" => false,
                         "type" => "`$NUMBER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "type",
                         "orig" => "type",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "width",
                         "orig" => "width",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -219,42 +185,32 @@ module CataasConfig
                     "req" => "`reqdata`",
                     "res" => "`body.tags`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "filter",
                         "orig" => "filter",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "html",
                         "orig" => "html",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "json",
                         "orig" => "json",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "type",
                         "orig" => "type",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -279,37 +235,29 @@ module CataasConfig
                     "req" => "`reqdata`",
                     "res" => "`body.tags`",
                   },
-                  "index$" => 1,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "example" => 10,
                         "kind" => "query",
                         "name" => "limit",
                         "orig" => "limit",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "example" => 0,
                         "kind" => "query",
                         "name" => "skip",
                         "orig" => "skip",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "example" => "cute,funny",
                         "kind" => "query",
                         "name" => "tag",
                         "orig" => "tag",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -332,103 +280,80 @@ module CataasConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 2,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "example" => "cute",
                         "kind" => "param",
                         "name" => "tag",
                         "orig" => "tag",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                       {
-                        "active" => true,
                         "example" => "hello",
                         "kind" => "param",
                         "name" => "text",
                         "orig" => "text",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 1,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "filter",
                         "orig" => "filter",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "font_color",
                         "orig" => "font_color",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "font_size",
                         "orig" => "font_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "height",
                         "orig" => "height",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "html",
                         "orig" => "html",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "json",
                         "orig" => "json",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "type",
                         "orig" => "type",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "width",
                         "orig" => "width",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -460,86 +385,66 @@ module CataasConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "example" => "hello",
                         "kind" => "param",
                         "name" => "text",
                         "orig" => "text",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "filter",
                         "orig" => "filter",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "font_color",
                         "orig" => "font_color",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "font_size",
                         "orig" => "font_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "height",
                         "orig" => "height",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "html",
                         "orig" => "html",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "json",
                         "orig" => "json",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "type",
                         "orig" => "type",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "width",
                         "orig" => "width",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -569,70 +474,54 @@ module CataasConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "example" => "Hello",
                         "kind" => "param",
                         "name" => "text",
                         "orig" => "text",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "filter",
                         "orig" => "filter",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "font_color",
                         "orig" => "font_color",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "font_size",
                         "orig" => "font_size",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "html",
                         "orig" => "html",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "json",
                         "orig" => "json",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "type",
                         "orig" => "type",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -661,70 +550,54 @@ module CataasConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 2,
                 },
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "example" => "orange,cute",
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "tag",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "filter",
                         "orig" => "filter",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "height",
                         "orig" => "height",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "html",
                         "orig" => "html",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "json",
                         "orig" => "json",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "type",
                         "orig" => "type",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "width",
                         "orig" => "width",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -756,10 +629,8 @@ module CataasConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 3,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -780,7 +651,6 @@ module CataasConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -794,10 +664,8 @@ module CataasConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
           },
           "relations" => {

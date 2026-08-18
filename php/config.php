@@ -5,6 +5,29 @@ declare(strict_types=1);
 
 class CataasConfig
 {
+    /** @var array<string,mixed>|null */
+    private static ?array $shared_config = null;
+
+    /**
+     * Return the process-wide config, built once on first use. The SDK reads
+     * the config on every request and never writes to it, so one instance is
+     * shared by every client rather than rebuilt per client.
+     *
+     * PHP arrays are copy-on-write, so callers that do mutate the result get
+     * their own copy and cannot disturb the shared one.
+     */
+    public static function shared_config(): array
+    {
+        if (self::$shared_config === null) {
+            self::$shared_config = self::make_config();
+        }
+        return self::$shared_config;
+    }
+
+    /**
+     * Build a fresh, fully materialised config array. Every call rebuilds the
+     * whole structure, so prefer shared_config unless you need a private copy.
+     */
     public static function make_config(): array
     {
         return [
@@ -32,53 +55,32 @@ class CataasConfig
         'cat' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'created_at',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'id',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'mimetype',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'size',
-              'req' => false,
               'type' => '`$INTEGER`',
-              'index$' => 3,
             ],
             [
-              'active' => true,
               'name' => 'tags',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 4,
             ],
             [
-              'active' => true,
               'name' => 'updated_at',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 5,
             ],
             [
-              'active' => true,
               'name' => 'url',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 6,
             ],
           ],
           'name' => 'cat',
@@ -88,111 +90,84 @@ class CataasConfig
               'name' => 'list',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'b',
                         'orig' => 'b',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'brightness',
                         'orig' => 'brightness',
-                        'reqd' => false,
                         'type' => '`$NUMBER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'filter',
                         'orig' => 'filter',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'g',
                         'orig' => 'g',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'height',
                         'orig' => 'height',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'html',
                         'orig' => 'html',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'hue',
                         'orig' => 'hue',
-                        'reqd' => false,
                         'type' => '`$NUMBER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'json',
                         'orig' => 'json',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'lightness',
                         'orig' => 'lightness',
-                        'reqd' => false,
                         'type' => '`$NUMBER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'r',
                         'orig' => 'r',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'saturation',
                         'orig' => 'saturation',
-                        'reqd' => false,
                         'type' => '`$NUMBER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'type',
                         'orig' => 'type',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'width',
                         'orig' => 'width',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                     ],
@@ -224,42 +199,32 @@ class CataasConfig
                     'req' => '`reqdata`',
                     'res' => '`body.tags`',
                   ],
-                  'index$' => 0,
                 ],
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'filter',
                         'orig' => 'filter',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'html',
                         'orig' => 'html',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'json',
                         'orig' => 'json',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'type',
                         'orig' => 'type',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                     ],
@@ -284,37 +249,29 @@ class CataasConfig
                     'req' => '`reqdata`',
                     'res' => '`body.tags`',
                   ],
-                  'index$' => 1,
                 ],
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'example' => 10,
                         'kind' => 'query',
                         'name' => 'limit',
                         'orig' => 'limit',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'example' => 0,
                         'kind' => 'query',
                         'name' => 'skip',
                         'orig' => 'skip',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'cute,funny',
                         'kind' => 'query',
                         'name' => 'tag',
                         'orig' => 'tag',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                     ],
@@ -337,103 +294,80 @@ class CataasConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 2,
                 ],
               ],
-              'key$' => 'list',
             ],
             'load' => [
               'input' => 'data',
               'name' => 'load',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'params' => [
                       [
-                        'active' => true,
                         'example' => 'cute',
                         'kind' => 'param',
                         'name' => 'tag',
                         'orig' => 'tag',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 0,
                       ],
                       [
-                        'active' => true,
                         'example' => 'hello',
                         'kind' => 'param',
                         'name' => 'text',
                         'orig' => 'text',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                     ],
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'filter',
                         'orig' => 'filter',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'font_color',
                         'orig' => 'font_color',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'font_size',
                         'orig' => 'font_size',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'height',
                         'orig' => 'height',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'html',
                         'orig' => 'html',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'json',
                         'orig' => 'json',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'type',
                         'orig' => 'type',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'width',
                         'orig' => 'width',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                     ],
@@ -465,86 +399,66 @@ class CataasConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
                 [
-                  'active' => true,
                   'args' => [
                     'params' => [
                       [
-                        'active' => true,
                         'example' => 'hello',
                         'kind' => 'param',
                         'name' => 'text',
                         'orig' => 'text',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 0,
                       ],
                     ],
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'filter',
                         'orig' => 'filter',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'font_color',
                         'orig' => 'font_color',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'font_size',
                         'orig' => 'font_size',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'height',
                         'orig' => 'height',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'html',
                         'orig' => 'html',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'json',
                         'orig' => 'json',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'type',
                         'orig' => 'type',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'width',
                         'orig' => 'width',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                     ],
@@ -574,70 +488,54 @@ class CataasConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 1,
                 ],
                 [
-                  'active' => true,
                   'args' => [
                     'params' => [
                       [
-                        'active' => true,
                         'example' => 'Hello',
                         'kind' => 'param',
                         'name' => 'text',
                         'orig' => 'text',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 0,
                       ],
                     ],
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'filter',
                         'orig' => 'filter',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'font_color',
                         'orig' => 'font_color',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'font_size',
                         'orig' => 'font_size',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'html',
                         'orig' => 'html',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'json',
                         'orig' => 'json',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'type',
                         'orig' => 'type',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                     ],
@@ -666,70 +564,54 @@ class CataasConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 2,
                 ],
                 [
-                  'active' => true,
                   'args' => [
                     'params' => [
                       [
-                        'active' => true,
                         'example' => 'orange,cute',
                         'kind' => 'param',
                         'name' => 'id',
                         'orig' => 'tag',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 0,
                       ],
                     ],
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'filter',
                         'orig' => 'filter',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'height',
                         'orig' => 'height',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'html',
                         'orig' => 'html',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'json',
                         'orig' => 'json',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'type',
                         'orig' => 'type',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'width',
                         'orig' => 'width',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                     ],
@@ -761,10 +643,8 @@ class CataasConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 3,
                 ],
               ],
-              'key$' => 'load',
             ],
           ],
           'relations' => [
@@ -785,7 +665,6 @@ class CataasConfig
               'name' => 'list',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
@@ -799,10 +678,8 @@ class CataasConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'list',
             ],
           ],
           'relations' => [

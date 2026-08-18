@@ -43,17 +43,9 @@ Cat = Struct.new(
 
 # Request payload for Cat#load.
 #
-# @!attribute [rw] tag
-#   @return [String, nil]
-#
-# @!attribute [rw] text
-#   @return [String, nil]
-#
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
 CatLoadMatch = Struct.new(
-  :tag,
-  :text,
   :id,
   keyword_init: true
 )

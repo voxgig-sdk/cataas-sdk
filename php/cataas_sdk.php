@@ -40,7 +40,7 @@ class CataasSDK
         $utility = new CataasUtility();
         $this->_utility = $utility;
 
-        $config = CataasConfig::make_config();
+        $config = CataasConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

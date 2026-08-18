@@ -28,7 +28,7 @@ class CataasSDK
     utility = CataasUtility.new
     @_utility = utility
 
-    config = CataasConfig.make_config
+    config = CataasConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
