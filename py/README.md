@@ -257,13 +257,13 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `created_at` |  |
-| `id` |  |
-| `mimetype` |  |
-| `size` |  |
-| `tags` |  |
-| `updated_at` |  |
-| `url` |  |
+| `created_at` | Creation timestamp |
+| `id` | Unique identifier for the cat |
+| `mimetype` | MIME type of the image |
+| `size` | Size of the image in bytes |
+| `tags` | Tags associated with the cat |
+| `updated_at` | Last update timestamp |
+| `url` | URL to access the cat image |
 
 Operations: List, Load.
 
@@ -298,13 +298,13 @@ Create an instance: `cat = client.Cat()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `created_at` | `str` |  |
-| `id` | `str` |  |
-| `mimetype` | `str` |  |
-| `size` | `int` |  |
-| `tags` | `list` |  |
-| `updated_at` | `str` |  |
-| `url` | `str` |  |
+| `created_at` | `str` | Creation timestamp |
+| `id` | `str` | Unique identifier for the cat |
+| `mimetype` | `str` | MIME type of the image |
+| `size` | `int` | Size of the image in bytes |
+| `tags` | `list` | Tags associated with the cat |
+| `updated_at` | `str` | Last update timestamp |
+| `url` | `str` | URL to access the cat image |
 
 #### Example: Load
 

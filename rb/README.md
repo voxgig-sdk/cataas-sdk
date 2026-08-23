@@ -254,13 +254,13 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `created_at` |  |
-| `id` |  |
-| `mimetype` |  |
-| `size` |  |
-| `tags` |  |
-| `updated_at` |  |
-| `url` |  |
+| `created_at` | Creation timestamp |
+| `id` | Unique identifier for the cat |
+| `mimetype` | MIME type of the image |
+| `size` | Size of the image in bytes |
+| `tags` | Tags associated with the cat |
+| `updated_at` | Last update timestamp |
+| `url` | URL to access the cat image |
 
 Operations: List, Load.
 
@@ -295,13 +295,13 @@ Create an instance: `cat = client.Cat`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `created_at` | `String` |  |
-| `id` | `String` |  |
-| `mimetype` | `String` |  |
-| `size` | `Integer` |  |
-| `tags` | `Array` |  |
-| `updated_at` | `String` |  |
-| `url` | `String` |  |
+| `created_at` | `String` | Creation timestamp |
+| `id` | `String` | Unique identifier for the cat |
+| `mimetype` | `String` | MIME type of the image |
+| `size` | `Integer` | Size of the image in bytes |
+| `tags` | `Array` | Tags associated with the cat |
+| `updated_at` | `String` | Last update timestamp |
+| `url` | `String` | URL to access the cat image |
 
 #### Example: Load
 

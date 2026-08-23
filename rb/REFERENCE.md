@@ -97,13 +97,13 @@ cat = client.Cat
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created_at` | `String` | No |  |
-| `id` | `String` | No |  |
-| `mimetype` | `String` | No |  |
-| `size` | `Integer` | No |  |
-| `tags` | `Array` | No |  |
-| `updated_at` | `String` | No |  |
-| `url` | `String` | No |  |
+| `created_at` | `String` | No | Creation timestamp |
+| `id` | `String` | No | Unique identifier for the cat |
+| `mimetype` | `String` | No | MIME type of the image |
+| `size` | `Integer` | No | Size of the image in bytes |
+| `tags` | `Array` | No | Tags associated with the cat |
+| `updated_at` | `String` | No | Last update timestamp |
+| `url` | `String` | No | URL to access the cat image |
 
 ### Operations
 

@@ -8,36 +8,43 @@ main: kit: entity: cat: {
     {
       name: "created_at"
       req: false
+      short: "Creation timestamp"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the cat"
       type: "`$STRING`"
     }
     {
       name: "mimetype"
       req: false
+      short: "MIME type of the image"
       type: "`$STRING`"
     }
     {
       name: "size"
       req: false
+      short: "Size of the image in bytes"
       type: "`$INTEGER`"
     }
     {
       name: "tags"
       req: false
+      short: "Tags associated with the cat"
       type: "`$ARRAY`"
     }
     {
       name: "updated_at"
       req: false
+      short: "Last update timestamp"
       type: "`$STRING`"
     }
     {
       name: "url"
       req: false
+      short: "URL to access the cat image"
       type: "`$STRING`"
     }
   ]

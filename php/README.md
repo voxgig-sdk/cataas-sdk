@@ -264,13 +264,13 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `created_at` |  |
-| `id` |  |
-| `mimetype` |  |
-| `size` |  |
-| `tags` |  |
-| `updated_at` |  |
-| `url` |  |
+| `created_at` | Creation timestamp |
+| `id` | Unique identifier for the cat |
+| `mimetype` | MIME type of the image |
+| `size` | Size of the image in bytes |
+| `tags` | Tags associated with the cat |
+| `updated_at` | Last update timestamp |
+| `url` | URL to access the cat image |
 
 Operations: List, Load.
 
@@ -305,13 +305,13 @@ Create an instance: `$cat = $client->Cat();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `mimetype` | `string` |  |
-| `size` | `int` |  |
-| `tags` | `array` |  |
-| `updated_at` | `string` |  |
-| `url` | `string` |  |
+| `created_at` | `string` | Creation timestamp |
+| `id` | `string` | Unique identifier for the cat |
+| `mimetype` | `string` | MIME type of the image |
+| `size` | `int` | Size of the image in bytes |
+| `tags` | `array` | Tags associated with the cat |
+| `updated_at` | `string` | Last update timestamp |
+| `url` | `string` | URL to access the cat image |
 
 #### Example: Load
 

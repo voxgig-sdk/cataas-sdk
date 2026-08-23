@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'Cataas',
+        slug: "cataas",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -59,30 +70,37 @@ class Config {
       "fields": [
         {
           "name": "created_at",
+          "short": "Creation timestamp",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the cat",
           "type": "`$STRING`"
         },
         {
           "name": "mimetype",
+          "short": "MIME type of the image",
           "type": "`$STRING`"
         },
         {
           "name": "size",
+          "short": "Size of the image in bytes",
           "type": "`$INTEGER`"
         },
         {
           "name": "tags",
+          "short": "Tags associated with the cat",
           "type": "`$ARRAY`"
         },
         {
           "name": "updated_at",
+          "short": "Last update timestamp",
           "type": "`$STRING`"
         },
         {
           "name": "url",
+          "short": "URL to access the cat image",
           "type": "`$STRING`"
         }
       ],

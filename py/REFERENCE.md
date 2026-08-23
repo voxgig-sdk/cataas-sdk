@@ -91,13 +91,13 @@ cat = client.Cat()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created_at` | `str` | No |  |
-| `id` | `str` | No |  |
-| `mimetype` | `str` | No |  |
-| `size` | `int` | No |  |
-| `tags` | `list` | No |  |
-| `updated_at` | `str` | No |  |
-| `url` | `str` | No |  |
+| `created_at` | `str` | No | Creation timestamp |
+| `id` | `str` | No | Unique identifier for the cat |
+| `mimetype` | `str` | No | MIME type of the image |
+| `size` | `int` | No | Size of the image in bytes |
+| `tags` | `list` | No | Tags associated with the cat |
+| `updated_at` | `str` | No | Last update timestamp |
+| `url` | `str` | No | URL to access the cat image |
 
 ### Operations
 

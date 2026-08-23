@@ -96,13 +96,13 @@ $cat = $client->Cat();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created_at` | `string` | No |  |
-| `id` | `string` | No |  |
-| `mimetype` | `string` | No |  |
-| `size` | `int` | No |  |
-| `tags` | `array` | No |  |
-| `updated_at` | `string` | No |  |
-| `url` | `string` | No |  |
+| `created_at` | `string` | No | Creation timestamp |
+| `id` | `string` | No | Unique identifier for the cat |
+| `mimetype` | `string` | No | MIME type of the image |
+| `size` | `int` | No | Size of the image in bytes |
+| `tags` | `array` | No | Tags associated with the cat |
+| `updated_at` | `string` | No | Last update timestamp |
+| `url` | `string` | No | URL to access the cat image |
 
 ### Operations
 

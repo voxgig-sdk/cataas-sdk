@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -303,13 +303,13 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `created_at` |  |
-| `id` |  |
-| `mimetype` |  |
-| `size` |  |
-| `tags` |  |
-| `updated_at` |  |
-| `url` |  |
+| `created_at` | Creation timestamp |
+| `id` | Unique identifier for the cat |
+| `mimetype` | MIME type of the image |
+| `size` | Size of the image in bytes |
+| `tags` | Tags associated with the cat |
+| `updated_at` | Last update timestamp |
+| `url` | URL to access the cat image |
 
 Operations: list, load.
 
@@ -344,13 +344,13 @@ Create an instance: `const cat = client.Cat()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `mimetype` | `string` |  |
-| `size` | `number` |  |
-| `tags` | `any[]` |  |
-| `updated_at` | `string` |  |
-| `url` | `string` |  |
+| `created_at` | `string` | Creation timestamp |
+| `id` | `string` | Unique identifier for the cat |
+| `mimetype` | `string` | MIME type of the image |
+| `size` | `number` | Size of the image in bytes |
+| `tags` | `any[]` | Tags associated with the cat |
+| `updated_at` | `string` | Last update timestamp |
+| `url` | `string` | URL to access the cat image |
 
 #### Example: Load
 

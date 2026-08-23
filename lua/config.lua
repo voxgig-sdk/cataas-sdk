@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "Cataas",
+      slug = "cataas",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -30,30 +33,37 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "created_at",
+            ["short"] = "Creation timestamp",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "id",
+            ["short"] = "Unique identifier for the cat",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "mimetype",
+            ["short"] = "MIME type of the image",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "size",
+            ["short"] = "Size of the image in bytes",
             ["type"] = "`$INTEGER`",
           },
           {
             ["name"] = "tags",
+            ["short"] = "Tags associated with the cat",
             ["type"] = "`$ARRAY`",
           },
           {
             ["name"] = "updated_at",
+            ["short"] = "Last update timestamp",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "url",
+            ["short"] = "URL to access the cat image",
             ["type"] = "`$STRING`",
           },
         },

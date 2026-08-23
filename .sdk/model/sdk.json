@@ -36,42 +36,49 @@
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "Creation timestamp",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the cat",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "mimetype",
               "req": false,
+              "short": "MIME type of the image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "size",
               "req": false,
+              "short": "Size of the image in bytes",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "tags",
               "req": false,
+              "short": "Tags associated with the cat",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "updated_at",
               "req": false,
+              "short": "Last update timestamp",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "url",
               "req": false,
+              "short": "URL to access the cat image",
               "type": "`$STRING`"
             }
           ],

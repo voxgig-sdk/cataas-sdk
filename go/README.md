@@ -6,7 +6,7 @@ The Golang SDK for the Cataas API — an entity-oriented client using standard G
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Cat(nil)` — each with the same small set of operations (`List`, `Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -270,13 +270,13 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"created_at"` |  |
-| `"id"` |  |
-| `"mimetype"` |  |
-| `"size"` |  |
-| `"tags"` |  |
-| `"updated_at"` |  |
-| `"url"` |  |
+| `"created_at"` | Creation timestamp |
+| `"id"` | Unique identifier for the cat |
+| `"mimetype"` | MIME type of the image |
+| `"size"` | Size of the image in bytes |
+| `"tags"` | Tags associated with the cat |
+| `"updated_at"` | Last update timestamp |
+| `"url"` | URL to access the cat image |
 
 Operations: List, Load.
 
@@ -311,13 +311,13 @@ Create an instance: `cat := client.Cat(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `mimetype` | `string` |  |
-| `size` | `int` |  |
-| `tags` | `[]any` |  |
-| `updated_at` | `string` |  |
-| `url` | `string` |  |
+| `created_at` | `string` | Creation timestamp |
+| `id` | `string` | Unique identifier for the cat |
+| `mimetype` | `string` | MIME type of the image |
+| `size` | `int` | Size of the image in bytes |
+| `tags` | `[]any` | Tags associated with the cat |
+| `updated_at` | `string` | Last update timestamp |
+| `url` | `string` | URL to access the cat image |
 
 #### Example: Load
 
