@@ -28,6 +28,7 @@ module CataasConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
