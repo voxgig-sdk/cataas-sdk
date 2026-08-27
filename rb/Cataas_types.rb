@@ -45,41 +45,89 @@ Cat = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] filter
+#   @return [String, nil]
+#
+# @!attribute [rw] height
+#   @return [Integer, nil]
+#
+# @!attribute [rw] html
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] json
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] type
+#   @return [String, nil]
+#
+# @!attribute [rw] width
+#   @return [Integer, nil]
 CatLoadMatch = Struct.new(
   :id,
+  :filter,
+  :height,
+  :html,
+  :json,
+  :type,
+  :width,
   keyword_init: true
 )
 
 # Request payload for Cat#list.
 #
-# @!attribute [rw] created_at
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] mimetype
-#   @return [String, nil]
-#
-# @!attribute [rw] size
+# @!attribute [rw] b
 #   @return [Integer, nil]
 #
-# @!attribute [rw] tags
-#   @return [Array, nil]
+# @!attribute [rw] brightness
+#   @return [Float, nil]
 #
-# @!attribute [rw] updated_at
+# @!attribute [rw] filter
 #   @return [String, nil]
 #
-# @!attribute [rw] url
+# @!attribute [rw] g
+#   @return [Integer, nil]
+#
+# @!attribute [rw] height
+#   @return [Integer, nil]
+#
+# @!attribute [rw] html
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] hue
+#   @return [Float, nil]
+#
+# @!attribute [rw] json
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] lightness
+#   @return [Float, nil]
+#
+# @!attribute [rw] r
+#   @return [Integer, nil]
+#
+# @!attribute [rw] saturation
+#   @return [Float, nil]
+#
+# @!attribute [rw] type
 #   @return [String, nil]
+#
+# @!attribute [rw] width
+#   @return [Integer, nil]
 CatListMatch = Struct.new(
-  :created_at,
-  :id,
-  :mimetype,
-  :size,
-  :tags,
-  :updated_at,
-  :url,
+  :b,
+  :brightness,
+  :filter,
+  :g,
+  :height,
+  :html,
+  :hue,
+  :json,
+  :lightness,
+  :r,
+  :saturation,
+  :type,
+  :width,
   keyword_init: true
 )
 

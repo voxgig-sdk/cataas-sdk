@@ -28,18 +28,30 @@ class Cat
 class CatLoadMatch
 {
     public string $id;
+    public ?string $filter = null;
+    public ?int $height = null;
+    public ?bool $html = null;
+    public ?bool $json = null;
+    public ?string $type = null;
+    public ?int $width = null;
 }
 
 /** Request payload for Cat#list. */
 class CatListMatch
 {
-    public ?string $created_at = null;
-    public ?string $id = null;
-    public ?string $mimetype = null;
-    public ?int $size = null;
-    public ?array $tags = null;
-    public ?string $updated_at = null;
-    public ?string $url = null;
+    public ?int $b = null;
+    public ?float $brightness = null;
+    public ?string $filter = null;
+    public ?int $g = null;
+    public ?int $height = null;
+    public ?bool $html = null;
+    public ?float $hue = null;
+    public ?bool $json = null;
+    public ?float $lightness = null;
+    public ?int $r = null;
+    public ?float $saturation = null;
+    public ?string $type = null;
+    public ?int $width = null;
 }
 
 /** Tag entity data model. */

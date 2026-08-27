@@ -26,17 +26,29 @@ type Cat struct {
 // CatLoadMatch is the typed request payload for Cat.LoadTyped.
 type CatLoadMatch struct {
 	Id string `json:"id"`
+	Filter *string `json:"filter,omitempty"`
+	Height *int `json:"height,omitempty"`
+	Html *bool `json:"html,omitempty"`
+	Json *bool `json:"json,omitempty"`
+	Type *string `json:"type,omitempty"`
+	Width *int `json:"width,omitempty"`
 }
 
 // CatListMatch is the typed request payload for Cat.ListTyped.
 type CatListMatch struct {
-	CreatedAt *string `json:"created_at,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Mimetype *string `json:"mimetype,omitempty"`
-	Size *int `json:"size,omitempty"`
-	Tags *[]any `json:"tags,omitempty"`
-	UpdatedAt *string `json:"updated_at,omitempty"`
-	Url *string `json:"url,omitempty"`
+	B *int `json:"b,omitempty"`
+	Brightness *float64 `json:"brightness,omitempty"`
+	Filter *string `json:"filter,omitempty"`
+	G *int `json:"g,omitempty"`
+	Height *int `json:"height,omitempty"`
+	Html *bool `json:"html,omitempty"`
+	Hue *float64 `json:"hue,omitempty"`
+	Json *bool `json:"json,omitempty"`
+	Lightness *float64 `json:"lightness,omitempty"`
+	R *int `json:"r,omitempty"`
+	Saturation *float64 `json:"saturation,omitempty"`
+	Type *string `json:"type,omitempty"`
+	Width *int `json:"width,omitempty"`
 }
 
 // Tag is the typed data model for the tag entity.

@@ -17,16 +17,28 @@ export interface Cat {
 
 export interface CatLoadMatch {
   id: string
+  filter?: string
+  height?: number
+  html?: boolean
+  json?: boolean
+  type?: string
+  width?: number
 }
 
 export interface CatListMatch {
-  created_at?: string
-  id?: string
-  mimetype?: string
-  size?: number
-  tags?: any[]
-  updated_at?: string
-  url?: string
+  b?: number
+  brightness?: number
+  filter?: string
+  g?: number
+  height?: number
+  html?: boolean
+  hue?: number
+  json?: boolean
+  lightness?: number
+  r?: number
+  saturation?: number
+  type?: string
+  width?: number
 
   // Selects a custom action instead of the plain list:
   //   'gif'

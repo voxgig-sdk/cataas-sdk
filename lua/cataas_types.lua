@@ -17,15 +17,27 @@
 
 ---@class CatLoadMatch
 ---@field id string
+---@field filter? string
+---@field height? number
+---@field html? boolean
+---@field json? boolean
+---@field type? string
+---@field width? number
 
 ---@class CatListMatch
----@field created_at? string
----@field id? string
----@field mimetype? string
----@field size? number
----@field tags? table
----@field updated_at? string
----@field url? string
+---@field b? number
+---@field brightness? number
+---@field filter? string
+---@field g? number
+---@field height? number
+---@field html? boolean
+---@field hue? number
+---@field json? boolean
+---@field lightness? number
+---@field r? number
+---@field saturation? number
+---@field type? string
+---@field width? number
 
 ---@class Tag
 

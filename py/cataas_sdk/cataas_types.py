@@ -26,18 +26,33 @@ class Cat(TypedDict, total=False):
     url: str
 
 
-class CatLoadMatch(TypedDict):
+class CatLoadMatchRequired(TypedDict):
     id: str
+
+
+class CatLoadMatch(CatLoadMatchRequired, total=False):
+    filter: str
+    height: int
+    html: bool
+    json: bool
+    type: str
+    width: int
 
 
 class CatListMatch(TypedDict, total=False):
-    created_at: str
-    id: str
-    mimetype: str
-    size: int
-    tags: list
-    updated_at: str
-    url: str
+    b: int
+    brightness: float
+    filter: str
+    g: int
+    height: int
+    html: bool
+    hue: float
+    json: bool
+    lightness: float
+    r: int
+    saturation: float
+    type: str
+    width: int
 
 
 class Tag(TypedDict):
