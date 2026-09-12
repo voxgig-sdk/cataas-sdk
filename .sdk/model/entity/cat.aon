@@ -6,6 +6,7 @@ main: kit: entity: cat: {
 
   fields: [
     {
+      format: "date-time"
       name: "created_at"
       req: false
       short: "Creation timestamp"
@@ -36,6 +37,7 @@ main: kit: entity: cat: {
       type: "`$ARRAY`"
     }
     {
+      format: "date-time"
       name: "updated_at"
       req: false
       short: "Last update timestamp"
@@ -157,8 +159,10 @@ main: kit: entity: cat: {
           }
           method: "GET"
           orig: "/cat"
-          parts: [
-            "cat"
+          segments: [
+            {
+              lit: "cat"
+            }
           ]
           select: {
             exist: [
@@ -217,9 +221,13 @@ main: kit: entity: cat: {
           }
           method: "GET"
           orig: "/cat/gif"
-          parts: [
-            "cat"
-            "gif"
+          segments: [
+            {
+              lit: "cat"
+            }
+            {
+              lit: "gif"
+            }
           ]
           select: {
             "$action": "gif"
@@ -266,9 +274,13 @@ main: kit: entity: cat: {
           }
           method: "GET"
           orig: "/api/cats"
-          parts: [
-            "api"
-            "cats"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "cats"
+            }
           ]
           select: {
             exist: [
@@ -368,11 +380,19 @@ main: kit: entity: cat: {
           }
           method: "GET"
           orig: "/cat/{tag}/says/{text}"
-          parts: [
-            "cat"
-            "{tag}"
-            "says"
-            "{text}"
+          segments: [
+            {
+              lit: "cat"
+            }
+            {
+              var: "tag"
+            }
+            {
+              lit: "says"
+            }
+            {
+              var: "text"
+            }
           ]
           select: {
             exist: [
@@ -466,10 +486,16 @@ main: kit: entity: cat: {
           }
           method: "GET"
           orig: "/cat/says/{text}"
-          parts: [
-            "cat"
-            "says"
-            "{text}"
+          segments: [
+            {
+              lit: "cat"
+            }
+            {
+              lit: "says"
+            }
+            {
+              var: "text"
+            }
           ]
           select: {
             exist: [
@@ -548,11 +574,19 @@ main: kit: entity: cat: {
           }
           method: "GET"
           orig: "/cat/gif/says/{text}"
-          parts: [
-            "cat"
-            "gif"
-            "says"
-            "{text}"
+          segments: [
+            {
+              lit: "cat"
+            }
+            {
+              lit: "gif"
+            }
+            {
+              lit: "says"
+            }
+            {
+              var: "text"
+            }
           ]
           select: {
             exist: [
@@ -629,15 +663,19 @@ main: kit: entity: cat: {
           }
           method: "GET"
           orig: "/cat/{tag}"
-          parts: [
-            "cat"
-            "{id}"
-          ]
           rename: {
             param: {
               tag: "id"
             }
           }
+          segments: [
+            {
+              lit: "cat"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "filter"

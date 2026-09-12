@@ -1,6 +1,14 @@
 # Cataas SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -54,6 +62,7 @@ def make_config():
       "cat": {
         "fields": [
           {
+            "format": "date-time",
             "name": "created_at",
             "short": "Creation timestamp",
             "type": "`$STRING`",
@@ -79,6 +88,7 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "date-time",
             "name": "updated_at",
             "short": "Last update timestamp",
             "type": "`$STRING`",
@@ -89,6 +99,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "cat",
         "op": {
           "list": {
@@ -181,8 +195,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/cat",
-                "parts": [
-                  "cat",
+                "segments": [
+                  {
+                    "lit": "cat",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -205,6 +221,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.tags`",
                 },
+                "parts": [
+                  "cat",
+                ],
               },
               {
                 "args": {
@@ -238,9 +257,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/cat/gif",
-                "parts": [
-                  "cat",
-                  "gif",
+                "segments": [
+                  {
+                    "lit": "cat",
+                  },
+                  {
+                    "lit": "gif",
+                  },
                 ],
                 "select": {
                   "$action": "gif",
@@ -255,6 +278,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.tags`",
                 },
+                "parts": [
+                  "cat",
+                  "gif",
+                ],
               },
               {
                 "args": {
@@ -285,9 +312,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/cats",
-                "parts": [
-                  "api",
-                  "cats",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "cats",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -300,6 +331,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "cats",
+                ],
               },
             ],
           },
@@ -381,11 +416,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/cat/{tag}/says/{text}",
-                "parts": [
-                  "cat",
-                  "{tag}",
-                  "says",
-                  "{text}",
+                "segments": [
+                  {
+                    "lit": "cat",
+                  },
+                  {
+                    "var": "tag",
+                  },
+                  {
+                    "lit": "says",
+                  },
+                  {
+                    "var": "text",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -405,6 +448,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "cat",
+                  "{tag}",
+                  "says",
+                  "{text}",
+                ],
               },
               {
                 "args": {
@@ -472,10 +521,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/cat/says/{text}",
-                "parts": [
-                  "cat",
-                  "says",
-                  "{text}",
+                "segments": [
+                  {
+                    "lit": "cat",
+                  },
+                  {
+                    "lit": "says",
+                  },
+                  {
+                    "var": "text",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -494,6 +549,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "cat",
+                  "says",
+                  "{text}",
+                ],
               },
               {
                 "args": {
@@ -549,11 +609,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/cat/gif/says/{text}",
-                "parts": [
-                  "cat",
-                  "gif",
-                  "says",
-                  "{text}",
+                "segments": [
+                  {
+                    "lit": "cat",
+                  },
+                  {
+                    "lit": "gif",
+                  },
+                  {
+                    "lit": "says",
+                  },
+                  {
+                    "var": "text",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -570,6 +638,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "cat",
+                  "gif",
+                  "says",
+                  "{text}",
+                ],
               },
               {
                 "args": {
@@ -625,15 +699,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/cat/{tag}",
-                "parts": [
-                  "cat",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "tag": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "cat",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "filter",
@@ -649,6 +727,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "cat",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -675,15 +757,23 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/tags",
-                "parts": [
-                  "api",
-                  "tags",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "tags",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "tags",
+                ],
               },
             ],
           },

@@ -12,9 +12,13 @@ main: kit: entity: tag: {
         {
           method: "GET"
           orig: "/api/tags"
-          parts: [
-            "api"
-            "tags"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "tags"
+            }
           ]
           transform: {
             req: "`reqdata`"

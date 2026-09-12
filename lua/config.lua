@@ -33,6 +33,7 @@ local function make_config()
       ["cat"] = {
         ["fields"] = {
           {
+            ["format"] = "date-time",
             ["name"] = "created_at",
             ["short"] = "Creation timestamp",
             ["type"] = "`$STRING`",
@@ -58,6 +59,7 @@ local function make_config()
             ["type"] = "`$ARRAY`",
           },
           {
+            ["format"] = "date-time",
             ["name"] = "updated_at",
             ["short"] = "Last update timestamp",
             ["type"] = "`$STRING`",
@@ -67,6 +69,10 @@ local function make_config()
             ["short"] = "URL to access the cat image",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "cat",
         ["op"] = {
@@ -160,8 +166,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cat",
-                ["parts"] = {
-                  "cat",
+                ["segments"] = {
+                  {
+                    ["lit"] = "cat",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -183,6 +191,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.tags`",
+                },
+                ["parts"] = {
+                  "cat",
                 },
               },
               {
@@ -217,9 +228,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cat/gif",
-                ["parts"] = {
-                  "cat",
-                  "gif",
+                ["segments"] = {
+                  {
+                    ["lit"] = "cat",
+                  },
+                  {
+                    ["lit"] = "gif",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "gif",
@@ -233,6 +248,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.tags`",
+                },
+                ["parts"] = {
+                  "cat",
+                  "gif",
                 },
               },
               {
@@ -264,9 +283,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/cats",
-                ["parts"] = {
-                  "api",
-                  "cats",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "cats",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -278,6 +301,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "api",
+                  "cats",
                 },
               },
             },
@@ -360,11 +387,19 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cat/{tag}/says/{text}",
-                ["parts"] = {
-                  "cat",
-                  "{tag}",
-                  "says",
-                  "{text}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "cat",
+                  },
+                  {
+                    ["var"] = "tag",
+                  },
+                  {
+                    ["lit"] = "says",
+                  },
+                  {
+                    ["var"] = "text",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -383,6 +418,12 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "cat",
+                  "{tag}",
+                  "says",
+                  "{text}",
                 },
               },
               {
@@ -451,10 +492,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cat/says/{text}",
-                ["parts"] = {
-                  "cat",
-                  "says",
-                  "{text}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "cat",
+                  },
+                  {
+                    ["lit"] = "says",
+                  },
+                  {
+                    ["var"] = "text",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -472,6 +519,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "cat",
+                  "says",
+                  "{text}",
                 },
               },
               {
@@ -528,11 +580,19 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cat/gif/says/{text}",
-                ["parts"] = {
-                  "cat",
-                  "gif",
-                  "says",
-                  "{text}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "cat",
+                  },
+                  {
+                    ["lit"] = "gif",
+                  },
+                  {
+                    ["lit"] = "says",
+                  },
+                  {
+                    ["var"] = "text",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -548,6 +608,12 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "cat",
+                  "gif",
+                  "says",
+                  "{text}",
                 },
               },
               {
@@ -604,13 +670,17 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cat/{tag}",
-                ["parts"] = {
-                  "cat",
-                  "{id}",
-                },
                 ["rename"] = {
                   ["param"] = {
                     ["tag"] = "id",
+                  },
+                },
+                ["segments"] = {
+                  {
+                    ["lit"] = "cat",
+                  },
+                  {
+                    ["var"] = "id",
                   },
                 },
                 ["select"] = {
@@ -627,6 +697,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "cat",
+                  "{id}",
                 },
               },
             },
@@ -654,14 +728,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/tags",
-                ["parts"] = {
-                  "api",
-                  "tags",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "tags",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "api",
+                  "tags",
                 },
               },
             },

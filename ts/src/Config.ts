@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -70,6 +81,7 @@ class Config {
     "cat": {
       "fields": [
         {
+          "format": "date-time",
           "name": "created_at",
           "short": "Creation timestamp",
           "type": "`$STRING`"
@@ -95,6 +107,7 @@ class Config {
           "type": "`$ARRAY`"
         },
         {
+          "format": "date-time",
           "name": "updated_at",
           "short": "Last update timestamp",
           "type": "`$STRING`"
@@ -105,6 +118,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "cat",
       "op": {
         "list": {
@@ -197,8 +214,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/cat",
-              "parts": [
-                "cat"
+              "segments": [
+                {
+                  "lit": "cat"
+                }
               ],
               "select": {
                 "exist": [
@@ -220,7 +239,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.tags`"
-              }
+              },
+              "parts": [
+                "cat"
+              ]
             },
             {
               "args": {
@@ -254,9 +276,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/cat/gif",
-              "parts": [
-                "cat",
-                "gif"
+              "segments": [
+                {
+                  "lit": "cat"
+                },
+                {
+                  "lit": "gif"
+                }
               ],
               "select": {
                 "$action": "gif",
@@ -270,7 +296,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.tags`"
-              }
+              },
+              "parts": [
+                "cat",
+                "gif"
+              ]
             },
             {
               "args": {
@@ -301,9 +331,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/cats",
-              "parts": [
-                "api",
-                "cats"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "cats"
+                }
               ],
               "select": {
                 "exist": [
@@ -315,7 +349,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "cats"
+              ]
             }
           ]
         },
@@ -397,11 +435,19 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/cat/{tag}/says/{text}",
-              "parts": [
-                "cat",
-                "{tag}",
-                "says",
-                "{text}"
+              "segments": [
+                {
+                  "lit": "cat"
+                },
+                {
+                  "var": "tag"
+                },
+                {
+                  "lit": "says"
+                },
+                {
+                  "var": "text"
+                }
               ],
               "select": {
                 "exist": [
@@ -420,7 +466,13 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "cat",
+                "{tag}",
+                "says",
+                "{text}"
+              ]
             },
             {
               "args": {
@@ -488,10 +540,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/cat/says/{text}",
-              "parts": [
-                "cat",
-                "says",
-                "{text}"
+              "segments": [
+                {
+                  "lit": "cat"
+                },
+                {
+                  "lit": "says"
+                },
+                {
+                  "var": "text"
+                }
               ],
               "select": {
                 "exist": [
@@ -509,7 +567,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "cat",
+                "says",
+                "{text}"
+              ]
             },
             {
               "args": {
@@ -565,11 +628,19 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/cat/gif/says/{text}",
-              "parts": [
-                "cat",
-                "gif",
-                "says",
-                "{text}"
+              "segments": [
+                {
+                  "lit": "cat"
+                },
+                {
+                  "lit": "gif"
+                },
+                {
+                  "lit": "says"
+                },
+                {
+                  "var": "text"
+                }
               ],
               "select": {
                 "exist": [
@@ -585,7 +656,13 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "cat",
+                "gif",
+                "says",
+                "{text}"
+              ]
             },
             {
               "args": {
@@ -641,15 +718,19 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/cat/{tag}",
-              "parts": [
-                "cat",
-                "{id}"
-              ],
               "rename": {
                 "param": {
                   "tag": "id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "cat"
+                },
+                {
+                  "var": "id"
+                }
+              ],
               "select": {
                 "exist": [
                   "filter",
@@ -664,7 +745,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "cat",
+                "{id}"
+              ]
             }
           ]
         }
@@ -691,15 +776,23 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/tags",
-              "parts": [
-                "api",
-                "tags"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "tags"
+                }
               ],
               "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "tags"
+              ]
             }
           ]
         }
@@ -715,6 +808,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

@@ -34,6 +34,7 @@
           "fields": [
             {
               "active": true,
+              "format": "date-time",
               "name": "created_at",
               "req": false,
               "short": "Creation timestamp",
@@ -69,6 +70,7 @@
             },
             {
               "active": true,
+              "format": "date-time",
               "name": "updated_at",
               "req": false,
               "short": "Last update timestamp",
@@ -205,8 +207,10 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cat",
-                  "parts": [
-                    "cat"
+                  "segments": [
+                    {
+                      "lit": "cat"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -271,9 +275,13 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cat/gif",
-                  "parts": [
-                    "cat",
-                    "gif"
+                  "segments": [
+                    {
+                      "lit": "cat"
+                    },
+                    {
+                      "lit": "gif"
+                    }
                   ],
                   "select": {
                     "$action": "gif",
@@ -325,9 +333,13 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/api/cats",
-                  "parts": [
-                    "api",
-                    "cats"
+                  "segments": [
+                    {
+                      "lit": "api"
+                    },
+                    {
+                      "lit": "cats"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -440,11 +452,19 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cat/{tag}/says/{text}",
-                  "parts": [
-                    "cat",
-                    "{tag}",
-                    "says",
-                    "{text}"
+                  "segments": [
+                    {
+                      "lit": "cat"
+                    },
+                    {
+                      "var": "tag"
+                    },
+                    {
+                      "lit": "says"
+                    },
+                    {
+                      "var": "text"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -549,10 +569,16 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cat/says/{text}",
-                  "parts": [
-                    "cat",
-                    "says",
-                    "{text}"
+                  "segments": [
+                    {
+                      "lit": "cat"
+                    },
+                    {
+                      "lit": "says"
+                    },
+                    {
+                      "var": "text"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -640,11 +666,19 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cat/gif/says/{text}",
-                  "parts": [
-                    "cat",
-                    "gif",
-                    "says",
-                    "{text}"
+                  "segments": [
+                    {
+                      "lit": "cat"
+                    },
+                    {
+                      "lit": "gif"
+                    },
+                    {
+                      "lit": "says"
+                    },
+                    {
+                      "var": "text"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -730,15 +764,19 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cat/{tag}",
-                  "parts": [
-                    "cat",
-                    "{id}"
-                  ],
                   "rename": {
                     "param": {
                       "tag": "id"
                     }
                   },
+                  "segments": [
+                    {
+                      "lit": "cat"
+                    },
+                    {
+                      "var": "id"
+                    }
+                  ],
                   "select": {
                     "exist": [
                       "filter",
@@ -785,9 +823,13 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/api/tags",
-                  "parts": [
-                    "api",
-                    "tags"
+                  "segments": [
+                    {
+                      "lit": "api"
+                    },
+                    {
+                      "lit": "tags"
+                    }
                   ],
                   "select": {},
                   "transform": {
@@ -867,8 +909,11 @@
             }
           },
           "name": "test",
+          "needs": {},
           "origname": "",
           "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
           "target": {
             "go": {
               "deps": {}
@@ -1035,6 +1080,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1060,6 +1108,10 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/runner_test.go",
+            "test/struct_runner_test.go"
+          ],
           "title": "Golang"
         },
         "go-cli": {
@@ -1111,6 +1163,7 @@
               "active": false
             }
           },
+          "provides": {},
           "publish": {
             "registry": {
               "active": false,
@@ -1135,6 +1188,7 @@
             },
             "version": "0.0.1"
           },
+          "superseded": [],
           "title": "Go CLI"
         },
         "go-mcp": {
@@ -1186,6 +1240,7 @@
               "active": false
             }
           },
+          "provides": {},
           "publish": {
             "registry": {
               "active": false,
@@ -1210,6 +1265,7 @@
             },
             "version": "0.0.1"
           },
+          "superseded": [],
           "title": "Go MCP server"
         },
         "lua": {
@@ -1250,6 +1306,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1275,6 +1334,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.lua"
+          ],
           "title": "Lua"
         },
         "php": {
@@ -1309,6 +1371,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1334,6 +1399,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/StructRunner.php"
+          ],
           "title": "PHP"
         },
         "py": {
@@ -1374,6 +1442,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1399,6 +1470,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.py"
+          ],
           "title": "Python"
         },
         "rb": {
@@ -1444,6 +1518,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1469,6 +1546,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.rb"
+          ],
           "title": "Ruby"
         },
         "ts": {
@@ -1486,11 +1566,6 @@
               "active": true,
               "kind": "dev",
               "version": "^25.6.0"
-            },
-            "dotenv": {
-              "active": true,
-              "kind": "dev",
-              "version": "^17.4.2"
             },
             "typescript": {
               "active": true,
@@ -1519,6 +1594,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1543,6 +1621,14 @@
             },
             "version": "0.0.1"
           },
+          "superseded": [
+            "test/runner.ts",
+            "test/vendor/omni/compat.ts",
+            "src/feature/secrets/sekreto/Providers.ts",
+            "src/feature/secrets/sekreto/Sigv4.ts",
+            "src/feature/secrets/sekreto/provider/Registry.ts",
+            "src/feature/secrets/sekreto/provider/http.ts"
+          ],
           "title": "TypeScript"
         }
       },
