@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { CataasSDK } from '@voxgig-sdk/cataas'
+import { CataasSDK } from '@voxgig-sdk/cataas-sdk'
 
 const client = new CataasSDK()
 ```
@@ -464,7 +464,7 @@ cataas/
 Import the SDK from the package root:
 
 ```ts
-import { CataasSDK } from '@voxgig-sdk/cataas'
+import { CataasSDK } from '@voxgig-sdk/cataas-sdk'
 ```
 
 ### Entity state

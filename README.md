@@ -105,7 +105,7 @@ local results, err = client:Cat():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/cataas` | publish pending — [install from git tag](https://github.com/voxgig-sdk/cataas-sdk/releases) |
+| TypeScript | `@voxgig-sdk/cataas-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/cataas-sdk/releases) |
 | Python | `voxgig-sdk-cataas` | publish pending — [install from git tag](https://github.com/voxgig-sdk/cataas-sdk/releases) |
 | PHP | `voxgig-sdk/cataas` | publish pending — [install from git tag](https://github.com/voxgig-sdk/cataas-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/cataas-sdk/go` | `go get github.com/voxgig-sdk/cataas-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Cat():list()
 ### TypeScript
 
 ```ts
-import { CataasSDK } from '@voxgig-sdk/cataas'
+import { CataasSDK } from '@voxgig-sdk/cataas-sdk'
 
 const client = new CataasSDK()
 
