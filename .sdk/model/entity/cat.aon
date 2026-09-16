@@ -157,6 +157,12 @@ main: kit: entity: cat: {
               }
             ]
           }
+          contract: {
+            id: "GET /cat"
+            json: "{\"operationId\":\"getRandomCat\",\"parameters\":[{\"description\":\"Image type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"xsmall\",\"small\",\"medium\",\"square\"],\"type\":\"string\"}},{\"description\":\"Image filter\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"enum\":[\"blur\",\"mono\",\"negate\",\"custom\"],\"type\":\"string\"}},{\"description\":\"Brightness level (used with filter=custom)\",\"in\":\"query\",\"name\":\"brightness\",\"required\":false,\"schema\":{\"type\":\"number\"}},{\"description\":\"Lightness level (used with filter=custom)\",\"in\":\"query\",\"name\":\"lightness\",\"required\":false,\"schema\":{\"type\":\"number\"}},{\"description\":\"Saturation level (used with filter=custom)\",\"in\":\"query\",\"name\":\"saturation\",\"required\":false,\"schema\":{\"type\":\"number\"}},{\"description\":\"Hue level (used with filter=custom)\",\"in\":\"query\",\"name\":\"hue\",\"required\":false,\"schema\":{\"type\":\"number\"}},{\"description\":\"Red channel (used with filter=custom)\",\"in\":\"query\",\"name\":\"r\",\"required\":false,\"schema\":{\"maximum\":255,\"minimum\":0,\"type\":\"integer\"}},{\"description\":\"Green channel (used with filter=custom)\",\"in\":\"query\",\"name\":\"g\",\"required\":false,\"schema\":{\"maximum\":255,\"minimum\":0,\"type\":\"integer\"}},{\"description\":\"Blue channel (used with filter=custom)\",\"in\":\"query\",\"name\":\"b\",\"required\":false,\"schema\":{\"maximum\":255,\"minimum\":0,\"type\":\"integer\"}},{\"description\":\"Custom width for the image\",\"in\":\"query\",\"name\":\"width\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Custom height for the image\",\"in\":\"query\",\"name\":\"height\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Return cat in HTML page (useful for Twitter or Facebook embedded render)\",\"in\":\"query\",\"name\":\"html\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Return cat in JSON object\",\"in\":\"query\",\"name\":\"json\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"}},\"image/jpeg\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"image/png\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/cat"
           segments: [
@@ -219,6 +225,12 @@ main: kit: entity: cat: {
               }
             ]
           }
+          contract: {
+            id: "GET /cat/gif"
+            json: "{\"operationId\":\"getRandomCatGif\",\"parameters\":[{\"description\":\"Image type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"xsmall\",\"small\",\"medium\",\"square\"],\"type\":\"string\"}},{\"description\":\"Image filter\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"enum\":[\"blur\",\"mono\",\"negate\",\"custom\"],\"type\":\"string\"}},{\"description\":\"Return cat in HTML page\",\"in\":\"query\",\"name\":\"html\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Return cat in JSON object\",\"in\":\"query\",\"name\":\"json\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"}},\"image/gif\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/cat/gif"
           segments: [
@@ -271,6 +283,12 @@ main: kit: entity: cat: {
                 type: "`$STRING`"
               }
             ]
+          }
+          contract: {
+            id: "GET /api/cats"
+            json: "{\"operationId\":\"getAllCats\",\"parameters\":[{\"description\":\"Filter cats by tags (comma-separated)\",\"example\":\"cute,funny\",\"in\":\"query\",\"name\":\"tags\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of records to skip for pagination\",\"in\":\"query\",\"name\":\"skip\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}},{\"description\":\"Maximum number of records to return\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":10,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"created_at\":{\"description\":\"Creation timestamp\",\"format\":\"date-time\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"updated_at\":{\"description\":\"Last update timestamp\",\"format\":\"date-time\",\"type\":\"string\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
           }
           method: "GET"
           orig: "/api/cats"
@@ -378,6 +396,12 @@ main: kit: entity: cat: {
               }
             ]
           }
+          contract: {
+            id: "GET /cat/{tag}/says/{text}"
+            json: "{\"operationId\":\"getRandomCatByTagWithText\",\"parameters\":[{\"description\":\"Tag(s) to filter cats. Multiple tags can be separated by comma.\",\"example\":\"cute\",\"in\":\"path\",\"name\":\"tag\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Text to display on the cat image\",\"example\":\"hello\",\"in\":\"path\",\"name\":\"text\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Font size for the text\",\"in\":\"query\",\"name\":\"fontSize\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Font color for the text\",\"in\":\"query\",\"name\":\"fontColor\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Image type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"xsmall\",\"small\",\"medium\",\"square\"],\"type\":\"string\"}},{\"description\":\"Image filter\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"enum\":[\"blur\",\"mono\",\"negate\",\"custom\"],\"type\":\"string\"}},{\"description\":\"Custom width for the image\",\"in\":\"query\",\"name\":\"width\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Custom height for the image\",\"in\":\"query\",\"name\":\"height\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Return cat in HTML page\",\"in\":\"query\",\"name\":\"html\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Return cat in JSON object\",\"in\":\"query\",\"name\":\"json\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"}},\"image/jpeg\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"image/png\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/cat/{tag}/says/{text}"
           segments: [
@@ -484,6 +508,12 @@ main: kit: entity: cat: {
               }
             ]
           }
+          contract: {
+            id: "GET /cat/says/{text}"
+            json: "{\"operationId\":\"getRandomCatWithText\",\"parameters\":[{\"description\":\"Text to display on the cat image\",\"example\":\"hello\",\"in\":\"path\",\"name\":\"text\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Font size for the text\",\"in\":\"query\",\"name\":\"fontSize\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Font color for the text\",\"in\":\"query\",\"name\":\"fontColor\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Image type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"xsmall\",\"small\",\"medium\",\"square\"],\"type\":\"string\"}},{\"description\":\"Image filter\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"enum\":[\"blur\",\"mono\",\"negate\",\"custom\"],\"type\":\"string\"}},{\"description\":\"Custom width for the image\",\"in\":\"query\",\"name\":\"width\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Custom height for the image\",\"in\":\"query\",\"name\":\"height\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Return cat in HTML page\",\"in\":\"query\",\"name\":\"html\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Return cat in JSON object\",\"in\":\"query\",\"name\":\"json\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"}},\"image/jpeg\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"image/png\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/cat/says/{text}"
           segments: [
@@ -571,6 +601,12 @@ main: kit: entity: cat: {
                 type: "`$STRING`"
               }
             ]
+          }
+          contract: {
+            id: "GET /cat/gif/says/{text}"
+            json: "{\"operationId\":\"getRandomCatGifWithText\",\"parameters\":[{\"description\":\"Text to display on the cat gif\",\"example\":\"Hello\",\"in\":\"path\",\"name\":\"text\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Font size for the text\",\"in\":\"query\",\"name\":\"fontSize\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Font color for the text\",\"in\":\"query\",\"name\":\"fontColor\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Image type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"xsmall\",\"small\",\"medium\",\"square\"],\"type\":\"string\"}},{\"description\":\"Image filter\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"enum\":[\"blur\",\"mono\",\"negate\",\"custom\"],\"type\":\"string\"}},{\"description\":\"Return cat in HTML page\",\"in\":\"query\",\"name\":\"html\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Return cat in JSON object\",\"in\":\"query\",\"name\":\"json\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"}},\"image/gif\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
           }
           method: "GET"
           orig: "/cat/gif/says/{text}"
@@ -660,6 +696,12 @@ main: kit: entity: cat: {
                 type: "`$INTEGER`"
               }
             ]
+          }
+          contract: {
+            id: "GET /cat/{tag}"
+            json: "{\"operationId\":\"getRandomCatByTag\",\"parameters\":[{\"description\":\"Tag(s) to filter cats. Multiple tags can be separated by comma.\",\"example\":\"orange,cute\",\"in\":\"path\",\"name\":\"tag\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Image type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"xsmall\",\"small\",\"medium\",\"square\"],\"type\":\"string\"}},{\"description\":\"Image filter\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"enum\":[\"blur\",\"mono\",\"negate\",\"custom\"],\"type\":\"string\"}},{\"description\":\"Custom width for the image\",\"in\":\"query\",\"name\":\"width\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Custom height for the image\",\"in\":\"query\",\"name\":\"height\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Return cat in HTML page\",\"in\":\"query\",\"name\":\"html\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Return cat in JSON object\",\"in\":\"query\",\"name\":\"json\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"}},\"image/jpeg\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"image/png\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
           }
           method: "GET"
           orig: "/cat/{tag}"

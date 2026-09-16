@@ -10,5 +10,31 @@
     "tag": {
       "tag_ref01": {}
     }
+  },
+  "requests": {
+    "GET /api/tags": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getAllTags",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Cataas SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class CataasFeatures
@@ -14,8 +17,14 @@ class CataasFeatures
         switch ($name) {
             case "base":
                 return new CataasBaseFeature();
+            case "ratelimit":
+                return new CataasRatelimitFeature();
+            case "retry":
+                return new CataasRetryFeature();
             case "test":
                 return new CataasTestFeature();
+            case "timeout":
+                return new CataasTimeoutFeature();
             default:
                 return new CataasBaseFeature();
         }
@@ -31,7 +40,10 @@ class CataasFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

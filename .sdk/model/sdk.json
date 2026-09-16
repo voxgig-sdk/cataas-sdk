@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "cat": {
           "active": true,
@@ -204,6 +268,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /cat",
+                    "json": "{\"operationId\":\"getRandomCat\",\"parameters\":[{\"description\":\"Image type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"xsmall\",\"small\",\"medium\",\"square\"],\"type\":\"string\"}},{\"description\":\"Image filter\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"enum\":[\"blur\",\"mono\",\"negate\",\"custom\"],\"type\":\"string\"}},{\"description\":\"Brightness level (used with filter=custom)\",\"in\":\"query\",\"name\":\"brightness\",\"required\":false,\"schema\":{\"type\":\"number\"}},{\"description\":\"Lightness level (used with filter=custom)\",\"in\":\"query\",\"name\":\"lightness\",\"required\":false,\"schema\":{\"type\":\"number\"}},{\"description\":\"Saturation level (used with filter=custom)\",\"in\":\"query\",\"name\":\"saturation\",\"required\":false,\"schema\":{\"type\":\"number\"}},{\"description\":\"Hue level (used with filter=custom)\",\"in\":\"query\",\"name\":\"hue\",\"required\":false,\"schema\":{\"type\":\"number\"}},{\"description\":\"Red channel (used with filter=custom)\",\"in\":\"query\",\"name\":\"r\",\"required\":false,\"schema\":{\"maximum\":255,\"minimum\":0,\"type\":\"integer\"}},{\"description\":\"Green channel (used with filter=custom)\",\"in\":\"query\",\"name\":\"g\",\"required\":false,\"schema\":{\"maximum\":255,\"minimum\":0,\"type\":\"integer\"}},{\"description\":\"Blue channel (used with filter=custom)\",\"in\":\"query\",\"name\":\"b\",\"required\":false,\"schema\":{\"maximum\":255,\"minimum\":0,\"type\":\"integer\"}},{\"description\":\"Custom width for the image\",\"in\":\"query\",\"name\":\"width\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Custom height for the image\",\"in\":\"query\",\"name\":\"height\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Return cat in HTML page (useful for Twitter or Facebook embedded render)\",\"in\":\"query\",\"name\":\"html\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Return cat in JSON object\",\"in\":\"query\",\"name\":\"json\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"}},\"image/jpeg\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"image/png\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cat",
@@ -272,6 +342,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /cat/gif",
+                    "json": "{\"operationId\":\"getRandomCatGif\",\"parameters\":[{\"description\":\"Image type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"xsmall\",\"small\",\"medium\",\"square\"],\"type\":\"string\"}},{\"description\":\"Image filter\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"enum\":[\"blur\",\"mono\",\"negate\",\"custom\"],\"type\":\"string\"}},{\"description\":\"Return cat in HTML page\",\"in\":\"query\",\"name\":\"html\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Return cat in JSON object\",\"in\":\"query\",\"name\":\"json\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"}},\"image/gif\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cat/gif",
@@ -329,6 +405,12 @@
                         "type": "`$STRING`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "GET /api/cats",
+                    "json": "{\"operationId\":\"getAllCats\",\"parameters\":[{\"description\":\"Filter cats by tags (comma-separated)\",\"example\":\"cute,funny\",\"in\":\"query\",\"name\":\"tags\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of records to skip for pagination\",\"in\":\"query\",\"name\":\"skip\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}},{\"description\":\"Maximum number of records to return\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":10,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"created_at\":{\"description\":\"Creation timestamp\",\"format\":\"date-time\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"updated_at\":{\"description\":\"Last update timestamp\",\"format\":\"date-time\",\"type\":\"string\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "GET",
@@ -449,6 +531,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /cat/{tag}/says/{text}",
+                    "json": "{\"operationId\":\"getRandomCatByTagWithText\",\"parameters\":[{\"description\":\"Tag(s) to filter cats. Multiple tags can be separated by comma.\",\"example\":\"cute\",\"in\":\"path\",\"name\":\"tag\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Text to display on the cat image\",\"example\":\"hello\",\"in\":\"path\",\"name\":\"text\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Font size for the text\",\"in\":\"query\",\"name\":\"fontSize\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Font color for the text\",\"in\":\"query\",\"name\":\"fontColor\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Image type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"xsmall\",\"small\",\"medium\",\"square\"],\"type\":\"string\"}},{\"description\":\"Image filter\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"enum\":[\"blur\",\"mono\",\"negate\",\"custom\"],\"type\":\"string\"}},{\"description\":\"Custom width for the image\",\"in\":\"query\",\"name\":\"width\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Custom height for the image\",\"in\":\"query\",\"name\":\"height\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Return cat in HTML page\",\"in\":\"query\",\"name\":\"html\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Return cat in JSON object\",\"in\":\"query\",\"name\":\"json\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"}},\"image/jpeg\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"image/png\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cat/{tag}/says/{text}",
@@ -566,6 +654,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /cat/says/{text}",
+                    "json": "{\"operationId\":\"getRandomCatWithText\",\"parameters\":[{\"description\":\"Text to display on the cat image\",\"example\":\"hello\",\"in\":\"path\",\"name\":\"text\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Font size for the text\",\"in\":\"query\",\"name\":\"fontSize\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Font color for the text\",\"in\":\"query\",\"name\":\"fontColor\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Image type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"xsmall\",\"small\",\"medium\",\"square\"],\"type\":\"string\"}},{\"description\":\"Image filter\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"enum\":[\"blur\",\"mono\",\"negate\",\"custom\"],\"type\":\"string\"}},{\"description\":\"Custom width for the image\",\"in\":\"query\",\"name\":\"width\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Custom height for the image\",\"in\":\"query\",\"name\":\"height\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Return cat in HTML page\",\"in\":\"query\",\"name\":\"html\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Return cat in JSON object\",\"in\":\"query\",\"name\":\"json\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"}},\"image/jpeg\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"image/png\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cat/says/{text}",
@@ -662,6 +756,12 @@
                         "type": "`$STRING`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "GET /cat/gif/says/{text}",
+                    "json": "{\"operationId\":\"getRandomCatGifWithText\",\"parameters\":[{\"description\":\"Text to display on the cat gif\",\"example\":\"Hello\",\"in\":\"path\",\"name\":\"text\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Font size for the text\",\"in\":\"query\",\"name\":\"fontSize\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Font color for the text\",\"in\":\"query\",\"name\":\"fontColor\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Image type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"xsmall\",\"small\",\"medium\",\"square\"],\"type\":\"string\"}},{\"description\":\"Image filter\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"enum\":[\"blur\",\"mono\",\"negate\",\"custom\"],\"type\":\"string\"}},{\"description\":\"Return cat in HTML page\",\"in\":\"query\",\"name\":\"html\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Return cat in JSON object\",\"in\":\"query\",\"name\":\"json\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"}},\"image/gif\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "GET",
@@ -761,6 +861,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /cat/{tag}",
+                    "json": "{\"operationId\":\"getRandomCatByTag\",\"parameters\":[{\"description\":\"Tag(s) to filter cats. Multiple tags can be separated by comma.\",\"example\":\"orange,cute\",\"in\":\"path\",\"name\":\"tag\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Image type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"xsmall\",\"small\",\"medium\",\"square\"],\"type\":\"string\"}},{\"description\":\"Image filter\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"enum\":[\"blur\",\"mono\",\"negate\",\"custom\"],\"type\":\"string\"}},{\"description\":\"Custom width for the image\",\"in\":\"query\",\"name\":\"width\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Custom height for the image\",\"in\":\"query\",\"name\":\"height\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Return cat in HTML page\",\"in\":\"query\",\"name\":\"html\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Return cat in JSON object\",\"in\":\"query\",\"name\":\"json\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"}},\"image/jpeg\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"image/png\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cat/{tag}",
@@ -820,6 +926,12 @@
                 {
                   "active": true,
                   "args": {},
+                  "contract": {
+                    "id": "GET /api/tags",
+                    "json": "{\"operationId\":\"getAllTags\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/api/tags",
@@ -846,13 +958,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -942,6 +1264,102 @@
           },
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
+          "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
           "version": "0.0.1"
         }
       },
@@ -1041,6 +1459,48 @@
         "website": "https://cataas.com"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -1595,6 +2055,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -1636,7 +2097,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }

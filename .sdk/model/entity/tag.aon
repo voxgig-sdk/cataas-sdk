@@ -10,6 +10,12 @@ main: kit: entity: tag: {
       name: "list"
       points: [
         {
+          contract: {
+            id: "GET /api/tags"
+            json: "{\"operationId\":\"getAllTags\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/api/tags"
           segments: [

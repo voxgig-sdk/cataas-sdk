@@ -1,12 +1,18 @@
 # Cataas SDK feature factory
 
 from cataas_sdk.feature.base_feature import CataasBaseFeature
+from cataas_sdk.feature.ratelimit_feature import CataasRatelimitFeature
+from cataas_sdk.feature.retry_feature import CataasRetryFeature
 from cataas_sdk.feature.test_feature import CataasTestFeature
+from cataas_sdk.feature.timeout_feature import CataasTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: CataasBaseFeature(),
+    "ratelimit": lambda: CataasRatelimitFeature(),
+    "retry": lambda: CataasRetryFeature(),
     "test": lambda: CataasTestFeature(),
+    "timeout": lambda: CataasTimeoutFeature(),
 }
 
 
