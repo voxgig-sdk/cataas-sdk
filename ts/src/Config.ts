@@ -127,12 +127,12 @@ class Config {
 
     entity: {
       
-      cat: {
-      },
-
-      tag: {
-      },
-
+        cat: {
+        },
+  
+        tag: {
+        },
+  
     }
   }
 

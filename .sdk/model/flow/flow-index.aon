@@ -1,4 +1,4 @@
 # Flows
 
-@"BasicCatFlow.aon"
-@"BasicTagFlow.aon"
+@"./BasicCatFlow.aon"
+@"./BasicTagFlow.aon"

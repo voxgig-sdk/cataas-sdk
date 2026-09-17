@@ -1,4 +1,4 @@
 # Entity Models
 
-@"cat.aon"
-@"tag.aon"
+@"./cat.aon"
+@"./tag.aon"
