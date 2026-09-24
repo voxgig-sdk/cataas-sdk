@@ -124,7 +124,7 @@ function cat_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "cat01", "cat02", "cat03", "say01", "say02", "say03" },
+    { "cat01", "cat02", "cat03" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

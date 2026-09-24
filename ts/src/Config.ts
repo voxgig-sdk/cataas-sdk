@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -141,41 +134,48 @@ class Config {
     "cat": {
       "fields": [
         {
-          "format": "date-time",
           "name": "created_at",
+          "title": "Created At",
+          "type": "`$STRING`",
           "short": "Creation timestamp",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
           "name": "id",
-          "short": "Unique identifier for the cat",
-          "type": "`$STRING`"
+          "title": "Id",
+          "type": "`$STRING`",
+          "short": "Unique identifier for the cat"
         },
         {
           "name": "mimetype",
-          "short": "MIME type of the image",
-          "type": "`$STRING`"
+          "title": "Mimetype",
+          "type": "`$STRING`",
+          "short": "MIME type of the image"
         },
         {
           "name": "size",
-          "short": "Size of the image in bytes",
-          "type": "`$INTEGER`"
+          "title": "Size",
+          "type": "`$INTEGER`",
+          "short": "Size of the image in bytes"
         },
         {
           "name": "tags",
-          "short": "Tags associated with the cat",
-          "type": "`$ARRAY`"
+          "title": "Tags",
+          "type": "`$ARRAY`",
+          "short": "Tags associated with the cat"
         },
         {
-          "format": "date-time",
           "name": "updated_at",
+          "title": "Updated At",
+          "type": "`$STRING`",
           "short": "Last update timestamp",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
           "name": "url",
-          "short": "URL to access the cat image",
-          "type": "`$STRING`"
+          "title": "Url",
+          "type": "`$STRING`",
+          "short": "URL to access the cat image"
         }
       ],
       "id": {
@@ -189,88 +189,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "b",
-                    "orig": "b",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "brightness",
-                    "orig": "brightness",
-                    "type": "`$NUMBER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "filter",
-                    "orig": "filter",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "g",
-                    "orig": "g",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "height",
-                    "orig": "height",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "html",
-                    "orig": "html",
-                    "type": "`$BOOLEAN`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "hue",
-                    "orig": "hue",
-                    "type": "`$NUMBER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "json",
-                    "orig": "json",
-                    "type": "`$BOOLEAN`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "lightness",
-                    "orig": "lightness",
-                    "type": "`$NUMBER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "r",
-                    "orig": "r",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "saturation",
-                    "orig": "saturation",
-                    "type": "`$NUMBER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "type",
-                    "orig": "type",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "width",
-                    "orig": "width",
-                    "type": "`$INTEGER`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/cat",
@@ -279,6 +197,96 @@ class Config {
                   "lit": "cat"
                 }
               ],
+              "parts": [
+                "cat"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.tags`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "b",
+                    "orig": "b",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "brightness",
+                    "orig": "brightness",
+                    "type": "`$NUMBER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "filter",
+                    "orig": "filter",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "g",
+                    "orig": "g",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "height",
+                    "orig": "height",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "html",
+                    "orig": "html",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "hue",
+                    "orig": "hue",
+                    "type": "`$NUMBER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "json",
+                    "orig": "json",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "lightness",
+                    "orig": "lightness",
+                    "type": "`$NUMBER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "r",
+                    "orig": "r",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "saturation",
+                    "orig": "saturation",
+                    "type": "`$NUMBER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "type",
+                    "orig": "type",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "width",
+                    "orig": "width",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "b",
@@ -295,44 +303,9 @@ class Config {
                   "type",
                   "width"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.tags`"
-              },
-              "parts": [
-                "cat"
-              ]
+              }
             },
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "filter",
-                    "orig": "filter",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "html",
-                    "orig": "html",
-                    "type": "`$BOOLEAN`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "json",
-                    "orig": "json",
-                    "type": "`$BOOLEAN`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "type",
-                    "orig": "type",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/cat/gif",
@@ -344,6 +317,43 @@ class Config {
                   "lit": "gif"
                 }
               ],
+              "parts": [
+                "cat",
+                "gif"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.tags`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "filter",
+                    "orig": "filter",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "html",
+                    "orig": "html",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "json",
+                    "orig": "json",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "type",
+                    "orig": "type",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  }
+                ]
+              },
               "select": {
                 "$action": "gif",
                 "exist": [
@@ -352,42 +362,9 @@ class Config {
                   "json",
                   "type"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.tags`"
-              },
-              "parts": [
-                "cat",
-                "gif"
-              ]
+              }
             },
             {
-              "args": {
-                "query": [
-                  {
-                    "example": 10,
-                    "kind": "query",
-                    "name": "limit",
-                    "orig": "limit",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": 0,
-                    "kind": "query",
-                    "name": "skip",
-                    "orig": "skip",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": "cute,funny",
-                    "kind": "query",
-                    "name": "tag",
-                    "orig": "tag",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/api/cats",
@@ -399,21 +376,47 @@ class Config {
                   "lit": "cats"
                 }
               ],
+              "parts": [
+                "api",
+                "cats"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "limit",
+                    "orig": "limit",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 10
+                  },
+                  {
+                    "name": "skip",
+                    "orig": "skip",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 0
+                  },
+                  {
+                    "name": "tag",
+                    "orig": "tag",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "cute,funny"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "limit",
                   "skip",
                   "tag"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "api",
-                "cats"
-              ]
+              }
             }
           ]
         },
@@ -422,76 +425,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "example": "cute",
-                    "kind": "param",
-                    "name": "tag",
-                    "orig": "tag",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "hello",
-                    "kind": "param",
-                    "name": "text",
-                    "orig": "text",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ],
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "filter",
-                    "orig": "filter",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "font_color",
-                    "orig": "font_color",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "font_size",
-                    "orig": "font_size",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "height",
-                    "orig": "height",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "html",
-                    "orig": "html",
-                    "type": "`$BOOLEAN`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "json",
-                    "orig": "json",
-                    "type": "`$BOOLEAN`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "type",
-                    "orig": "type",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "width",
-                    "orig": "width",
-                    "type": "`$INTEGER`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/cat/{tag}/says/{text}",
@@ -509,6 +442,87 @@ class Config {
                   "var": "text"
                 }
               ],
+              "parts": [
+                "cat",
+                "{tag}",
+                "says",
+                "{text}"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "params": [
+                  {
+                    "name": "tag",
+                    "orig": "tag",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": "cute"
+                  },
+                  {
+                    "name": "text",
+                    "orig": "text",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": "hello"
+                  }
+                ],
+                "query": [
+                  {
+                    "name": "filter",
+                    "orig": "filter",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "font_color",
+                    "orig": "font_color",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "font_size",
+                    "orig": "font_size",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "height",
+                    "orig": "height",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "html",
+                    "orig": "html",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "json",
+                    "orig": "json",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "type",
+                    "orig": "type",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "width",
+                    "orig": "width",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "filter",
@@ -522,81 +536,9 @@ class Config {
                   "type",
                   "width"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "cat",
-                "{tag}",
-                "says",
-                "{text}"
-              ]
+              }
             },
             {
-              "args": {
-                "params": [
-                  {
-                    "example": "hello",
-                    "kind": "param",
-                    "name": "text",
-                    "orig": "text",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ],
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "filter",
-                    "orig": "filter",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "font_color",
-                    "orig": "font_color",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "font_size",
-                    "orig": "font_size",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "height",
-                    "orig": "height",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "html",
-                    "orig": "html",
-                    "type": "`$BOOLEAN`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "json",
-                    "orig": "json",
-                    "type": "`$BOOLEAN`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "type",
-                    "orig": "type",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "width",
-                    "orig": "width",
-                    "type": "`$INTEGER`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/cat/says/{text}",
@@ -611,6 +553,78 @@ class Config {
                   "var": "text"
                 }
               ],
+              "parts": [
+                "cat",
+                "says",
+                "{text}"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "params": [
+                  {
+                    "name": "text",
+                    "orig": "text",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": "hello"
+                  }
+                ],
+                "query": [
+                  {
+                    "name": "filter",
+                    "orig": "filter",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "font_color",
+                    "orig": "font_color",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "font_size",
+                    "orig": "font_size",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "height",
+                    "orig": "height",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "html",
+                    "orig": "html",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "json",
+                    "orig": "json",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "type",
+                    "orig": "type",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "width",
+                    "orig": "width",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "filter",
@@ -623,68 +637,9 @@ class Config {
                   "type",
                   "width"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "cat",
-                "says",
-                "{text}"
-              ]
+              }
             },
             {
-              "args": {
-                "params": [
-                  {
-                    "example": "Hello",
-                    "kind": "param",
-                    "name": "text",
-                    "orig": "text",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ],
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "filter",
-                    "orig": "filter",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "font_color",
-                    "orig": "font_color",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "font_size",
-                    "orig": "font_size",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "html",
-                    "orig": "html",
-                    "type": "`$BOOLEAN`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "json",
-                    "orig": "json",
-                    "type": "`$BOOLEAN`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "type",
-                    "orig": "type",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/cat/gif/says/{text}",
@@ -702,6 +657,67 @@ class Config {
                   "var": "text"
                 }
               ],
+              "parts": [
+                "cat",
+                "gif",
+                "says",
+                "{text}"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "params": [
+                  {
+                    "name": "text",
+                    "orig": "text",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": "Hello"
+                  }
+                ],
+                "query": [
+                  {
+                    "name": "filter",
+                    "orig": "filter",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "font_color",
+                    "orig": "font_color",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "font_size",
+                    "orig": "font_size",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "html",
+                    "orig": "html",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "json",
+                    "orig": "json",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "type",
+                    "orig": "type",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "filter",
@@ -712,77 +728,12 @@ class Config {
                   "text",
                   "type"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "cat",
-                "gif",
-                "says",
-                "{text}"
-              ]
+              }
             },
             {
-              "args": {
-                "params": [
-                  {
-                    "example": "orange,cute",
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "tag",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ],
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "filter",
-                    "orig": "filter",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "height",
-                    "orig": "height",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "html",
-                    "orig": "html",
-                    "type": "`$BOOLEAN`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "json",
-                    "orig": "json",
-                    "type": "`$BOOLEAN`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "type",
-                    "orig": "type",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "width",
-                    "orig": "width",
-                    "type": "`$INTEGER`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/cat/{tag}",
-              "rename": {
-                "param": {
-                  "tag": "id"
-                }
-              },
               "segments": [
                 {
                   "lit": "cat"
@@ -791,6 +742,69 @@ class Config {
                   "var": "id"
                 }
               ],
+              "parts": [
+                "cat",
+                "{id}"
+              ],
+              "rename": {
+                "param": {
+                  "tag": "id"
+                }
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "params": [
+                  {
+                    "name": "id",
+                    "orig": "tag",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": "orange,cute"
+                  }
+                ],
+                "query": [
+                  {
+                    "name": "filter",
+                    "orig": "filter",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "height",
+                    "orig": "height",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "html",
+                    "orig": "html",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "json",
+                    "orig": "json",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "type",
+                    "orig": "type",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "width",
+                    "orig": "width",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "filter",
@@ -801,26 +815,13 @@ class Config {
                   "type",
                   "width"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "cat",
-                "{id}"
-              ]
+              }
             }
           ]
         }
       },
       "relations": {
-        "ancestors": [
-          [
-            "cat",
-            "say"
-          ]
-        ]
+        "ancestors": []
       }
     },
     "tag": {
@@ -832,7 +833,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/api/tags",
@@ -844,15 +844,17 @@ class Config {
                   "lit": "tags"
                 }
               ],
-              "select": {},
+              "parts": [
+                "api",
+                "tags"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "api",
-                "tags"
-              ]
+              "args": {},
+              "select": {}
             }
           ]
         }

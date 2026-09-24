@@ -1,0 +1,743 @@
+# Entity: cat
+
+main: kit: entity: cat: {
+
+  alias: field: {}
+
+  fields: {
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      sh: "Creation timestamp"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the cat"
+      t: "`$STRING`"
+    }
+    mimetype: {
+      h: "Mimetype"
+      n: "mimetype"
+      r: false
+      sh: "MIME type of the image"
+      t: "`$STRING`"
+    }
+    size: {
+      h: "Size"
+      n: "size"
+      r: false
+      sh: "Size of the image in bytes"
+      t: "`$INTEGER`"
+    }
+    tags: {
+      h: "Tags"
+      n: "tags"
+      r: false
+      sh: "Tags associated with the cat"
+      t: "`$ARRAY`"
+    }
+    updated_at: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updated_at"
+      r: false
+      sh: "Last update timestamp"
+      t: "`$STRING`"
+    }
+    url: {
+      h: "Url"
+      n: "url"
+      r: false
+      sh: "URL to access the cat image"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "cat"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /cat"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "b"
+                or: "b"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "brightness"
+                or: "brightness"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "g"
+                or: "g"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "height"
+                or: "height"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "html"
+                or: "html"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "hue"
+                or: "hue"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "json"
+                or: "json"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "lightness"
+                or: "lightness"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "r"
+                or: "r"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "saturation"
+                or: "saturation"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "type"
+                or: "type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "width"
+                or: "width"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/cat"
+          q: {
+            exist: [
+              "b"
+              "brightness"
+              "filter"
+              "g"
+              "height"
+              "html"
+              "hue"
+              "json"
+              "lightness"
+              "r"
+              "saturation"
+              "type"
+              "width"
+            ]
+          }
+          s: [
+            {
+              lit: "cat"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.tags`"
+          }
+        }
+        {
+          co: {
+            id: "GET /cat/gif"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "html"
+                or: "html"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "json"
+                or: "json"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "type"
+                or: "type"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/cat/gif"
+          q: {
+            "$action": "gif"
+            exist: [
+              "filter"
+              "html"
+              "json"
+              "type"
+            ]
+          }
+          s: [
+            {
+              lit: "cat"
+            }
+            {
+              lit: "gif"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.tags`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api/cats"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 10
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "skip"
+                or: "skip"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "cute,funny"
+                k: "query"
+                n: "tag"
+                or: "tag"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/cats"
+          q: {
+            exist: [
+              "limit"
+              "skip"
+              "tag"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "cats"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /cat/{tag}/says/{text}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "cute"
+                k: "param"
+                n: "tag"
+                or: "tag"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "hello"
+                k: "param"
+                n: "text"
+                or: "text"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "font_color"
+                or: "font_color"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "font_size"
+                or: "font_size"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "height"
+                or: "height"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "html"
+                or: "html"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "json"
+                or: "json"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "type"
+                or: "type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "width"
+                or: "width"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/cat/{tag}/says/{text}"
+          q: {
+            exist: [
+              "filter"
+              "font_color"
+              "font_size"
+              "height"
+              "html"
+              "json"
+              "tag"
+              "text"
+              "type"
+              "width"
+            ]
+          }
+          s: [
+            {
+              lit: "cat"
+            }
+            {
+              var: "tag"
+            }
+            {
+              lit: "says"
+            }
+            {
+              var: "text"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /cat/says/{text}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "hello"
+                k: "param"
+                n: "text"
+                or: "text"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "font_color"
+                or: "font_color"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "font_size"
+                or: "font_size"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "height"
+                or: "height"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "html"
+                or: "html"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "json"
+                or: "json"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "type"
+                or: "type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "width"
+                or: "width"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/cat/says/{text}"
+          q: {
+            exist: [
+              "filter"
+              "font_color"
+              "font_size"
+              "height"
+              "html"
+              "json"
+              "text"
+              "type"
+              "width"
+            ]
+          }
+          s: [
+            {
+              lit: "cat"
+            }
+            {
+              lit: "says"
+            }
+            {
+              var: "text"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /cat/gif/says/{text}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "Hello"
+                k: "param"
+                n: "text"
+                or: "text"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "font_color"
+                or: "font_color"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "font_size"
+                or: "font_size"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "html"
+                or: "html"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "json"
+                or: "json"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "type"
+                or: "type"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/cat/gif/says/{text}"
+          q: {
+            exist: [
+              "filter"
+              "font_color"
+              "font_size"
+              "html"
+              "json"
+              "text"
+              "type"
+            ]
+          }
+          s: [
+            {
+              lit: "cat"
+            }
+            {
+              lit: "gif"
+            }
+            {
+              lit: "says"
+            }
+            {
+              var: "text"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /cat/{tag}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "orange,cute"
+                k: "param"
+                n: "id"
+                or: "tag"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "height"
+                or: "height"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "html"
+                or: "html"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "json"
+                or: "json"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "type"
+                or: "type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "width"
+                or: "width"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/cat/{tag}"
+          q: {
+            exist: [
+              "filter"
+              "height"
+              "html"
+              "id"
+              "json"
+              "type"
+              "width"
+            ]
+          }
+          r: {
+            param: {
+              tag: "id"
+            }
+          }
+          s: [
+            {
+              lit: "cat"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TagEntity = void 0;
 const CataasEntityBase_1 = require("../CataasEntityBase");
-// TODO: needs Entity superclass
 class TagEntity extends CataasEntityBase_1.CataasEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

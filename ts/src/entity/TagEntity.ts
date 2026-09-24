@@ -19,7 +19,6 @@ import type {
   TagListMatch,
 } from '../CataasTypes'
 
-// TODO: needs Entity superclass
 class TagEntity extends CataasEntityBase<Tag> {
 
   constructor(client: CataasSDK, entopts: any) {

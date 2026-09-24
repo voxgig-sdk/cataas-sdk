@@ -108,7 +108,7 @@ def cat_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["cat01", "cat02", "cat03", "say01", "say02", "say03"],
+    ["cat01", "cat02", "cat03"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

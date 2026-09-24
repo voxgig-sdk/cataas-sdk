@@ -43,7 +43,7 @@ local cats, err = client:Cat():list()
 if err then error(err) end
 
 for _, item in ipairs(cats) do
-  print(item["id"], item["created_at"])
+  print(item["id"])
 end
 ```
 

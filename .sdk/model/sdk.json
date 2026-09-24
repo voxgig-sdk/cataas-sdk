@@ -24,65 +24,138 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "cat": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "format": "date-time",
-              "name": "created_at",
-              "req": false,
-              "short": "Creation timestamp",
-              "type": "`$STRING`"
+          "fields": {
+            "created_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Created At",
+              "n": "created_at",
+              "r": false,
+              "sh": "Creation timestamp",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique identifier for the cat",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique identifier for the cat",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "mimetype",
-              "req": false,
-              "short": "MIME type of the image",
-              "type": "`$STRING`"
+            "mimetype": {
+              "a": true,
+              "h": "Mimetype",
+              "n": "mimetype",
+              "r": false,
+              "sh": "MIME type of the image",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "size",
-              "req": false,
-              "short": "Size of the image in bytes",
-              "type": "`$INTEGER`"
+            "size": {
+              "a": true,
+              "h": "Size",
+              "n": "size",
+              "r": false,
+              "sh": "Size of the image in bytes",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "tags",
-              "req": false,
-              "short": "Tags associated with the cat",
-              "type": "`$ARRAY`"
+            "tags": {
+              "a": true,
+              "h": "Tags",
+              "n": "tags",
+              "r": false,
+              "sh": "Tags associated with the cat",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "format": "date-time",
-              "name": "updated_at",
-              "req": false,
-              "short": "Last update timestamp",
-              "type": "`$STRING`"
+            "updated_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Updated At",
+              "n": "updated_at",
+              "r": false,
+              "sh": "Last update timestamp",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "url",
-              "req": false,
-              "short": "URL to access the cat image",
-              "type": "`$STRING`"
+            "url": {
+              "a": true,
+              "h": "Url",
+              "n": "url",
+              "r": false,
+              "sh": "URL to access the cat image",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -94,130 +167,124 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /cat",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "b",
-                        "orig": "b",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "b",
+                        "or": "b",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "brightness",
-                        "orig": "brightness",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "brightness",
+                        "or": "brightness",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "filter",
-                        "orig": "filter",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "filter",
+                        "or": "filter",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "g",
-                        "orig": "g",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "g",
+                        "or": "g",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "height",
-                        "orig": "height",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "height",
+                        "or": "height",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "html",
-                        "orig": "html",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "k": "query",
+                        "n": "html",
+                        "or": "html",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "hue",
-                        "orig": "hue",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "hue",
+                        "or": "hue",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "json",
-                        "orig": "json",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "k": "query",
+                        "n": "json",
+                        "or": "json",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "lightness",
-                        "orig": "lightness",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "lightness",
+                        "or": "lightness",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "r",
-                        "orig": "r",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "r",
+                        "or": "r",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "saturation",
-                        "orig": "saturation",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "saturation",
+                        "or": "saturation",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "type",
-                        "orig": "type",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "type",
+                        "or": "type",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "width",
-                        "orig": "width",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "width",
+                        "or": "width",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /cat",
-                    "json": "{\"operationId\":\"getRandomCat\",\"parameters\":[{\"description\":\"Image type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"xsmall\",\"small\",\"medium\",\"square\"],\"type\":\"string\"}},{\"description\":\"Image filter\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"enum\":[\"blur\",\"mono\",\"negate\",\"custom\"],\"type\":\"string\"}},{\"description\":\"Brightness level (used with filter=custom)\",\"in\":\"query\",\"name\":\"brightness\",\"required\":false,\"schema\":{\"type\":\"number\"}},{\"description\":\"Lightness level (used with filter=custom)\",\"in\":\"query\",\"name\":\"lightness\",\"required\":false,\"schema\":{\"type\":\"number\"}},{\"description\":\"Saturation level (used with filter=custom)\",\"in\":\"query\",\"name\":\"saturation\",\"required\":false,\"schema\":{\"type\":\"number\"}},{\"description\":\"Hue level (used with filter=custom)\",\"in\":\"query\",\"name\":\"hue\",\"required\":false,\"schema\":{\"type\":\"number\"}},{\"description\":\"Red channel (used with filter=custom)\",\"in\":\"query\",\"name\":\"r\",\"required\":false,\"schema\":{\"maximum\":255,\"minimum\":0,\"type\":\"integer\"}},{\"description\":\"Green channel (used with filter=custom)\",\"in\":\"query\",\"name\":\"g\",\"required\":false,\"schema\":{\"maximum\":255,\"minimum\":0,\"type\":\"integer\"}},{\"description\":\"Blue channel (used with filter=custom)\",\"in\":\"query\",\"name\":\"b\",\"required\":false,\"schema\":{\"maximum\":255,\"minimum\":0,\"type\":\"integer\"}},{\"description\":\"Custom width for the image\",\"in\":\"query\",\"name\":\"width\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Custom height for the image\",\"in\":\"query\",\"name\":\"height\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Return cat in HTML page (useful for Twitter or Facebook embedded render)\",\"in\":\"query\",\"name\":\"html\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Return cat in JSON object\",\"in\":\"query\",\"name\":\"json\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"}},\"image/jpeg\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"image/png\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/cat",
-                  "segments": [
-                    {
-                      "lit": "cat"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/cat",
+                  "q": {
                     "exist": [
                       "b",
                       "brightness",
@@ -234,67 +301,64 @@
                       "width"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "cat"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.tags`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /cat/gif",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "filter",
-                        "orig": "filter",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "filter",
+                        "or": "filter",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "html",
-                        "orig": "html",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "k": "query",
+                        "n": "html",
+                        "or": "html",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "json",
-                        "orig": "json",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "k": "query",
+                        "n": "json",
+                        "or": "json",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "type",
-                        "orig": "type",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "type",
+                        "or": "type",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /cat/gif",
-                    "json": "{\"operationId\":\"getRandomCatGif\",\"parameters\":[{\"description\":\"Image type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"xsmall\",\"small\",\"medium\",\"square\"],\"type\":\"string\"}},{\"description\":\"Image filter\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"enum\":[\"blur\",\"mono\",\"negate\",\"custom\"],\"type\":\"string\"}},{\"description\":\"Return cat in HTML page\",\"in\":\"query\",\"name\":\"html\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Return cat in JSON object\",\"in\":\"query\",\"name\":\"json\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"}},\"image/gif\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/cat/gif",
-                  "segments": [
-                    {
-                      "lit": "cat"
-                    },
-                    {
-                      "lit": "gif"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/cat/gif",
+                  "q": {
                     "$action": "gif",
                     "exist": [
                       "filter",
@@ -303,54 +367,70 @@
                       "type"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "cat"
+                    },
+                    {
+                      "lit": "gif"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.tags`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api/cats",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": 10,
-                        "kind": "query",
-                        "name": "limit",
-                        "orig": "limit",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 10,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 0,
-                        "kind": "query",
-                        "name": "skip",
-                        "orig": "skip",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "skip",
+                        "or": "skip",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": "cute,funny",
-                        "kind": "query",
-                        "name": "tag",
-                        "orig": "tag",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "cute,funny",
+                        "k": "query",
+                        "n": "tag",
+                        "or": "tag",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /api/cats",
-                    "json": "{\"operationId\":\"getAllCats\",\"parameters\":[{\"description\":\"Filter cats by tags (comma-separated)\",\"example\":\"cute,funny\",\"in\":\"query\",\"name\":\"tags\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Number of records to skip for pagination\",\"in\":\"query\",\"name\":\"skip\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}},{\"description\":\"Maximum number of records to return\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":10,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"created_at\":{\"description\":\"Creation timestamp\",\"format\":\"date-time\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"updated_at\":{\"description\":\"Last update timestamp\",\"format\":\"date-time\",\"type\":\"string\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/cats",
+                  "q": {
+                    "exist": [
+                      "limit",
+                      "skip",
+                      "tag"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/cats",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -358,14 +438,7 @@
                       "lit": "cats"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "limit",
-                      "skip",
-                      "tag"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -377,119 +450,104 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /cat/{tag}/says/{text}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "cute",
-                        "kind": "param",
-                        "name": "tag",
-                        "orig": "tag",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "cute",
+                        "k": "param",
+                        "n": "tag",
+                        "or": "tag",
+                        "r": true,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "hello",
-                        "kind": "param",
-                        "name": "text",
-                        "orig": "text",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "hello",
+                        "k": "param",
+                        "n": "text",
+                        "or": "text",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ],
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "filter",
-                        "orig": "filter",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "filter",
+                        "or": "filter",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "font_color",
-                        "orig": "font_color",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "font_color",
+                        "or": "font_color",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "font_size",
-                        "orig": "font_size",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "font_size",
+                        "or": "font_size",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "height",
-                        "orig": "height",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "height",
+                        "or": "height",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "html",
-                        "orig": "html",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "k": "query",
+                        "n": "html",
+                        "or": "html",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "json",
-                        "orig": "json",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "k": "query",
+                        "n": "json",
+                        "or": "json",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "type",
-                        "orig": "type",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "type",
+                        "or": "type",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "width",
-                        "orig": "width",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "width",
+                        "or": "width",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /cat/{tag}/says/{text}",
-                    "json": "{\"operationId\":\"getRandomCatByTagWithText\",\"parameters\":[{\"description\":\"Tag(s) to filter cats. Multiple tags can be separated by comma.\",\"example\":\"cute\",\"in\":\"path\",\"name\":\"tag\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Text to display on the cat image\",\"example\":\"hello\",\"in\":\"path\",\"name\":\"text\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Font size for the text\",\"in\":\"query\",\"name\":\"fontSize\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Font color for the text\",\"in\":\"query\",\"name\":\"fontColor\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Image type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"xsmall\",\"small\",\"medium\",\"square\"],\"type\":\"string\"}},{\"description\":\"Image filter\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"enum\":[\"blur\",\"mono\",\"negate\",\"custom\"],\"type\":\"string\"}},{\"description\":\"Custom width for the image\",\"in\":\"query\",\"name\":\"width\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Custom height for the image\",\"in\":\"query\",\"name\":\"height\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Return cat in HTML page\",\"in\":\"query\",\"name\":\"html\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Return cat in JSON object\",\"in\":\"query\",\"name\":\"json\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"}},\"image/jpeg\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"image/png\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/cat/{tag}/says/{text}",
-                  "segments": [
-                    {
-                      "lit": "cat"
-                    },
-                    {
-                      "var": "tag"
-                    },
-                    {
-                      "lit": "says"
-                    },
-                    {
-                      "var": "text"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/cat/{tag}/says/{text}",
+                  "q": {
                     "exist": [
                       "filter",
                       "font_color",
@@ -503,104 +561,13 @@
                       "width"
                     ]
                   },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "active": true,
-                  "args": {
-                    "params": [
-                      {
-                        "active": true,
-                        "example": "hello",
-                        "kind": "param",
-                        "name": "text",
-                        "orig": "text",
-                        "reqd": true,
-                        "type": "`$STRING`"
-                      }
-                    ],
-                    "query": [
-                      {
-                        "active": true,
-                        "kind": "query",
-                        "name": "filter",
-                        "orig": "filter",
-                        "reqd": false,
-                        "type": "`$STRING`"
-                      },
-                      {
-                        "active": true,
-                        "kind": "query",
-                        "name": "font_color",
-                        "orig": "font_color",
-                        "reqd": false,
-                        "type": "`$STRING`"
-                      },
-                      {
-                        "active": true,
-                        "kind": "query",
-                        "name": "font_size",
-                        "orig": "font_size",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
-                      },
-                      {
-                        "active": true,
-                        "kind": "query",
-                        "name": "height",
-                        "orig": "height",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
-                      },
-                      {
-                        "active": true,
-                        "kind": "query",
-                        "name": "html",
-                        "orig": "html",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
-                      },
-                      {
-                        "active": true,
-                        "kind": "query",
-                        "name": "json",
-                        "orig": "json",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
-                      },
-                      {
-                        "active": true,
-                        "kind": "query",
-                        "name": "type",
-                        "orig": "type",
-                        "reqd": false,
-                        "type": "`$STRING`"
-                      },
-                      {
-                        "active": true,
-                        "kind": "query",
-                        "name": "width",
-                        "orig": "width",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
-                      }
-                    ]
-                  },
-                  "contract": {
-                    "id": "GET /cat/says/{text}",
-                    "json": "{\"operationId\":\"getRandomCatWithText\",\"parameters\":[{\"description\":\"Text to display on the cat image\",\"example\":\"hello\",\"in\":\"path\",\"name\":\"text\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Font size for the text\",\"in\":\"query\",\"name\":\"fontSize\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Font color for the text\",\"in\":\"query\",\"name\":\"fontColor\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Image type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"xsmall\",\"small\",\"medium\",\"square\"],\"type\":\"string\"}},{\"description\":\"Image filter\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"enum\":[\"blur\",\"mono\",\"negate\",\"custom\"],\"type\":\"string\"}},{\"description\":\"Custom width for the image\",\"in\":\"query\",\"name\":\"width\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Custom height for the image\",\"in\":\"query\",\"name\":\"height\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Return cat in HTML page\",\"in\":\"query\",\"name\":\"html\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Return cat in JSON object\",\"in\":\"query\",\"name\":\"json\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"}},\"image/jpeg\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"image/png\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/cat/says/{text}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "cat"
+                    },
+                    {
+                      "var": "tag"
                     },
                     {
                       "lit": "says"
@@ -609,7 +576,101 @@
                       "var": "text"
                     }
                   ],
-                  "select": {
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /cat/says/{text}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "hello",
+                        "k": "param",
+                        "n": "text",
+                        "or": "text",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "filter",
+                        "or": "filter",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "font_color",
+                        "or": "font_color",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "font_size",
+                        "or": "font_size",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "height",
+                        "or": "height",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "html",
+                        "or": "html",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "json",
+                        "or": "json",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "type",
+                        "or": "type",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "width",
+                        "or": "width",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/cat/says/{text}",
+                  "q": {
                     "exist": [
                       "filter",
                       "font_color",
@@ -622,86 +683,109 @@
                       "width"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "cat"
+                    },
+                    {
+                      "lit": "says"
+                    },
+                    {
+                      "var": "text"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /cat/gif/says/{text}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "Hello",
-                        "kind": "param",
-                        "name": "text",
-                        "orig": "text",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "Hello",
+                        "k": "param",
+                        "n": "text",
+                        "or": "text",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ],
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "filter",
-                        "orig": "filter",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "filter",
+                        "or": "filter",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "font_color",
-                        "orig": "font_color",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "font_color",
+                        "or": "font_color",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "font_size",
-                        "orig": "font_size",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "font_size",
+                        "or": "font_size",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "html",
-                        "orig": "html",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "k": "query",
+                        "n": "html",
+                        "or": "html",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "json",
-                        "orig": "json",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "k": "query",
+                        "n": "json",
+                        "or": "json",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "type",
-                        "orig": "type",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "type",
+                        "or": "type",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /cat/gif/says/{text}",
-                    "json": "{\"operationId\":\"getRandomCatGifWithText\",\"parameters\":[{\"description\":\"Text to display on the cat gif\",\"example\":\"Hello\",\"in\":\"path\",\"name\":\"text\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Font size for the text\",\"in\":\"query\",\"name\":\"fontSize\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Font color for the text\",\"in\":\"query\",\"name\":\"fontColor\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Image type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"xsmall\",\"small\",\"medium\",\"square\"],\"type\":\"string\"}},{\"description\":\"Image filter\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"enum\":[\"blur\",\"mono\",\"negate\",\"custom\"],\"type\":\"string\"}},{\"description\":\"Return cat in HTML page\",\"in\":\"query\",\"name\":\"html\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Return cat in JSON object\",\"in\":\"query\",\"name\":\"json\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"}},\"image/gif\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/cat/gif/says/{text}",
+                  "q": {
+                    "exist": [
+                      "filter",
+                      "font_color",
+                      "font_size",
+                      "html",
+                      "json",
+                      "text",
+                      "type"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/cat/gif/says/{text}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "cat"
                     },
@@ -715,110 +799,85 @@
                       "var": "text"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "filter",
-                      "font_color",
-                      "font_size",
-                      "html",
-                      "json",
-                      "text",
-                      "type"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /cat/{tag}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "orange,cute",
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "tag",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "orange,cute",
+                        "k": "param",
+                        "n": "id",
+                        "or": "tag",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ],
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "filter",
-                        "orig": "filter",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "filter",
+                        "or": "filter",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "height",
-                        "orig": "height",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "height",
+                        "or": "height",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "html",
-                        "orig": "html",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "k": "query",
+                        "n": "html",
+                        "or": "html",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "json",
-                        "orig": "json",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "k": "query",
+                        "n": "json",
+                        "or": "json",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "type",
-                        "orig": "type",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "type",
+                        "or": "type",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "width",
-                        "orig": "width",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "width",
+                        "or": "width",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /cat/{tag}",
-                    "json": "{\"operationId\":\"getRandomCatByTag\",\"parameters\":[{\"description\":\"Tag(s) to filter cats. Multiple tags can be separated by comma.\",\"example\":\"orange,cute\",\"in\":\"path\",\"name\":\"tag\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Image type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"xsmall\",\"small\",\"medium\",\"square\"],\"type\":\"string\"}},{\"description\":\"Image filter\",\"in\":\"query\",\"name\":\"filter\",\"required\":false,\"schema\":{\"enum\":[\"blur\",\"mono\",\"negate\",\"custom\"],\"type\":\"string\"}},{\"description\":\"Custom width for the image\",\"in\":\"query\",\"name\":\"width\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Custom height for the image\",\"in\":\"query\",\"name\":\"height\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Return cat in HTML page\",\"in\":\"query\",\"name\":\"html\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Return cat in JSON object\",\"in\":\"query\",\"name\":\"json\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"_id\":{\"description\":\"Unique identifier for the cat\",\"type\":\"string\"},\"mimetype\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"size\":{\"description\":\"Size of the image in bytes\",\"type\":\"integer\"},\"tags\":{\"description\":\"Tags associated with the cat\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"URL to access the cat image\",\"type\":\"string\"}},\"type\":\"object\"}},\"image/jpeg\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"image/png\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/cat/{tag}",
-                  "rename": {
-                    "param": {
-                      "tag": "id"
-                    }
-                  },
-                  "segments": [
-                    {
-                      "lit": "cat"
-                    },
-                    {
-                      "var": "id"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/cat/{tag}",
+                  "q": {
                     "exist": [
                       "filter",
                       "height",
@@ -829,7 +888,20 @@
                       "width"
                     ]
                   },
-                  "transform": {
+                  "r": {
+                    "param": {
+                      "tag": "id"
+                    }
+                  },
+                  "s": [
+                    {
+                      "lit": "cat"
+                    },
+                    {
+                      "var": "id"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -838,12 +910,7 @@
             }
           },
           "relations": {
-            "ancestors": [
-              [
-                "cat",
-                "say"
-              ]
-            ]
+            "ancestors": []
           }
         },
         "tag": {
@@ -851,7 +918,7 @@
           "alias": {
             "field": {}
           },
-          "fields": [],
+          "fields": {},
           "name": "tag",
           "op": {
             "list": {
@@ -859,18 +926,19 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /api/tags",
-                    "json": "{\"operationId\":\"getAllTags\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/tags",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/tags",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -878,8 +946,7 @@
                       "lit": "tags"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -1308,13 +1375,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -1324,19 +1391,19 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "cat_ref01",
                 "srcdatavar": "cat_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "cat01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -1356,13 +1423,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {

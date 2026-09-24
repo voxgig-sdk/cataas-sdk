@@ -1,7 +1,7 @@
 // Typed models for the Cataas SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,13 +14,6 @@ import (
 
 // Cat is the typed data model for the cat entity.
 type Cat struct {
-	CreatedAt *string `json:"created_at,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Mimetype *string `json:"mimetype,omitempty"`
-	Size *int `json:"size,omitempty"`
-	Tags *[]any `json:"tags,omitempty"`
-	UpdatedAt *string `json:"updated_at,omitempty"`
-	Url *string `json:"url,omitempty"`
 }
 
 // CatLoadMatch is the typed request payload for Cat.LoadTyped.

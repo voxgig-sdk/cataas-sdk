@@ -87,41 +87,48 @@ local function make_config()
       ["cat"] = {
         ["fields"] = {
           {
-            ["format"] = "date-time",
             ["name"] = "created_at",
-            ["short"] = "Creation timestamp",
+            ["title"] = "Created At",
             ["type"] = "`$STRING`",
+            ["short"] = "Creation timestamp",
+            ["format"] = "date-time",
           },
           {
             ["name"] = "id",
-            ["short"] = "Unique identifier for the cat",
+            ["title"] = "Id",
             ["type"] = "`$STRING`",
+            ["short"] = "Unique identifier for the cat",
           },
           {
             ["name"] = "mimetype",
-            ["short"] = "MIME type of the image",
+            ["title"] = "Mimetype",
             ["type"] = "`$STRING`",
+            ["short"] = "MIME type of the image",
           },
           {
             ["name"] = "size",
-            ["short"] = "Size of the image in bytes",
+            ["title"] = "Size",
             ["type"] = "`$INTEGER`",
+            ["short"] = "Size of the image in bytes",
           },
           {
             ["name"] = "tags",
-            ["short"] = "Tags associated with the cat",
+            ["title"] = "Tags",
             ["type"] = "`$ARRAY`",
+            ["short"] = "Tags associated with the cat",
           },
           {
-            ["format"] = "date-time",
             ["name"] = "updated_at",
-            ["short"] = "Last update timestamp",
+            ["title"] = "Updated At",
             ["type"] = "`$STRING`",
+            ["short"] = "Last update timestamp",
+            ["format"] = "date-time",
           },
           {
             ["name"] = "url",
-            ["short"] = "URL to access the cat image",
+            ["title"] = "Url",
             ["type"] = "`$STRING`",
+            ["short"] = "URL to access the cat image",
           },
         },
         ["id"] = {
@@ -135,94 +142,102 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "b",
-                      ["orig"] = "b",
-                      ["type"] = "`$INTEGER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "brightness",
-                      ["orig"] = "brightness",
-                      ["type"] = "`$NUMBER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "filter",
-                      ["orig"] = "filter",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "g",
-                      ["orig"] = "g",
-                      ["type"] = "`$INTEGER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "height",
-                      ["orig"] = "height",
-                      ["type"] = "`$INTEGER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "html",
-                      ["orig"] = "html",
-                      ["type"] = "`$BOOLEAN`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "hue",
-                      ["orig"] = "hue",
-                      ["type"] = "`$NUMBER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "json",
-                      ["orig"] = "json",
-                      ["type"] = "`$BOOLEAN`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "lightness",
-                      ["orig"] = "lightness",
-                      ["type"] = "`$NUMBER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "r",
-                      ["orig"] = "r",
-                      ["type"] = "`$INTEGER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "saturation",
-                      ["orig"] = "saturation",
-                      ["type"] = "`$NUMBER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "type",
-                      ["orig"] = "type",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "width",
-                      ["orig"] = "width",
-                      ["type"] = "`$INTEGER`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cat",
                 ["segments"] = {
                   {
                     ["lit"] = "cat",
+                  },
+                },
+                ["parts"] = {
+                  "cat",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body.tags`",
+                },
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "b",
+                      ["orig"] = "b",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "brightness",
+                      ["orig"] = "brightness",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "filter",
+                      ["orig"] = "filter",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "g",
+                      ["orig"] = "g",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "height",
+                      ["orig"] = "height",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "html",
+                      ["orig"] = "html",
+                      ["type"] = "`$BOOLEAN`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "hue",
+                      ["orig"] = "hue",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "json",
+                      ["orig"] = "json",
+                      ["type"] = "`$BOOLEAN`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "lightness",
+                      ["orig"] = "lightness",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "r",
+                      ["orig"] = "r",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "saturation",
+                      ["orig"] = "saturation",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "type",
+                      ["orig"] = "type",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "width",
+                      ["orig"] = "width",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "query",
+                    },
                   },
                 },
                 ["select"] = {
@@ -242,43 +257,8 @@ local function make_config()
                     "width",
                   },
                 },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body.tags`",
-                },
-                ["parts"] = {
-                  "cat",
-                },
               },
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "filter",
-                      ["orig"] = "filter",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "html",
-                      ["orig"] = "html",
-                      ["type"] = "`$BOOLEAN`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "json",
-                      ["orig"] = "json",
-                      ["type"] = "`$BOOLEAN`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "type",
-                      ["orig"] = "type",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cat/gif",
@@ -290,6 +270,43 @@ local function make_config()
                     ["lit"] = "gif",
                   },
                 },
+                ["parts"] = {
+                  "cat",
+                  "gif",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body.tags`",
+                },
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "filter",
+                      ["orig"] = "filter",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "html",
+                      ["orig"] = "html",
+                      ["type"] = "`$BOOLEAN`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "json",
+                      ["orig"] = "json",
+                      ["type"] = "`$BOOLEAN`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "type",
+                      ["orig"] = "type",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                  },
+                },
                 ["select"] = {
                   ["$action"] = "gif",
                   ["exist"] = {
@@ -299,41 +316,8 @@ local function make_config()
                     "type",
                   },
                 },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body.tags`",
-                },
-                ["parts"] = {
-                  "cat",
-                  "gif",
-                },
               },
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["example"] = 10,
-                      ["kind"] = "query",
-                      ["name"] = "limit",
-                      ["orig"] = "limit",
-                      ["type"] = "`$INTEGER`",
-                    },
-                    {
-                      ["example"] = 0,
-                      ["kind"] = "query",
-                      ["name"] = "skip",
-                      ["orig"] = "skip",
-                      ["type"] = "`$INTEGER`",
-                    },
-                    {
-                      ["example"] = "cute,funny",
-                      ["kind"] = "query",
-                      ["name"] = "tag",
-                      ["orig"] = "tag",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/cats",
@@ -345,20 +329,46 @@ local function make_config()
                     ["lit"] = "cats",
                   },
                 },
+                ["parts"] = {
+                  "api",
+                  "cats",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "limit",
+                      ["orig"] = "limit",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "query",
+                      ["example"] = 10,
+                    },
+                    {
+                      ["name"] = "skip",
+                      ["orig"] = "skip",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "query",
+                      ["example"] = 0,
+                    },
+                    {
+                      ["name"] = "tag",
+                      ["orig"] = "tag",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "cute,funny",
+                    },
+                  },
+                },
                 ["select"] = {
                   ["exist"] = {
                     "limit",
                     "skip",
                     "tag",
                   },
-                },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["parts"] = {
-                  "api",
-                  "cats",
                 },
               },
             },
@@ -368,76 +378,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["example"] = "cute",
-                      ["kind"] = "param",
-                      ["name"] = "tag",
-                      ["orig"] = "tag",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["example"] = "hello",
-                      ["kind"] = "param",
-                      ["name"] = "text",
-                      ["orig"] = "text",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                  ["query"] = {
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "filter",
-                      ["orig"] = "filter",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "font_color",
-                      ["orig"] = "font_color",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "font_size",
-                      ["orig"] = "font_size",
-                      ["type"] = "`$INTEGER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "height",
-                      ["orig"] = "height",
-                      ["type"] = "`$INTEGER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "html",
-                      ["orig"] = "html",
-                      ["type"] = "`$BOOLEAN`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "json",
-                      ["orig"] = "json",
-                      ["type"] = "`$BOOLEAN`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "type",
-                      ["orig"] = "type",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "width",
-                      ["orig"] = "width",
-                      ["type"] = "`$INTEGER`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cat/{tag}/says/{text}",
@@ -455,6 +395,87 @@ local function make_config()
                     ["var"] = "text",
                   },
                 },
+                ["parts"] = {
+                  "cat",
+                  "{tag}",
+                  "says",
+                  "{text}",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["name"] = "tag",
+                      ["orig"] = "tag",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                      ["example"] = "cute",
+                    },
+                    {
+                      ["name"] = "text",
+                      ["orig"] = "text",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                      ["example"] = "hello",
+                    },
+                  },
+                  ["query"] = {
+                    {
+                      ["name"] = "filter",
+                      ["orig"] = "filter",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "font_color",
+                      ["orig"] = "font_color",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "font_size",
+                      ["orig"] = "font_size",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "height",
+                      ["orig"] = "height",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "html",
+                      ["orig"] = "html",
+                      ["type"] = "`$BOOLEAN`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "json",
+                      ["orig"] = "json",
+                      ["type"] = "`$BOOLEAN`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "type",
+                      ["orig"] = "type",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "width",
+                      ["orig"] = "width",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "query",
+                    },
+                  },
+                },
                 ["select"] = {
                   ["exist"] = {
                     "filter",
@@ -469,80 +490,8 @@ local function make_config()
                     "width",
                   },
                 },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["parts"] = {
-                  "cat",
-                  "{tag}",
-                  "says",
-                  "{text}",
-                },
               },
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["example"] = "hello",
-                      ["kind"] = "param",
-                      ["name"] = "text",
-                      ["orig"] = "text",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                  ["query"] = {
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "filter",
-                      ["orig"] = "filter",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "font_color",
-                      ["orig"] = "font_color",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "font_size",
-                      ["orig"] = "font_size",
-                      ["type"] = "`$INTEGER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "height",
-                      ["orig"] = "height",
-                      ["type"] = "`$INTEGER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "html",
-                      ["orig"] = "html",
-                      ["type"] = "`$BOOLEAN`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "json",
-                      ["orig"] = "json",
-                      ["type"] = "`$BOOLEAN`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "type",
-                      ["orig"] = "type",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "width",
-                      ["orig"] = "width",
-                      ["type"] = "`$INTEGER`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cat/says/{text}",
@@ -555,6 +504,78 @@ local function make_config()
                   },
                   {
                     ["var"] = "text",
+                  },
+                },
+                ["parts"] = {
+                  "cat",
+                  "says",
+                  "{text}",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["name"] = "text",
+                      ["orig"] = "text",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                      ["example"] = "hello",
+                    },
+                  },
+                  ["query"] = {
+                    {
+                      ["name"] = "filter",
+                      ["orig"] = "filter",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "font_color",
+                      ["orig"] = "font_color",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "font_size",
+                      ["orig"] = "font_size",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "height",
+                      ["orig"] = "height",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "html",
+                      ["orig"] = "html",
+                      ["type"] = "`$BOOLEAN`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "json",
+                      ["orig"] = "json",
+                      ["type"] = "`$BOOLEAN`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "type",
+                      ["orig"] = "type",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "width",
+                      ["orig"] = "width",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "query",
+                    },
                   },
                 },
                 ["select"] = {
@@ -570,67 +591,8 @@ local function make_config()
                     "width",
                   },
                 },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["parts"] = {
-                  "cat",
-                  "says",
-                  "{text}",
-                },
               },
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["example"] = "Hello",
-                      ["kind"] = "param",
-                      ["name"] = "text",
-                      ["orig"] = "text",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                  ["query"] = {
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "filter",
-                      ["orig"] = "filter",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "font_color",
-                      ["orig"] = "font_color",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "font_size",
-                      ["orig"] = "font_size",
-                      ["type"] = "`$INTEGER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "html",
-                      ["orig"] = "html",
-                      ["type"] = "`$BOOLEAN`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "json",
-                      ["orig"] = "json",
-                      ["type"] = "`$BOOLEAN`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "type",
-                      ["orig"] = "type",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cat/gif/says/{text}",
@@ -648,6 +610,67 @@ local function make_config()
                     ["var"] = "text",
                   },
                 },
+                ["parts"] = {
+                  "cat",
+                  "gif",
+                  "says",
+                  "{text}",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["name"] = "text",
+                      ["orig"] = "text",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                      ["example"] = "Hello",
+                    },
+                  },
+                  ["query"] = {
+                    {
+                      ["name"] = "filter",
+                      ["orig"] = "filter",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "font_color",
+                      ["orig"] = "font_color",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "font_size",
+                      ["orig"] = "font_size",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "html",
+                      ["orig"] = "html",
+                      ["type"] = "`$BOOLEAN`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "json",
+                      ["orig"] = "json",
+                      ["type"] = "`$BOOLEAN`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "type",
+                      ["orig"] = "type",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                  },
+                },
                 ["select"] = {
                   ["exist"] = {
                     "filter",
@@ -659,82 +682,80 @@ local function make_config()
                     "type",
                   },
                 },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["parts"] = {
-                  "cat",
-                  "gif",
-                  "says",
-                  "{text}",
-                },
               },
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["example"] = "orange,cute",
-                      ["kind"] = "param",
-                      ["name"] = "id",
-                      ["orig"] = "tag",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                  ["query"] = {
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "filter",
-                      ["orig"] = "filter",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "height",
-                      ["orig"] = "height",
-                      ["type"] = "`$INTEGER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "html",
-                      ["orig"] = "html",
-                      ["type"] = "`$BOOLEAN`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "json",
-                      ["orig"] = "json",
-                      ["type"] = "`$BOOLEAN`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "type",
-                      ["orig"] = "type",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "width",
-                      ["orig"] = "width",
-                      ["type"] = "`$INTEGER`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cat/{tag}",
-                ["rename"] = {
-                  ["param"] = {
-                    ["tag"] = "id",
-                  },
-                },
                 ["segments"] = {
                   {
                     ["lit"] = "cat",
                   },
                   {
                     ["var"] = "id",
+                  },
+                },
+                ["parts"] = {
+                  "cat",
+                  "{id}",
+                },
+                ["rename"] = {
+                  ["param"] = {
+                    ["tag"] = "id",
+                  },
+                },
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["name"] = "id",
+                      ["orig"] = "tag",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                      ["example"] = "orange,cute",
+                    },
+                  },
+                  ["query"] = {
+                    {
+                      ["name"] = "filter",
+                      ["orig"] = "filter",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "height",
+                      ["orig"] = "height",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "html",
+                      ["orig"] = "html",
+                      ["type"] = "`$BOOLEAN`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "json",
+                      ["orig"] = "json",
+                      ["type"] = "`$BOOLEAN`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "type",
+                      ["orig"] = "type",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "width",
+                      ["orig"] = "width",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "query",
+                    },
                   },
                 },
                 ["select"] = {
@@ -748,25 +769,12 @@ local function make_config()
                     "width",
                   },
                 },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["parts"] = {
-                  "cat",
-                  "{id}",
-                },
               },
             },
           },
         },
         ["relations"] = {
-          ["ancestors"] = {
-            {
-              "cat",
-              "say",
-            },
-          },
+          ["ancestors"] = {},
         },
       },
       ["tag"] = {
@@ -778,7 +786,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/tags",
@@ -790,15 +797,17 @@ local function make_config()
                     ["lit"] = "tags",
                   },
                 },
-                ["select"] = {},
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
                 ["parts"] = {
                   "api",
                   "tags",
                 },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {},
+                ["select"] = {},
               },
             },
           },
