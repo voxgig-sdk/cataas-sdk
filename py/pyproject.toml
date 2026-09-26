@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "voxgig-sdk-cataas"
+name = "voxgig-sdk-cataas-sdk"
 version = "0.0.1"
 description = "Unofficial generated Python SDK for the CATAAS public API. Not affiliated with or endorsed by the upstream API provider."
 readme = "README.md"
